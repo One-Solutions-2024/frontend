@@ -10,7 +10,7 @@ function JobList() {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://backend-dvwo.onrender.com/jobs'); // Adjust the API URL if necessary
+      const response = await fetch('https://backend-dvwo.onrender.com/api/jobs'); // Adjust the API URL if necessary
       const data = await response.json();
 
       if (response.ok && data.length > 0) {
