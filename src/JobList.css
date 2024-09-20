@@ -1,0 +1,59 @@
+.app-container {
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* Optional: add a max-width if needed */
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto; /* Center container */
+  text-align: center;
+  
+}
+
+.job-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to next line */
+  gap: 20px;
+  justify-content: space-between; /* Distribute space between items */
+}
+
+.job-card {
+  background-color: black;
+  color: white; /* Ensure text is visible on black background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33.333% - 20px); /* Grow and shrink, with 3 cards per row minus gap */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  min-width: 200px; /* Ensure cards are not too small */
+}
+
+.job-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.job-card p {
+  margin-bottom: 5px;
+}
+
+.job-card a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.job-card a:hover {
+  text-decoration: underline;
+}
+
+/* JobList.css */
+.job-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Adjust height as needed */
+  object-fit: cover; /* Ensures the image is scaled to fit */
+  margin-bottom: 10px;
+  border-radius: 8px; /* Optional styling */
+}
+.job-description{
+  padding-right: 30px;
+}

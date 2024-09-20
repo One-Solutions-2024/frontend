@@ -1,0 +1,208 @@
+/* Base styles for all devices */
+.details-page-container {
+    background-color: black;
+    color: white;
+    height: 100%;
+
+    flex-direction: row;
+    padding: 20px;
+    /* Adds padding to the container for spacing */
+    flex-wrap: wrap;
+    /* Allow content to wrap on smaller screens */
+}
+
+
+.details-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(26, 25, 25);
+    border-radius: 0px 10px 10px 10px;
+}
+
+.descriptions-details-side {
+    padding-right: 15px;
+}
+
+.next-job-description {
+    padding-right: 15px;
+}
+
+.image-and-apply-link-heaidng {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(26, 25, 25);
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+.left-side {
+    width: 100vw;
+}
+
+.right-side {
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(26, 25, 25);
+    border-radius: 10px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-right: 0px;
+
+}
+
+.right-and-left-side {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.image-apply-link {
+    margin-left: 100px;
+    background-color: green;
+    padding: 10px 55px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+hr {
+    border: 1px solid #ccc;
+    margin: 20px;
+}
+
+.job-image-details {
+    height: 300px;
+    width: 500px;
+    margin: 20px;
+    /* Margin for spacing */
+    border-radius: 20px;
+}
+
+.job-image-next {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.heading {
+    color: red;
+    padding-left: 50px;
+}
+
+.heading-details {
+    color: red;
+}
+
+.apply-link {
+    display: inline-block;
+    color: #25D366;
+    /* WhatsApp green for Apply Here link */
+    font-weight: bold;
+    /* Optional: Make link text stand out */
+    padding-left: 50px;
+}
+
+a {
+    color: #3498db;
+    /* Link color */
+    text-decoration: none;
+}
+
+h3,
+p {
+    padding-left: 50px;
+}
+
+.follows-link {
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: #fff;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.follow-us {
+    text-align: center;
+    margin-left: -40px;
+}
+
+.follow-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.next-job-link {
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        /* Stack content vertically on smaller screens */
+        align-items: center;
+        /* Center align content */
+        padding: 10px;
+        /* Reduced padding */
+    }
+
+    .job-image-details {
+        height: 400px;
+        /* Adjust height */
+        width: 400px;
+        /* Adjust width */
+        margin: 10px;
+        /* Adjust margin */
+    }
+
+    .details-side {
+        margin-left: 0;
+        /* Remove margin in column layout */
+        margin-top: 20px;
+        /* Add top margin for spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 5px;
+        /* Further reduced padding */
+    }
+
+    .job-image-details {
+        height: 300px;
+        /* Further adjust height */
+        width: 300px;
+        /* Further adjust width */
+        margin: 15px;
+        /* Further adjust margin */
+    }
+
+    .details-side {
+        margin-top: 15px;
+        /* Adjust top margin */
+        border-radius: 10px;
+    }
+
+    .right-side {
+        display: none;
+    }
+
+    .image-small-device {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left-side {
+        border-radius: 10px;
+    }
+}

@@ -1,0 +1,218 @@
+/* Base styles for all devices */
+.blog-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+/* Base styles for the header */
+/* Base styles for all devices */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 100px; /* Set height for the header */
+}
+
+/* Style for the heading */
+.header-title {
+  margin: 0;
+  padding: 0;
+  font-size: 100px; /* Default font size */
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: #333; /* Example text color */
+  line-height: 1.2; /* Adjust line-height to prevent overlap */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+  .header-title {
+    font-size: 100px; /* Slightly reduce font size */
+  }
+}
+
+@media (max-width: 992px) {
+  .header-title {
+    font-size: 80px; /* Reduce font size for tablets */
+  }
+  .time-display{
+    padding-right: 70px
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 80px; /* Reduce header height */
+  }
+
+  .header-title {
+    font-size: 50px; /* Further reduce font size for smaller devices */
+  }
+  .time-display{
+    padding-right: 70px
+  }
+
+}
+
+@media (max-width: 480px) {
+  
+}
+
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: 13px;
+  height: 20px;
+  padding: 5px 10px;
+  width: auto;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 15px;
+  margin-right: 30px; /* Reduced margin for smaller screens */
+}
+
+.nav-link:hover {
+  background-color: #1eb14c;
+  color: white;
+}
+
+.navbar-logo {
+  margin-left: 20px; /* Reduced margin for smaller screens */
+}
+
+.button-whatsapp {
+  display: inline-block;
+  padding: 10px 50px; /* Adjusted padding for smaller screens */
+  background-color: #25D366;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 20px; /* Reduced margin for smaller screens */
+  height: 20px;
+}
+
+.button-whatsapp:hover {
+  background-color: #1eb14c;
+}
+
+.youtube-logo {
+  width: 80px; /* Adjusted size for responsiveness */
+  height: auto;
+  margin-right: 20px; /* Reduced margin for smaller screens */
+  margin-top: 8px;
+}
+
+.logo-container {
+  display: flex;
+  text-decoration: none;
+}
+
+.company-name {
+  padding-top: 32px;
+  font-size: 18px; /* Adjusted font size for smaller screens */
+  font-weight: bold;
+  color: black;
+}
+
+.time-display {
+  font-size: 16px; /* Adjusted font size for smaller screens */
+  font-weight: bold;
+  color: #333;
+  margin-top: 30px; /* Adjusted top margin */
+  margin-left: 50; /* Removed right margin */
+}
+.website-name{
+  text-align: center;
+  font-weight: 900;
+  font-size: 100px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .nav-link {
+      font-size: 11px; /* Smaller font size for tablets */
+      margin-right: 5px; /* Reduced margin */
+  }
+
+  .button-whatsapp {
+      padding: 10px 20px; /* Smaller padding */
+      margin-right: 10px; /* Reduced margin */
+      margin-bottom: 10px;
+
+  }
+
+  .youtube-logo {
+      width: 60px; /* Smaller logo size */
+  }
+
+  .company-name {
+      font-size: 16px; /* Smaller font size */
+  }
+
+  .time-display {
+      font-size: 14px; /* Smaller font size */
+      margin-top: 30px;
+      margin-right: 50px; /* Reduced top margin */
+  }
+}
+
+@media (max-width: 480px) {
+  
+
+  .nav-link {
+      margin-right: 0;
+      margin-bottom: 5px; /* Space between links */
+  }
+
+  .button-whatsapp {
+      padding: 10px 15px; /* Further reduced padding */
+      margin-right: 0; /* No right margin */
+      margin-top: 5px; /* Reduced top margin */
+      margin-bottom: 10px;
+
+  }
+
+  .youtube-logo {
+      width: 50px; /* Further reduced logo size */
+  }
+
+  .company-name {
+      font-size: 14px; /* Further reduced font size */
+  }
+
+  .time-display {
+      font-size: 12px; /* Further reduced font size */
+      padding-right: 0px;
+      margin-top: 30px; /* Further reduced top margin */
+  }
+  .header {
+    height: 70px; /* Further reduce header height */
+
+  }
+
+  .header-title {
+    font-size: 32px; /* Smaller font for mobile devices */
+  }
+  
+  .nav-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; /* Center align items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-left: -45px;
+  }
+}
