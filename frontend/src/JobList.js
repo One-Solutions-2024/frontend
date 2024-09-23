@@ -31,8 +31,8 @@ function JobList() {
   }, []);
 
   const handleCardClick = (job) => {
-    // Use backticks for template literal
-    navigate(`/details/${job.id}`, { state: { job, jobs } });
+    const companyNameSlug = job.companyname.replace(/\s+/g, '-').toLowerCase(); // Convert company name to URL-friendly slug
+    navigate(`/details/${companyNameSlug}`, { state: { job, jobs } }); // Use company name in URL
   };
 
   return (
@@ -62,9 +62,9 @@ function JobList() {
             ))}
           </div>
           <div className='youtube-videos'>
-            <p className='youtube-title'>Latest:Uploaded Videos...</p>
-          <iframe width="360" height="315" src="https://www.youtube.com/embed/4eBNGRxkLmI?si=YlJQONd59PBn_Y2J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
-          <iframe width="360" height="315" src="https://www.youtube.com/embed/NWDCUwbsGSM?si=7VF9ruC2_DuUShIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
+            <p className='youtube-title'>Latest: Uploaded Videos...</p>
+            <iframe width="360" height="315" src="https://www.youtube.com/embed/4eBNGRxkLmI?si=YlJQONd59PBn_Y2J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
+            <iframe width="360" height="315" src="https://www.youtube.com/embed/NWDCUwbsGSM?si=7VF9ruC2_DuUShIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
           </div>
         </div>
       ) : (

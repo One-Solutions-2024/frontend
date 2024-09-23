@@ -1,35 +1,62 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import './index.css';
 
 const Details = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const { job, jobs } = location.state || {}; // Retrieve the passed job data and list of jobs
+  const { companyname } = useParams(); // Get the company name from the URL
+  const [job, setJob] = useState(location.state?.job || null); // Check if job is passed from previous page
+  const [loading, setLoading] = useState(!job); // Show loading if job is not already passed
+  const [error, setError] = useState(null);
 
-  // Log the data to ensure you're receiving it
-  console.log("Current Job:", job);
-  console.log("All Jobs:", jobs);
+  useEffect(() => {
+    if (!job) {
+      // Fetch the job if it's not already passed via location.state
+      const fetchJobByCompanyName = async () => {
+        setLoading(true);
+        try {
+          const response = await fetch(`https://job-notifications.onrender.com/api/jobs/company/${companyname}`);
+          if (!response.ok) {
+            throw new Error('Failed to fetch job');
+          }
+          const data = await response.json();
+          if (data) {
+            setJob(data);
+          } else {
+            setError('Job not found');
+          }
+        } catch (error) {
+          setError('Error fetching job data');
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchJobByCompanyName();
+    }
+  }, [companyname, job]);
 
-  if (!job) {
-    return <p>Coming Soon!</p>; // Handle the case where no job data is passed
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
-  // Find the index of the current job and the next job
-  const currentIndex = jobs?.findIndex((j) => j.id === job.id);
-  const nextJob = jobs && currentIndex !== -1 ? jobs[(currentIndex + 1) % jobs.length] : null;
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!job) {
+    return <p>Coming Soon!</p>;
+  }
 
   const descriptionPoints = job.description.split(',').map((point) => point.trim());
 
   return (
     <div className="details-page-container">
-      {/* Current Job Details */}
       <div className="current-job-container">
         <div className='right-and-left-side'>
           <div className='image-and-apply-link-heaidng left-side'>
             <div className='image-small-device'>
               <img
-                src={job.image_link} // Ensure job object has an image_link
+                src={job.image_link}
                 alt={job.title}
                 className='job-image-details'
               />
@@ -37,31 +64,10 @@ const Details = () => {
             </div>
             <div>
               <h2 className="heading">Position: <span className="heading-details">{job.title}</span></h2>
-              <hr /> {/* Horizontal line between current job details and next job */}
+              <hr />
             </div>
           </div>
-          <div className='right-side'>
-            {/* Next Job Preview in Small Box */}
-            {nextJob && (
-              <div className="next-job-box">
-                <h4>{nextJob.title}</h4>
-                <img
-                  src={nextJob.image_link}
-                  alt={nextJob.title}
-                  className='job-image-next'
-                />
-                <p className='next-job-description'>{nextJob.description.slice(0, 100)}...</p> {/* Display part of the description */}
-                <button
-                  className='next-job-link'
-                  onClick={() => navigate(`/details/${nextJob.id}`, { state: { job: nextJob, jobs } })}
-                >
-                  View Latest Job
-                </button>
-              </div>
-            )}
-          </div>
         </div>
-
         <div className='details-side'>
           <h3 className="qualifications">Qualifications:</h3>
           <ul className='descriptions-details-side'>
@@ -70,7 +76,7 @@ const Details = () => {
             ))}
           </ul>
           <a href={job.apply_link} target="_blank" rel="noopener noreferrer" className='apply-link'>Apply Here</a>
-          <hr /> {/* Horizontal line between current job details and next job */}
+          <hr />
           <h3 className='follow-us'>Follow Us</h3>
           <div className='follow-section'>
             <a href="https://www.instagram.com/onesolutionsekam" target='_blank' rel='noopener noreferrer' className='follows-link'>Instagram</a>
