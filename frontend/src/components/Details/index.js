@@ -63,7 +63,7 @@ const Details = () => {
               <a href={job.apply_link} target="_blank" rel="noopener noreferrer" className='image-apply-link'>Apply</a>
             </div>
             <div>
-              <h2 className="heading">Position: <span className="heading-details">{job.title}</span></h2>
+              <h2 className="heading">{job.companyname}: <span className="heading-details">{job.title}</span></h2>
               <hr />
             </div>
           </div>
