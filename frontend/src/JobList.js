@@ -66,11 +66,21 @@ function JobList() {
   return (
     <div className='app-container'>
       <div className='banner-container' id='home'>
+      <div className='search-bar search-input searchbar-small'>
+            <i className="fas fa-search search-icon"></i> {/* Font Awesome search icon */}
+            <input
+              type='search'
+              placeholder='Search'
+              className='search-input search-bar-section'
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         <img className="banner-image" src='https://naukrisafar.com/wp-content/uploads/2024/01/Job_hunt.png' />
         <div>
           <h1 className='banner-name'>One Solutions : Your Trusted Career Companion</h1>
           <p className='banner-description'>Where Students can find Jobs, Technologies Videos & Many More</p>
-          <div className='search-bar search-input'>
+          <div className='search-bar search-input searchbar-big'>
             <i className="fas fa-search search-icon"></i> {/* Font Awesome search icon */}
             <input
               type='search'

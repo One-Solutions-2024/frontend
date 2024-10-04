@@ -303,10 +303,44 @@ footer {
   justify-content: center;
   align-items: center;
 }
+.searchbar-small{
+display: none;}
 
-@media (max-width : 360px) {
+
+@media (max-width : 480px) {
   .youtube-videos {
     display: none;
+  }
+  .banner-image{
+    height: 350px;
+    width: 350px;
+  }
+  .banner-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .search-input{
+    width: 60%;
+  }
+  .banner-name{
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+  .banner-description{
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+  .side-headings{
+    padding-left: 5px;
+    font-size: 1.2rem;
+  }
+  .searchbar-big{
+    display: none;
+  }
+  .searchbar-small{
+    margin-left: 0px;
+    display: flex;
   }
 }
 
