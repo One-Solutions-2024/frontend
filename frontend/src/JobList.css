@@ -3,27 +3,34 @@
   padding-left: 20px;
   padding-right: 20px;
   /* Optional: add a max-width if needed */
-  margin: 0 auto; /* Center container */
-  
+  margin: 0 auto;
+  /* Center container */
+
 }
 
 .job-list {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping to next line */
+  flex-wrap: wrap;
+  /* Allow wrapping to next line */
   gap: 20px;
   text-align: center;
-  justify-content: space-between; /* Distribute space between items */
+  justify-content: space-between;
+  /* Distribute space between items */
 }
 
 .job-card {
   background-color: black;
-  color: white; /* Ensure text is visible on black background */
+  color: white;
+  /* Ensure text is visible on black background */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex: 1 1 calc(33.333% - 20px); /* Grow and shrink, with 3 cards per row minus gap */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  min-width: 200px; /* Ensure cards are not too small */
+  flex: 1 1 calc(33.333% - 20px);
+  /* Grow and shrink, with 3 cards per row minus gap */
+  box-sizing: border-box;
+  /* Include padding and border in the element's total width and height */
+  min-width: 200px;
+  /* Ensure cards are not too small */
 }
 
 .job-card h2 {
@@ -48,42 +55,52 @@
 .job-image {
   width: 100%;
   height: auto;
-  max-height: 200px; /* Adjust height as needed */
-  object-fit: cover; /* Ensures the image is scaled to fit */
+  max-height: 200px;
+  /* Adjust height as needed */
+  object-fit: cover;
+  /* Ensures the image is scaled to fit */
   margin-bottom: 10px;
-  border-radius: 8px; /* Optional styling */
+  border-radius: 8px;
+  /* Optional styling */
 }
-.job-description{
+
+.job-description {
   padding-right: 30px;
 }
+
 .loader {
   position: relative;
   width: 50px;
   height: 50px;
 }
 
-.loader:before , .loader:after{
+.loader:before,
+.loader:after {
   content: '';
   border-radius: 50%;
   position: absolute;
   inset: 0;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
 }
+
 .loader:after {
   box-shadow: 0 2px 0 #FF3D00 inset;
   animation: rotate 2s linear infinite;
 }
-.loader-div{
+
+.loader-div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.job-list-and-youtube{
+
+.job-list-and-youtube {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
 }
-.youtube-video{
+
+.youtube-video {
   border-radius: 10px;
   margin-left: 10px;
   margin-right: 5px;
@@ -91,14 +108,214 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
+.youtube-videos{
+  text-align: center;
+}
 
-@media (max-width : 360px){
-  .youtube-videos{
+.banner-name {
+  color: #181818;
+  font-size: 38px;
+  font-family: "Roboto", "sans-serif";
+  padding-left: 50px;
+
+}
+
+.banner-image {
+  height: 600px;
+  width: 650px;
+}
+
+.banner-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.banner-description {
+  color: #7A7A7A;
+  font-size: 22px;
+  font-family: "Roboto", "sans-serif";
+  padding-right: 100px;
+}
+
+/* Style for the pagination container */
+.pagination {
+  display: flex;
+  justify-content: center; /* Horizontally centers the buttons */
+  align-items: center;     /* Vertically centers the buttons */
+  margin: 20px 0;
+  width: 100%;             /* Ensures the container spans the full width */
+}
+
+/* Style for each pagination button */
+.pagination-button {
+  background-color: transparent;
+  border: 1px solid #ccc;  /* Add some border to make buttons visible */
+  margin: 0 5px;           /* Space between buttons */
+  cursor: pointer;
+  color: black;            /* Default color */
+  border-radius: 50%;      /* Make buttons circular */
+  font-size: 16px;
+  padding: 10px 15px;      /* Add padding to ensure good sizing */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* When the pagination button is active (selected page), change background and text color */
+.pagination-button.active {
+  background-color: blue;  /* Blue background for active page */
+  color: white;            /* White text for the active page */
+  border-color: blue;      /* Optional: border matches the background */
+}
+
+/* Hover effect for pagination buttons */
+.pagination-button:hover{
+  background-color: lightgray;
+}
+
+
+.side-headings {
+  font-size: 1.5rem;
+  padding-left: 80px;
+  padding-bottom: 5px;
+  background-color: #333;
+  color: #fff;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.search-input {
+  padding: 5px 20px 5px 0px; /* Add extra padding for the search icon */
+  border: none;
+  border-radius: 5px;
+  background-color: #D1D5DB;
+  color: #000;
+  margin-left: 55px;
+  width: 90%; /* Make it responsive */
+}
+.search-bar-section{
+  outline: none; /* Removes the border when clicked */
+}
+.search-icon {
+  position: absolute;
+  left: 10px; /* Position the icon to the left */
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+}
+.search-bar {
+  position: relative;
+  width: 70%; /* Make it responsive */
+}
+/* Back to Top Button */
+.back-to-top {
+  font-size: 1.0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #37475A;
+  color: #fff;
+  height: 40px;
+  text-decoration: none;
+}
+
+.back-to-top:hover,
+.navFooterBackToTop:focus {
+  background-color: #485769;
+}
+
+section {
+  scroll-margin-top: 160px;
+}
+
+#down-logo {
+  background-color: #232f3e;
+  color: red;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.heading-down {
+  color: #fff;
+  font-size: 0.8rem;
+}
+/* Footer */
+footer {
+  background-color: #131A22;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8rem;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+.social-links a:last-child{
+  margin-right: 0px;
+}
+.social-links{
+  display: flex;
+  flex-direction: row;
+}
+
+.social-links a:hover {
+  color: #555;
+}
+.span-copy{
+  color: #37475A;
+  text-decoration: none;
+}
+.bottom-icons{
+  height: 50px;
+  width: 55px;
+}
+.bottom-icons-instagram{
+  height: 40px;
+  width: 40px;
+}
+.bottom-icons-linkedin{
+  height: 45px;
+  width: 50px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  margin: 5px;
+}
+.company-card-name{
+  color: red;
+  font-size: 1.5rem;
+}
+
+.logo-websitename {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width : 360px) {
+  .youtube-videos {
     display: none;
   }
 }
 
 @keyframes rotate {
-  0% {  transform: rotate(0)}
-  100% { transform: rotate(360deg)}
+  0% {
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
 }
