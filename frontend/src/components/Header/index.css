@@ -26,11 +26,19 @@
   color: #333; /* Example text color */
   line-height: 1.2; /* Adjust line-height to prevent overlap */
 }
+.header-whatsapp {
+  font-size: 20px; /* Adjust the size */
+  color: #ffffff; /* WhatsApp green color */
+  padding-right: 10px;
+}
 
 /* Media Queries for responsiveness */
 @media (max-width: 1200px) {
   .header-title {
     font-size: 100px; /* Slightly reduce font size */
+  }
+  .button-whatsapp{
+    display: none;
   }
 }
 
@@ -58,6 +66,15 @@
 }
 
 @media (max-width: 480px) {
+  .button-whatsapp{
+    display: none;
+  }
+  .youtube-logo{
+    display: none;
+  }
+  .nav-menu{
+    width: 100%;
+  }
   
 }
 
@@ -91,7 +108,6 @@
 }
 
 .button-whatsapp {
-  display: inline-block;
   padding: 10px 50px; /* Adjusted padding for smaller screens */
   background-color: #25D366;
   color: white;

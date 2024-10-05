@@ -1,11 +1,6 @@
 .app-container {
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  /* Optional: add a max-width if needed */
-  margin: 0 auto;
-  /* Center container */
-
+  width: 100%;
+  height: auto;
 }
 
 .job-list {
@@ -97,7 +92,8 @@
 .job-list-and-youtube {
   display: flex;
   flex-direction: column;
-
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .youtube-video {
@@ -129,6 +125,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .banner-description {
@@ -227,7 +225,7 @@ section {
   scroll-margin-top: 160px;
 }
 
-#down-logo {
+.down-logo {
   background-color: #232f3e;
   color: red;
   height: 250px;
@@ -265,24 +263,22 @@ footer {
   flex-direction: row;
 }
 
-.social-links a:hover {
-  color: #555;
-}
+
 .span-copy{
   color: #37475A;
   text-decoration: none;
 }
-.bottom-icons{
-  height: 50px;
-  width: 55px;
+.bottom-icons-youtube{
+  height: 30px;
+  width: 30px;
 }
 .bottom-icons-instagram{
-  height: 40px;
-  width: 40px;
+  height: 26px;
+  width: 26px;
 }
 .bottom-icons-linkedin{
-  height: 45px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
 }
 
 .logo {
@@ -304,13 +300,16 @@ footer {
   align-items: center;
 }
 .searchbar-small{
-display: none;}
+display: none;
+}
+.whatsapp-icon{
+  font-size: 26px; /* Adjust the size */
+  color: #25D366; /* WhatsApp green color */
+}
+
 
 
 @media (max-width : 480px) {
-  .youtube-videos {
-    display: none;
-  }
   .banner-image{
     height: 350px;
     width: 350px;
@@ -320,7 +319,7 @@ display: none;}
     flex-direction: column;
   }
   .search-input{
-    width: 60%;
+    width: 80%;
   }
   .banner-name{
     font-size: 1.5rem;
@@ -341,6 +340,14 @@ display: none;}
   .searchbar-small{
     margin-left: 0px;
     display: flex;
+
+  }
+  .youtube-video {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 310px;
   }
 }
 

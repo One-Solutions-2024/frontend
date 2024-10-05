@@ -38,7 +38,7 @@ const Header = () => {
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" className='youtube-logo' />
           </a>
           <a className='button-whatsapp' href="https://whatsapp.com/channel/0029VaoOmU93gvWdCy0dmr3z" target="_blank" rel="noopener noreferrer">
-            Whatsapp
+          <i class="fab fa-whatsapp header-whatsapp"></i>Whatsapp
           </a>
 
           <Link className="nav-link" to="/">
@@ -49,6 +49,9 @@ const Header = () => {
           </Link>
           <Link className="nav-link" to="/contact">
             <li>CONTACT</li>
+          </Link>
+          <Link className="nav-link" to="/JobList#follow-us-section">
+            <li>FOLLOW US</li>
           </Link>
         </ul>
       </div>

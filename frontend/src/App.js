@@ -13,6 +13,7 @@ const App = () => (
       <Route path="/details/:companyname" element={<Details />} /> {/* Using company name */}
       <Route path="/contact" element={<Contact />} />
       <Route path="/" element={<JobList />} />
+      <Route path="/JobList" element={<JobList />} />
       <Route path="/not-found" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/not-found" />} />
     </Routes>

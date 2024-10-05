@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import './JobList.css';
 
 function JobList() {
@@ -12,6 +13,8 @@ function JobList() {
   const navigate = useNavigate();
 
   const jobsPerPage = 9;
+  const location = useLocation(); // Access current location to check for hash
+
 
   const fetchAllJobs = async () => {
     setLoading(true);
@@ -40,6 +43,16 @@ function JobList() {
     fetchAllJobs(); // Fetch all jobs when the component mounts
   }, []);
 
+  useEffect(() => {
+    // Scroll to section if there's a hash in the URL
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1)); // Get the element by ID, remove the `#` from the hash
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' }); // Scroll to the element smoothly
+      }
+    }
+  }, [location]); // Run this effect whenever the location changes
+
   // Handle search and paginate filtered jobs
   useEffect(() => {
     const filteredJobs = allJobs.filter(job =>
@@ -66,16 +79,16 @@ function JobList() {
   return (
     <div className='app-container'>
       <div className='banner-container' id='home'>
-      <div className='search-bar search-input searchbar-small'>
-            <i className="fas fa-search search-icon"></i> {/* Font Awesome search icon */}
-            <input
-              type='search'
-              placeholder='Search'
-              className='search-input search-bar-section'
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+        <div className='search-bar search-input searchbar-small'>
+          <i className="fas fa-search search-icon"></i> {/* Font Awesome search icon */}
+          <input
+            type='search'
+            placeholder='Search'
+            className='search-input search-bar-section'
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
         <img className="banner-image" src='https://naukrisafar.com/wp-content/uploads/2024/01/Job_hunt.png' />
         <div>
           <h1 className='banner-name'>One Solutions : Your Trusted Career Companion</h1>
@@ -143,25 +156,29 @@ function JobList() {
       )}
       <a className="back-to-top" href="#home" aria-label="Back to Top">Back To Top</a>
 
-      <section id="down-logo">
+      <section className="down-logo" id='follow-us-section'>
         <div className="logo-websitename">
           <img className="logo"
-            src="https://res.cloudinary.com/dsjcty43b/image/upload/v1726470878/WhatsApp_Image_2024-09-06_at_22.30.50_85f627e1-removebg-preview_yp7rg2.png" alt='logo' rel="noreferrer"/>
+            src="https://res.cloudinary.com/dsjcty43b/image/upload/v1726470878/WhatsApp_Image_2024-09-06_at_22.30.50_85f627e1-removebg-preview_yp7rg2.png" alt='logo' rel="noreferrer" />
           <h1 className="heading-down">ONE SOLUTIONS</h1>
         </div>
         <section id="social">
           <div className="social-links">
-            <a href="https://instagram.com/OneSolutionsEkam" target="_blank">  
+            <a href="https://instagram.com/OneSolutionsEkam" target="_blank">
               <img className="bottom-icons-instagram"
-                src="https://th.bing.com/th/id/R.735dda68880a385ce8cc5be4f3c5fcd6?rik=qSxRw2lCZYy9Mw&riu=http%3a%2f%2fpngimg.com%2fuploads%2finstagram%2finstagram_PNG11.png&ehk=QVCbfkCKi8pJLF08bRkS%2fLeMqLTnJQf402WRaIdN6jE%3d&risl=&pid=ImgRaw&r=0" alt='instagram' rel="noreferrer"/>
+                src="https://th.bing.com/th/id/R.735dda68880a385ce8cc5be4f3c5fcd6?rik=qSxRw2lCZYy9Mw&riu=http%3a%2f%2fpngimg.com%2fuploads%2finstagram%2finstagram_PNG11.png&ehk=QVCbfkCKi8pJLF08bRkS%2fLeMqLTnJQf402WRaIdN6jE%3d&risl=&pid=ImgRaw&r=0" alt='instagram' rel="noreferrer" />
             </a>
             <a href="https://www.linkedin.com/in/one-solutions-131947329/" target="_blank">
               <img className="bottom-icons-linkedin"
-                src="https://itcnet.gr/wp-content/uploads/2020/09/Linkedin-logo-on-transparent-Background-PNG-.png" alt='linkedin' rel="noreferrer"/>
+                src="https://itcnet.gr/wp-content/uploads/2020/09/Linkedin-logo-on-transparent-Background-PNG-.png" alt='linkedin' rel="noreferrer" />
             </a>
-            <a href="https://www.youtube.com/@OneSolutionsEkam" target="_blank"> 
-              <img className="bottom-icons" src="https://th.bing.com/th/id/R.b800cd54a94aaecc66e8752091d26f6b?rik=ChXMqbKPu0ueGg&pid=ImgRaw&r=0" alt='youtube' rel="noreferrer"/>
+            <a href="https://www.youtube.com/@OneSolutionsEkam" target="_blank">
+              <img className="bottom-icons-youtube" src="https://th.bing.com/th/id/R.b800cd54a94aaecc66e8752091d26f6b?rik=ChXMqbKPu0ueGg&pid=ImgRaw&r=0" alt='youtube' rel="noreferrer" />
             </a>
+            <a href="https://whatsapp.com/channel/0029VaoOmU93gvWdCy0dmr3z" target="_blank">
+              <i class="fab fa-whatsapp whatsapp-icon"></i>
+            </a>
+
           </div>
         </section>
       </section>
