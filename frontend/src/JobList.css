@@ -26,6 +26,7 @@
   /* Include padding and border in the element's total width and height */
   min-width: 200px;
   /* Ensure cards are not too small */
+  cursor: pointer;
 }
 
 .job-card h2 {
@@ -96,17 +97,7 @@
   padding-right: 20px;
 }
 
-.youtube-video {
-  border-radius: 10px;
-  margin-left: 10px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-}
-.youtube-videos{
-  text-align: center;
-}
 
 .banner-name {
   color: #181818;
@@ -205,6 +196,28 @@
   width: 70%; /* Make it responsive */
 }
 /* Back to Top Button */
+
+
+
+.youtube-video {
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.youtube-videos{
+  text-align: center;
+}
+.company-card-name{
+  color: red;
+  font-size: 1.5rem;
+}
+
+.searchbar-small{
+display: none;
+}
 .back-to-top {
   font-size: 1.0rem;
   display: flex;
@@ -220,93 +233,6 @@
 .navFooterBackToTop:focus {
   background-color: #485769;
 }
-
-section {
-  scroll-margin-top: 160px;
-}
-
-.down-logo {
-  background-color: #232f3e;
-  color: red;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.heading-down {
-  color: #fff;
-  font-size: 0.8rem;
-}
-/* Footer */
-footer {
-  background-color: #131A22;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-}
-
-.social-links a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 0.8rem;
-  margin-right: 50px;
-  margin-top: 20px;
-}
-
-.social-links a:last-child{
-  margin-right: 0px;
-}
-.social-links{
-  display: flex;
-  flex-direction: row;
-}
-
-
-.span-copy{
-  color: #37475A;
-  text-decoration: none;
-}
-.bottom-icons-youtube{
-  height: 30px;
-  width: 30px;
-}
-.bottom-icons-instagram{
-  height: 26px;
-  width: 26px;
-}
-.bottom-icons-linkedin{
-  height: 30px;
-  width: 30px;
-}
-
-.logo {
-  height: 50px;
-  width: 50px;
-  background-color: #f4f4f4;
-  border-radius: 50%;
-  margin: 5px;
-}
-.company-card-name{
-  color: red;
-  font-size: 1.5rem;
-}
-
-.logo-websitename {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.searchbar-small{
-display: none;
-}
-.whatsapp-icon{
-  font-size: 26px; /* Adjust the size */
-  color: #25D366; /* WhatsApp green color */
-}
-
 
 
 @media (max-width : 480px) {
@@ -342,16 +268,7 @@ display: none;
     display: flex;
 
   }
-  .youtube-video {
-    border-radius: 10px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-    margin-right: 0px;
-    width: 310px;
-  }
-  .footer-copyright p{
-    padding-left: 0px;
-  }
+  
 }
 
 @keyframes rotate {

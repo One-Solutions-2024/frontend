@@ -1,0 +1,92 @@
+.logo-websitename {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  section {
+    scroll-margin-top: 160px;
+  }
+  
+  .down-logo {
+    background-color: #232f3e;
+    color: red;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .heading-down {
+    color: #fff;
+    font-size: 0.8rem;
+  }
+  
+  
+  .social-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    margin-right: 50px;
+    margin-top: 20px;
+  }
+  
+  .social-links a:last-child{
+    margin-right: 0px;
+  }
+  .social-links{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  
+  .span-copy{
+    color: #37475A;
+    text-decoration: none;
+  }
+  .bottom-icons-youtube{
+    height: 30px;
+    width: 30px;
+  }
+  .bottom-icons-instagram{
+    height: 26px;
+    width: 26px;
+  }
+  .bottom-icons-linkedin{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .logo {
+    height: 50px;
+    width: 50px;
+    background-color: #f4f4f4;
+    border-radius: 50%;
+    margin: 5px;
+  }
+  .whatsapp-icon{
+    font-size: 26px; /* Adjust the size */
+    color: #25D366; /* WhatsApp green color */
+  }
+  /* Footer */
+footer {
+    background-color: #131A22;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+  }
+@media (max-width : 480px) {
+    .youtube-video {
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 310px;
+      }
+      .footer-copyright p{
+        padding-left: 0px;
+      }
+}

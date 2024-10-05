@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import Footer from "../Footer"
 import './index.css';
 
 const Details = () => {
@@ -50,7 +51,8 @@ const Details = () => {
   const descriptionPoints = job.description.split(',').map((point) => point.trim());
 
   return (
-    <div className="details-page-container">
+    <div>
+      <div className="details-page-container">
       <div className="current-job-container">
         <div className='right-and-left-side'>
           <div className='image-and-apply-link-heaidng left-side'>
@@ -84,6 +86,8 @@ const Details = () => {
           </div>
         </div>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };
