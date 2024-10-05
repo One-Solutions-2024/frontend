@@ -349,6 +349,9 @@ display: none;
     margin-right: 0px;
     width: 310px;
   }
+  .footer-copyright p{
+    padding-left: 0px;
+  }
 }
 
 @keyframes rotate {
