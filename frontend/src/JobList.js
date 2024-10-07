@@ -152,6 +152,7 @@ function JobList() {
             <iframe width="380" height="200" src="https://www.youtube.com/embed/NWDCUwbsGSM?si=7VF9ruC2_DuUShIs" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className='youtube-video'></iframe>
             <iframe width="380" height="200" src="https://www.youtube.com/embed/xcGc6mTkWMY?si=1FE523p2-Dc0IrWu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
             <iframe width="380" height="200" src="https://www.youtube.com/embed/yavE6elZ-6E?si=QygfYT0AfFzNw3e-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
+            <iframe width="380" height="200" src="https://www.youtube.com/embed/i2vWsNjoFto?si=vyjH2aEfmeQcgaUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
           </div>
         </div>
       ) : (
