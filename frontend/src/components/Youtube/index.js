@@ -132,7 +132,7 @@ function YouTubeVideos() {
               allowFullScreen
               className="youtube-video"
             ></iframe>
-            <p className='video-snippet-title-mini'>{video.snippet.title.slice(0, 90)}...</p>
+            <p className='video-snippet-title-mini'>{video.snippet.title.slice(0, 100)}...</p>
           </div>
         ))}
       </div>
