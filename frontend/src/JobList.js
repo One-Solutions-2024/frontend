@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from "./components/Footer"
+import YouTubeVideos from './components/Youtube';
 
 import './JobList.css';
 
@@ -77,6 +78,7 @@ function JobList() {
     setCurrentPage(newPage); // Update page number
   };
 
+
   return (
     <div className='app-container'>
       <div className='banner-container' id='home'>
@@ -147,12 +149,9 @@ function JobList() {
           </div>
           <h1 className="side-headings">Latest: Uploaded Videos...</h1>
           <div className='youtube-videos'>
-            <iframe width="380" height="200" src="https://www.youtube.com/embed/W2ku9WMjph8?si=_SkSI4Ny9-1GYS6P" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className='youtube-video'></iframe>
-            <iframe width="380" height="200" src="https://www.youtube.com/embed/4eBNGRxkLmI?si=YlJQONd59PBn_Y2J" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className='youtube-video'></iframe>
-            <iframe width="380" height="200" src="https://www.youtube.com/embed/NWDCUwbsGSM?si=7VF9ruC2_DuUShIs" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className='youtube-video'></iframe>
-            <iframe width="380" height="200" src="https://www.youtube.com/embed/xcGc6mTkWMY?si=1FE523p2-Dc0IrWu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
-            <iframe width="380" height="200" src="https://www.youtube.com/embed/yavE6elZ-6E?si=QygfYT0AfFzNw3e-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
-            <iframe width="380" height="200" src="https://www.youtube.com/embed/i2vWsNjoFto?si=vyjH2aEfmeQcgaUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className='youtube-video'></iframe>
+            <div className='side-youtube-videos'>
+                <YouTubeVideos />
+             </div>
           </div>
         </div>
       ) : (

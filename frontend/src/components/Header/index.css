@@ -49,6 +49,9 @@
   .time-display{
     padding-right: 70px
   }
+  .youtube-logo{
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {

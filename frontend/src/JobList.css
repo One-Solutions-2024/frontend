@@ -203,13 +203,29 @@
   border-radius: 10px;
   margin-left: 10px;
   margin-right: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+  height: 100px;
+  width: 150px;
 }
 .youtube-videos{
-  text-align: center;
+  object-fit: cover;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 calc(33.333% - 20px);
+
 }
+.large-video{
+  width: 800px;
+  height: 450px;
+  border-radius: 10px;
+}
+.side-youtube-videos{
+  flex-wrap: wrap;
+}
+
+
+
 .company-card-name{
   color: red;
   font-size: 1.5rem;
@@ -274,6 +290,123 @@ display: none;
   
 }
 
+@media (max-width : 1200px) {
+  .banner-image{
+    height: 350px;
+    width: 350px;
+  }
+  .banner-container{
+    display: flex;
+    flex-direction: row;
+  }
+  .search-input{
+    width: 80%;
+  }
+  .banner-name{
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+  .banner-description{
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+  .side-headings{
+    padding-left: 5px;
+    font-size: 1.2rem;
+  }
+  .searchbar-big{
+    display: flex;
+  }
+  .searchbar-small{
+    margin-left: 0px;
+    display: none;
+
+  }
+  .youtube-video {
+    margin-left: 0px;  
+  }
+  
+}
+@media (max-width : 992px) {
+  .banner-image{
+    height: 350px;
+    width: 350px;
+  }
+  .banner-container{
+    display: flex;
+    flex-direction: row;
+  }
+  .search-input{
+    width: 80%;
+  }
+  .banner-name{
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+  .banner-description{
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+  .side-headings{
+    padding-left: 5px;
+    font-size: 1.2rem;
+  }
+  .searchbar-big{
+    display: flex;
+  }
+  .searchbar-small{
+    margin-left: 0px;
+    display: none;
+
+  }
+  .youtube-video {
+    margin-left: 0px;  
+  }
+  
+}
+@media (max-width : 768px) {
+  .banner-image{
+    height: 350px;
+    width: 350px;
+  }
+  .banner-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .search-input{
+    width: 80%;
+  }
+  .banner-name{
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+  .banner-description{
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+  .side-headings{
+    padding-left: 5px;
+    font-size: 1.2rem;
+  }
+  .searchbar-big{
+    display: none;
+  }
+  .searchbar-small{
+    margin-left: 0px;
+    display: flex;
+
+  }
+  .youtube-video {
+    margin-left: 0px;  
+  }
+  
+}
+
+
+
 @keyframes rotate {
   0% {
     transform: rotate(0)
@@ -281,5 +414,44 @@ display: none;
 
   100% {
     transform: rotate(360deg)
+  }
+}
+
+/* Container for video layout */
+.video-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.featured-video {
+  flex: 2; /* Larger space for the main video */
+  margin-right: 20px;
+}
+
+.playlist-videos {
+  flex: 1; /* Smaller space for the playlist */
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist-item {
+  margin-bottom: 10px;
+}
+
+.playlist-item iframe {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-container {
+    flex-direction: column;
+  }
+
+  .featured-video {
+    margin-right: 0;
   }
 }

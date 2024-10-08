@@ -1,0 +1,48 @@
+.youtube-videos {
+  display: flex;
+  flex-direction: row;
+ 
+}
+
+.featured-video {
+  width: 100%;
+  max-width: 800px; /* Set maximum width for the featured video */
+}
+
+.youtube-featured-video {
+  width: 800px;
+  height: 410px; /* Set a height for the featured video */
+}
+
+.video-list {
+  display: flex;
+  flex-direction: column; /* Use column layout */
+  max-height: 450px; /* Set max height for the list */
+  width: 100%;
+  max-width: 800px; /* Set maximum width for the video list */
+  border: 1px solid #ccc; /* Optional: Add a border */
+  overflow-y: auto; /* Allows vertical scrolling */
+  border-radius: 8px; /* Optional: Round the corners */
+}
+
+
+.youtube-video {
+  width: 100%;
+  height: 150px; /* Set height for video cards */
+}
+
+
+.video-card {
+  flex: 0 0 30%; /* Adjusts the width of each video card */
+  cursor: pointer; /* Change cursor to indicate clickable */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  border-radius: 5px; /* Rounded corners */
+  display: flex;
+  flex-direction: row; /* Ensure items stack */
+  cursor: pointer;
+}
+
+.video-card.active {
+  background-color: #f0f0f0; /* Change this to the desired active background color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for effect */
+}
