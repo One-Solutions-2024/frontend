@@ -1,7 +1,9 @@
 .youtube-videos {
   display: flex;
   flex-direction: row;
- 
+ background-color: #000;
+ color: #fff;
+ margin: 20px;
 }
 
 .featured-video {
@@ -33,16 +35,18 @@
 
 
 .video-card {
-  flex: 0 0 30%; /* Adjusts the width of each video card */
   cursor: pointer; /* Change cursor to indicate clickable */
   transition: background-color 0.3s; /* Smooth transition for background color */
   border-radius: 5px; /* Rounded corners */
   display: flex;
   flex-direction: row; /* Ensure items stack */
-  cursor: pointer;
 }
 
 .video-card.active {
-  background-color: #f0f0f0; /* Change this to the desired active background color */
+  background-color: #1b1b1b; /* Change this to the desired active background color */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for effect */
+}
+.video-snippet-title-mini{
+  padding-left: 0px;
+  font-size: 12px;
 }

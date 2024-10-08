@@ -106,14 +106,13 @@ function YouTubeVideos() {
       {featuredVideo && (
         <div className="featured-video">
           <iframe
-            src={`https://www.youtube.com/embed/${featuredVideo.id}?controls=0&modestbranding=1&rel=0`}
+            src={`https://www.youtube.com/embed/${featuredVideo.id}?`}
             title={featuredVideo.snippet.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
             className="youtube-featured-video"
           ></iframe>
-          <p>{featuredVideo.snippet.title}</p>
         </div>
       )}
 
@@ -126,14 +125,14 @@ function YouTubeVideos() {
             onClick={() => handleVideoClick(video)}
           >
             <iframe
-              src={`https://www.youtube.com/embed/${video.id}?controls=0&modestbranding=1&rel=0`}
+              src={`https://www.youtube.com/embed/${video.id}?`}
               title={video.snippet.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
               className="youtube-video"
             ></iframe>
-            <p>{video.snippet.title}</p>
+            <p className='video-snippet-title-mini'>{video.snippet.title.slice(0, 90)}...</p>
           </div>
         ))}
       </div>
