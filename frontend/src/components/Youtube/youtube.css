@@ -1,38 +1,38 @@
-.youtube-videos {
-  display: flex;
-  flex-direction: row;
- background-color: #000;
- color: #fff;
- margin: 20px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
 
-.featured-video {
-  width: 100%;
-  max-width: 800px; /* Set maximum width for the featured video */
+.youtube-container {
+  display: flex;
+  flex-direction: row; /* By default, display row for larger screens */
+  justify-content: space-between;
+  align-items: flex-start; /* Align the playlist and video top-aligned */
+  background-color: #000;
+  color: #fff;
+  margin: 20px;
+  border-radius: 5px;
 }
 
 .youtube-featured-video {
   width: 800px;
-  height: 410px; /* Set a height for the featured video */
+  max-width: 800px; /* Set maximum width for the featured video */
+  border: none;
+  border-radius: 5px;
+  height: 440px; /* Set a height for the featured video */
 }
 
 .video-list {
   display: flex;
-  flex-direction: column; /* Use column layout */
-  max-height: 450px; /* Set max height for the list */
+  flex-direction: column; /* Column layout for the list of videos */
+  max-height: 440px; /* Set max height for the list */
   width: 100%;
-  max-width: 800px; /* Set maximum width for the video list */
-  border: 1px solid #ccc; /* Optional: Add a border */
   overflow-y: auto; /* Allows vertical scrolling */
   border-radius: 8px; /* Optional: Round the corners */
 }
 
-
 .youtube-video {
-  width: 100%;
-  height: 150px; /* Set height for video cards */
+  width: 150px;
+  border: none;
+  height: 80px; /* Set height for video cards */
 }
-
 
 .video-card {
   cursor: pointer; /* Change cursor to indicate clickable */
@@ -43,14 +43,66 @@
   padding-top: 15px;
   padding-right: 10px;
 }
-.video-card:hover{
-  background-color: #0e0d0d; /* Change this to the desired active background color */
+
+.video-card:hover {
+  background-color: #1b1b1b; /* Change this to the desired hover background color */
 }
+
 .video-card.active {
-  background-color: #1b1b1b; /* Change this to the desired active background color */
+  background-color: #161313; /* Change this to the desired active background color */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for effect */
 }
-.video-snippet-title-mini{
+
+.video-snippet-title-mini {
   padding-left: 0px;
   font-size: 12px;
+}
+
+/* Responsiveness for small devices */
+@media (max-width: 768px) {
+  .youtube-container {
+    flex-direction: column; /* Stack vertically for small screens */
+    align-items: center; /* Center the items in column layout */
+  }
+
+  .youtube-featured-video {
+    width: 100%;
+    max-width: 100%; /* Make the featured video full-width on small screens */
+    height: auto; /* Adjust height automatically */
+  }
+
+  .video-list {
+    max-width: 100%; /* Make the video list full-width on small screens */
+    margin-top: 20px; /* Add spacing between featured video and playlist */
+    max-height: 300px; /* Limit the height of the video list */
+  }
+
+  .youtube-video {
+    width: 100px; /* Adjust width of video cards on small screens */
+    height: 60px; /* Adjust height of video cards on small screens */
+  }
+}
+
+/* Responsiveness for extra-small devices */
+@media (max-width: 480px) {
+  .youtube-featured-video {
+    width: 280px;
+    height: 205px; /* Set a height for the featured video */
+  }
+
+  .youtube-container {
+    flex-direction: column; /* Stack featured video and playlist vertically */
+    align-items: center;
+  }
+
+  .video-card {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 5px;
+  }
+  .youtube-video{
+    border-radius: 100px;
+  }
 }
