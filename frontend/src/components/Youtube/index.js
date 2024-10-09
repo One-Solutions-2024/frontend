@@ -42,10 +42,8 @@ function YouTubeVideos() {
             className={`video-card ${featuredVideo && featuredVideo.id === video.id ? 'active' : ''}`}
             onClick={() => handleVideoClick(video)}
           >
-            <iframe
-              src={`https://www.youtube.com/embed/${video.id}?controls=0&modestbranding=1&showinfo=0`} // remove branding
-              title={video.title}
-              allowFullScreen
+            <img
+              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} // remove branding
               className="youtube-video"
             />
             <p className='video-snippet-title-mini'>{video.title.slice(0, 100)}...</p>

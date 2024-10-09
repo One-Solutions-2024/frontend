@@ -63,6 +63,8 @@
   .youtube-container {
     flex-direction: column; /* Stack vertically for small screens */
     align-items: center; /* Center the items in column layout */
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .youtube-featured-video {
