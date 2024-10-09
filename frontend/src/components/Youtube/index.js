@@ -25,7 +25,7 @@ function YouTubeVideos() {
         {featuredVideo && (
           <div className="featured-video">
             <iframe
-              src={`https://www.youtube.com/embed/${featuredVideo.id}`}
+              src={`https://www.youtube.com/embed/${featuredVideo.id}?autoplay=1`} // Autoplay when the video is updated
               title={featuredVideo.title}
               allowFullScreen
               className="youtube-featured-video"
