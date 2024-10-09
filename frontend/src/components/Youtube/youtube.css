@@ -5,10 +5,11 @@
   flex-direction: row; /* By default, display row for larger screens */
   justify-content: space-between;
   align-items: flex-start; /* Align the playlist and video top-aligned */
-  background-color: #000;
+  background-color: #161313; /* Change this to the desired active background color */
   color: #fff;
   margin: 20px;
   border-radius: 5px;
+  height: 91%;
 }
 
 .youtube-featured-video {
@@ -25,23 +26,22 @@
   max-height: 440px; /* Set max height for the list */
   width: 100%;
   overflow-y: auto; /* Allows vertical scrolling */
-  border-radius: 8px; /* Optional: Round the corners */
+  
 }
 
 .youtube-video {
   width: 150px;
-  border: none;
   height: 80px; /* Set height for video cards */
 }
 
 .video-card {
   cursor: pointer; /* Change cursor to indicate clickable */
   transition: background-color 0.3s; /* Smooth transition for background color */
-  border-radius: 5px; /* Rounded corners */
   display: flex;
   justify-content: center;
   padding-top: 15px;
   padding-right: 10px;
+  border-radius: 8px;
 }
 
 .video-card:hover {
@@ -49,9 +49,14 @@
 }
 
 .video-card.active {
-  background-color: #161313; /* Change this to the desired active background color */
+  background-color: #363636; /* Change this to the desired hover background color */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for effect */
+  border-left: 5px solid #dd3333; /* Apply the red border only on the left side */
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
 }
+
 
 .video-snippet-title-mini {
   padding-left: 5px;
