@@ -1,3 +1,5 @@
+import VisitorCounter from "../VisitoCounter"
+
 import "./index.css"
 
 const Footer = () => (
@@ -24,9 +26,9 @@ const Footer = () => (
                     <a href="https://whatsapp.com/channel/0029VaoOmU93gvWdCy0dmr3z" target="_blank">
                         <i class="fab fa-whatsapp whatsapp-icon"></i>
                     </a>
-
                 </div>
             </section>
+            <VisitorCounter />
         </section>
 
         <footer>

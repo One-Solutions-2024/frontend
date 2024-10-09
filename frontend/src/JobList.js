@@ -111,7 +111,7 @@ function JobList() {
 
       {loading ? (
         <div className='loader-div'>
-          <p className="loader"></p>
+          <p className="loader">Loading...</p>
         </div>
       ) : jobs.length > 0 ? (
         <div className='job-list-and-youtube'>
