@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import "./VisitoCounter.css"
+import "./VisitorCounter.css"
 
 const VisitorCounter = () => {
   const [visitorCount, setVisitorCount] = useState(0);
@@ -8,7 +8,7 @@ const VisitorCounter = () => {
     // Fetch visitor count from the backend
     const fetchVisitorCount = async () => {
       try {
-        const response = await fetch('https://backend-dvwo.onrender.com/track-visitor'); // Change URL based on your backend
+        const response = await fetch('https://backend-dvwo.onrender.com/track-visitor'); // Adjust URL as needed
         const data = await response.json();
         setVisitorCount(data.visitorCount);
       } catch (error) {
@@ -19,7 +19,7 @@ const VisitorCounter = () => {
     fetchVisitorCount();
   }, []);
 
-  return <p className='visitoreye'><i class="fa-regular fa-eye"></i>{visitorCount}</p>;
+  return <p className='visitoreye'><i className="fa-regular fa-eye"></i>{visitorCount}</p>;
 };
 
 export default VisitorCounter;
