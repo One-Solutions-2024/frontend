@@ -1,4 +1,5 @@
 import VisitorCounter from "../VisitoCounter"
+import CountVisits from "../CountVisits" 
 
 import "./index.css"
 
@@ -29,6 +30,7 @@ const Footer = () => (
                 </div>
             </section>
             <VisitorCounter />
+            <CountVisits/>
         </section>
 
         <footer>
