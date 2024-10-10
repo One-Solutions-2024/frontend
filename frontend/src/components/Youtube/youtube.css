@@ -77,12 +77,15 @@
   border-right: none;
   border-bottom: none;
 }
+.video-card.active .youtube-video{
+  margin-left: 5px;
+}
 .youtube-video {
   margin-left: 10px;
   margin-right: 5px;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 100px;
+  height: 10px;
   width: 150px;
   border-radius: 10px;
 }
@@ -138,8 +141,8 @@
 /* Responsiveness for extra-small devices */
 @media (max-width: 480px) {
   .youtube-featured-video {
-    width: 320px;
-    height: 205px; /* Set a height for the featured video */
+    width: 400px;
+    height: 215px; /* Set a height for the featured video */
   }
 
   .youtube-container {
@@ -161,6 +164,10 @@
     padding-left: 5px;
     font-size: 12px;
     padding-right: 10px;
+  }
+  .youtube-video {
+    width: 200px; /* Adjust width of video cards on small screens */
+    height: 100px; /* Adjust height of video cards on small screens */
   }
 }
 
