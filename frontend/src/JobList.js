@@ -21,7 +21,7 @@ function JobList() {
   const fetchAllJobs = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://backend-dvwo.onrender.com/api/jobs?limit=100'); // Fetch all jobs
+      const response = await fetch(`https://backend-dvwo.onrender.com/api/jobs?limit=100`); // Fetch all jobs
       const data = await response.json();
 
       if (response.ok) {
@@ -148,15 +148,14 @@ function JobList() {
             </div>
           </div>
           <h1 className="side-headings">Latest: Uploaded Videos...</h1>
-          <div className='youtube-videos'>
-            <div className='side-youtube-videos'>
-                <YouTubeVideos />
-             </div>
-          </div>
+          
         </div>
       ) : (
         <p>No jobs available</p>
       )}
+
+      <YouTubeVideos />
+
       <a className="back-to-top" href="#home" aria-label="Back to Top">Back To Top</a>
 
       <Footer />

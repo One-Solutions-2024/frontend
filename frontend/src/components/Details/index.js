@@ -16,7 +16,7 @@ const Details = () => {
       const fetchJobByCompanyName = async () => {
         setLoading(true);
         try {
-          const response = await fetch(`https://job-notifications.onrender.com/api/jobs/company/${companyname}`);
+          const response = await fetch(`https://one-solutions-job-notifications.onrender.com/api/jobs/company/${companyname}`);
           if (!response.ok) {
             throw new Error('Failed to fetch job');
           }

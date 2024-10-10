@@ -7,10 +7,31 @@
   align-items: flex-start; /* Align the playlist and video top-aligned */
   background-color: #161313; /* Change this to the desired active background color */
   color: #fff;
-  margin: 20px;
+  margin: 40px;
   border-radius: 5px;
-  height: 91%;
+  height: 440px;
 }
+.featured-video {
+  flex: 2; /* Larger space for the main video */
+  margin-right: 20px;
+}
+.playlist-videos {
+  flex: 1; /* Smaller space for the playlist */
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist-item {
+  margin-bottom: 10px;
+}
+
+.playlist-item iframe {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
 
 .youtube-featured-video {
   width: 800px;
@@ -56,6 +77,30 @@
   border-right: none;
   border-bottom: none;
 }
+.youtube-video {
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100px;
+  width: 150px;
+  border-radius: 10px;
+}
+.youtube-videos{
+  object-fit: cover;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 calc(33.333% - 20px);
+
+}
+.large-video{
+  width: 800px;
+  height: 450px;
+  border-radius: 10px;
+}
+.side-youtube-videos{
+  flex-wrap: wrap;
+}
 
 
 .video-snippet-title-mini {
@@ -69,8 +114,7 @@
   .youtube-container {
     flex-direction: column; /* Stack vertically for small screens */
     align-items: center; /* Center the items in column layout */
-    margin-left: 0px;
-    margin-right: 0px;
+    margin: 10px;
   }
 
   .youtube-featured-video {
@@ -101,6 +145,8 @@
   .youtube-container {
     flex-direction: column; /* Stack featured video and playlist vertically */
     align-items: center;
+    margin: 10px;
+
   }
 
   .video-card {
@@ -110,12 +156,21 @@
     margin-right: 10px;
     padding-left: 5px;
   }
-  .youtube-video{
-    border-radius: 100px;
-  }
+  
   .video-snippet-title-mini {
     padding-left: 5px;
     font-size: 12px;
     padding-right: 10px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-container {
+    flex-direction: column;
+  }
+
+  .featured-video {
+    margin-right: 0;
   }
 }
