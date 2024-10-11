@@ -14,7 +14,7 @@ function JobList() {
   const [totalPages, setTotalPages] = useState(1); // Total pages state
   const navigate = useNavigate();
 
-  const jobsPerPage = 9;
+  const jobsPerPage = 8;
   const location = useLocation(); // Access current location to check for hash
 
 
@@ -114,24 +114,34 @@ function JobList() {
           <p className="loader">Loading...</p>
         </div>
       ) : jobs.length > 0 ? (
-        <div className='job-list-and-youtube'>
+          <div className='job-list-and-youtube'>
           <h1 className="side-headings">Latest Opportunity...</h1>
           <div className='job-list'>
             {jobs.map((job) => (
+              <div>
               <div
                 key={job.id}
-                className='job-card'
+                className='job-card  col-12 col-md-6 col-lg-3'
                 onClick={() => handleCardClick(job)}
               >
-                <h1 className='company-card-name'>{job.companyname}</h1>
-                <h2>{job.title}</h2>
+                <h1 className='company-card-name'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
+                <h2>{job.title.slice(0, 16)}...</h2>
                 <img
                   src={job.image_link}
                   alt={job.title}
                   className='job-image'
                 />
-                <p className='job-description'>{job.description.slice(0, 50)}...</p>
+                <p className='job-description'>{job.description.slice(0, 30)}...</p>
+              <a href="" class="menu-item-link">
+                  View
+                  <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                  </svg>
+                </a>
               </div>
+              </div>
+              
+              
             ))}
             <div className='pagination'>
               <div>
@@ -148,7 +158,6 @@ function JobList() {
             </div>
           </div>
           <h1 className="side-headings">Latest: Uploaded Videos...</h1>
-          
         </div>
       ) : (
         <p>No jobs available</p>

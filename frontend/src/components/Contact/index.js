@@ -13,9 +13,9 @@ const Contact = () => (
       <a  href="https://www.youtube.com/@OneSolutionsEkam" target="_blank" rel="noopener noreferrer">
           <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" className='youtube-logo-contact' />
         </a>
-      <a className='button-whatsapp' href="https://whatsapp.com/channel/0029VaoOmU93gvWdCy0dmr3z" target="_blank" rel="noopener noreferrer">
-        Whatsapp
-      </a>
+        <a className='button-whatsapp' href="https://whatsapp.com/channel/0029VaoOmU93gvWdCy0dmr3z" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp header-whatsapp"></i>Whatsapp
+            </a>
         <a href="https://www.instagram.com/onesolutionsekam/" target="_blank" className="instagram-link" rel="noopener noreferrer">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="instagram-logo" />
           Follow

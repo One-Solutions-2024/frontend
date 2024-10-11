@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
 .app-container {
   width: 100%;
   height: auto;
@@ -6,27 +8,22 @@
 .job-list {
   display: flex;
   flex-wrap: wrap;
-  /* Allow wrapping to next line */
   gap: 20px;
-  text-align: center;
-  justify-content: space-between;
-  /* Distribute space between items */
+  justify-content: space-between; /* Distribute cards evenly across the row */
 }
 
 .job-card {
-  background-color: black;
-  color: white;
-  /* Ensure text is visible on black background */
+  text-align: center;
+  background-color: #ffffff;
+  color: #333;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex: 1 1 calc(33.333% - 20px);
-  /* Grow and shrink, with 3 cards per row minus gap */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  /* Include padding and border in the element's total width and height */
-  min-width: 200px;
-  /* Ensure cards are not too small */
-  cursor: pointer;
+  flex-grow: 1; /* Cards will grow to fill the row */
+  flex-basis: calc(33.33% - 40px); /* Allow up to 3 cards per row, minus gap */
+  min-width: 200px; /* Ensure cards don't get too small */
+  max-width: 300px; /* Prevent cards from getting too large */
 }
 
 .job-card h2 {
@@ -38,19 +35,11 @@
   margin-bottom: 5px;
 }
 
-.job-card a {
-  color: #007BFF;
-  text-decoration: none;
-}
-
-.job-card a:hover {
-  text-decoration: underline;
-}
 
 /* JobList.css */
 .job-image {
   width: 100%;
-  height: auto;
+  height: 400px;
   max-height: 200px;
   /* Adjust height as needed */
   object-fit: cover;
@@ -201,9 +190,6 @@
 
 
 
-
-
-
 .company-card-name{
   color: red;
   font-size: 1.5rem;
@@ -226,6 +212,29 @@ display: none;
 .back-to-top:hover,
 .navFooterBackToTop:focus {
   background-color: #485769;
+}
+.back-to-top:hover{
+  color: white;
+}
+.menu-item-link {
+  color: #d0b200;
+  display: flex;
+  justify-content: flex-start; /* Aligns the content to the left */
+  align-items: center; /* Vertically center the text and SVG icon */
+  margin-top: auto; /* Pushes the link to the bottom of the job card */
+  text-decoration: none; /* Removes underline */
+}
+
+.menu-item-link svg {
+  margin-left: 4px; /* Adds some space between the text and the icon */
+}
+
+.menu-item-link:hover {
+  color: #25D366; /* Change color on hover */
+}
+
+.menu-item-link:hover svg {
+  fill: #25D366; /* Also changes the SVG icon color on hover */
 }
 
 

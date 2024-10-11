@@ -1,25 +1,34 @@
 import { useState, useEffect } from 'react';
 import "./VisitoCounter.css"
+import Cookies from 'js-cookie'; // You'll need to install this via npm: npm install js-cookie
 
-const VisitorCounter = () => {
-  const [visitorCount, setVisitorCount] = useState(0);
+const PageViewCounter = () => {
+  const [views, setViews] = useState(0);
 
   useEffect(() => {
-    // Fetch visitor count from the backend
-    const fetchVisitorCount = async () => {
-      try {
-        const response = await fetch('https://backend-dvwo.onrender.com/track-visitor'); // Adjust URL as needed
-        const data = await response.json();
-        setVisitorCount(data.visitorCount);
-      } catch (error) {
-        console.error('Error fetching visitor count:', error);
-      }
-    };
+    const visitKey = 'pageview_visited';
+    const isNewVisitor = !Cookies.get(visitKey); // Check if the user already has the cookie
 
-    fetchVisitorCount();
+    if (isNewVisitor) {
+      // Mark the user as visited
+      Cookies.set(visitKey, 'true', { expires: 365 }); // Cookie expires in 1 year
+
+      // Count the pageview
+      const trackPageview = async () => {
+        try {
+          const response = await fetch('https://backend-dvwo.onrender.com/track-visitor');
+          const data = await response.json();
+          setViews(data.uniqueViews);
+        } catch (error) {
+          console.error('Error fetching pageviews:', error);
+        }
+      };
+
+      trackPageview();
+    }
   }, []);
 
-  return <p className='visitoreye'><i className="fa-regular fa-eye"></i>{visitorCount}</p>;
+  return <p className='visitoreye'><i className="fa-regular fa-eye"></i>{views}</p>;
 };
 
-export default VisitorCounter;
+export default PageViewCounter;
