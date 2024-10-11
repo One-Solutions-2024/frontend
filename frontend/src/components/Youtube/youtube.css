@@ -50,10 +50,6 @@
   
 }
 
-.youtube-video {
-  width: 150px;
-  height: 80px; /* Set height for video cards */
-}
 
 .video-card {
   cursor: pointer; /* Change cursor to indicate clickable */
@@ -85,7 +81,7 @@
   margin-right: 5px;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 10px;
+  height: 100px;
   width: 150px;
   border-radius: 10px;
 }
@@ -129,7 +125,7 @@
   .video-list {
     max-width: 100%; /* Make the video list full-width on small screens */
     margin-top: 20px; /* Add spacing between featured video and playlist */
-    max-height: 300px; /* Limit the height of the video list */
+    max-height: 500px; /* Limit the height of the video list */
   }
 
   .youtube-video {
@@ -144,12 +140,12 @@
     width: 400px;
     height: 215px; /* Set a height for the featured video */
   }
-
+  
   .youtube-container {
     flex-direction: column; /* Stack featured video and playlist vertically */
     align-items: center;
     margin: 10px;
-
+    height: 90%;
   }
 
   .video-card {
