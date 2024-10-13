@@ -1,7 +1,7 @@
 /* Base styles for all devices */
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
 .details-page-container {
-    background-color: black;
+    background-color: transparent;
     color: white;
     height: 100%;
 
@@ -17,8 +17,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(26, 25, 25);
-    border-radius: 0px 10px 10px 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: black;
+      margin-top: 30px;
+      padding-top: 30px;
 }
 
 .descriptions-details-side {
@@ -32,8 +36,9 @@
 .image-and-apply-link-heaidng {
     display: flex;
     flex-direction: column;
-    background-color: rgb(26, 25, 25);
-    border-radius: 10px 10px 0px 0px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 
 }
 
@@ -106,7 +111,17 @@ hr {
     /* WhatsApp green for Apply Here link */
     font-weight: bold;
     /* Optional: Make link text stand out */
-    padding-left: 50px;
+    margin-left: 50px;
+    height: 45px;
+    width: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.apply-link:hover{
+    background-color: #25D366;
 }
 
 h3,
@@ -202,5 +217,10 @@ p {
 
     .left-side {
         border-radius: 10px;
+    }
+    .heading{
+        padding: 20px;
+        font-size: 25px;
+        
     }
 }

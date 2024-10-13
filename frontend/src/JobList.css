@@ -18,7 +18,7 @@
   color: #333;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   flex-grow: 1; /* Cards will grow to fill the row */
   flex-basis: calc(33.33% - 40px); /* Allow up to 3 cards per row, minus gap */
@@ -270,6 +270,10 @@ display: none;
     margin-left: 0px;
     display: flex;
 
+
+  }
+  .job-card{
+    max-width: 400px;
   }
   
   
