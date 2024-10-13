@@ -23,10 +23,11 @@
       color: black;
       margin-top: 30px;
       padding-top: 30px;
+      padding-right: 150px;
 }
 
 .descriptions-details-side {
-    padding-right: 15px;
+    padding-right: 150px;
 }
 
 .next-job-description {
