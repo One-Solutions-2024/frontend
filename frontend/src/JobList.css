@@ -167,7 +167,7 @@
   padding: 5px 20px 5px 0px; /* Add extra padding for the search icon */
   border: none;
   border-radius: 5px;
-  background-color: #D1D5DB;
+  background-color: transparent;
   color: #000;
   margin-left: 55px;
   width: 90%; /* Make it responsive */
@@ -185,6 +185,8 @@
 .search-bar {
   position: relative;
   width: 70%; /* Make it responsive */
+  border: 1.5px solid rgb(0 0 0 / 10%);
+  border-radius: 10px;
 }
 /* Back to Top Button */
 
@@ -248,7 +250,7 @@ display: none;
     flex-direction: column;
   }
   .search-input{
-    width: 80%;
+    width: 90%;
   }
   .banner-name{
     font-size: 1.5rem;
