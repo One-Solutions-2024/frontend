@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import JobList from './JobList';
 import NotFound from './components/NotFound';
 import Header from './components/Header';
-import Details from './components/Details';
+import Company from './components/Company';
 import Contact from './components/Contact';
 import "./App.css";
 
@@ -10,7 +10,7 @@ const App = () => (
   <BrowserRouter>
     <Header />
     <Routes>
-      <Route path="/details/:companyname" element={<Details />} /> {/* Using company name slug */}
+      <Route path="/company/:companyname" element={<Company />} /> {/* Using company name slug */}
       <Route path="/contact" element={<Contact />} />
       <Route path="/" element={<JobList />} />
       <Route path="/JobList" element={<JobList />} />

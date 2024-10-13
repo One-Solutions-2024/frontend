@@ -71,7 +71,7 @@ function JobList() {
 
   const handleCardClick = (job) => {
     const companyNameSlug = job.companyname.replace(/\s+/g, '-').toLowerCase();
-    navigate(`/details/${companyNameSlug}`, { state: { job, jobs } });
+    navigate(`/company/${companyNameSlug}`, { state: { job, jobs } });
   };
 
   const handlePageChange = (newPage) => {

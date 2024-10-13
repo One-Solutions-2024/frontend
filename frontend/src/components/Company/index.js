@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import Footer from "../Footer";
 import './index.css';
 
-const Details = () => {
+const Company = () => {
   const location = useLocation();
   const { companyname } = useParams(); // Get the company name slug from the URL
   const [job, setJob] = useState(location.state?.job || null); // Use job passed from the previous page or null
@@ -16,7 +16,7 @@ const Details = () => {
       if (!job) { // If job is not passed via state, fetch it
         setLoading(true);
         try {
-          const response = await fetch(`https://one-solutions-job-notifications.onrender.com/api/jobs/company/${companyname}`);
+          const response = await fetch(`https://one-solutions-job-notifications.onrender.com/company/${companyname}`);
           if (!response.ok) {
             throw new Error('Failed to fetch job');
           }
@@ -86,4 +86,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default Company;
