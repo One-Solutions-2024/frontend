@@ -1,96 +1,107 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import React, { Component } from 'react';
+import { ThreeDots } from 'react-loader-spinner';
+import { useParams } from 'react-router-dom'; // Import useParams from react-router-dom
 import Footer from "../Footer";
 import './index.css';
 
-const Company = () => {
-  const location = useLocation();
-  const { companyname } = useParams(); // Get the company name from the URL
-  const [job, setJob] = useState(location.state?.job || null); // Check if job is passed from previous page
-  const [loading, setLoading] = useState(!job); // Show loading if job is not already passed
-  const [error, setError] = useState(null);
+class Company extends Component {
+  state = { companyData: {}, isLoading: true };
 
-  useEffect(() => {
-    if (!job) {
-      // Fetch the job if it's not already passed via location.state
-      const fetchJobByCompanyName = async () => {
-        setLoading(true);
-        try {
-          // Replace the URL with your actual backend API endpoint
-          const response = await fetch(`https://backend-dvwo.onrender.com/company/${companyname}`);
-          if (!response.ok) {
-            throw new Error('Failed to fetch job');
-          }
-          const data = await response.json();
-          if (data) {
-            setJob(data);
-          } else {
-            setError('Job not found');
-          }
-        } catch (error) {
-          setError('Error fetching job data');
-        } finally {
-          setLoading(false);
-        }
+  componentDidMount() {
+    this.getCompanyData();
+  }
+
+  getCompanyData = async () => {
+    const { companyname } = this.props.params; // Get params from props (passed by HOC)
+    try {
+      const response = await fetch(`https://backend-dvwo.onrender.com/company/${companyname}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch company data');
+      }
+      const data = await response.json();
+
+      const updatedData = {
+        companyname: data.companyname,
+        title: data.title,
+        description: data.description || '', // Handle potential undefined descriptions
+        applyLink: data.apply_link,
+        imageLink: data.image_link,
       };
-      fetchJobByCompanyName();
+      this.setState({ companyData: updatedData, isLoading: false });
+    } catch (error) {
+      console.error('Error fetching company data:', error);
+      this.setState({ isLoading: false });
     }
-  }, [companyname, job]);
+  };
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  render() {
+    const { isLoading, companyData } = this.state;
+    const { companyname, title, description, applyLink, imageLink } = companyData;
 
-  if (error) {
-    return <p>{error}</p>;
-  }
+    // Safely handle undefined description
+    const descriptionPoints = description ? description.split(',').map((point) => point.trim()) : [];
 
-  if (!job) {
-    return <p>Coming Soon!</p>;
-  }
-
-  const descriptionPoints = job.description.split(',').map((point) => point.trim());
-
-  return (
-    <div>
-      <div className="details-page-container">
-        <div className="current-job-container">
-          <div className='right-and-left-side'>
-            <div className='image-and-apply-link-heading left-side'>
-              <div className='image-small-device'>
-                <img
-                  src={job.image_link}
-                  alt={job.title}
-                  className='job-image-details'
-                />
-                <a href={job.apply_link} target="_blank" rel="noopener noreferrer" className='image-apply-link'>Apply</a>
+    return (
+      <div>
+        {isLoading ? (
+          <div className="loader-container">
+            <ThreeDots
+              ariaLabel="three-dots-loading"
+              visible={true}
+              color="#4fa94d"
+              height={80}
+              width={80}
+            />
+          </div>
+        ) : (
+          <div className="details-page-container">
+            <div className="current-job-container">
+              <div className='right-and-left-side'>
+                <div className='image-and-apply-link-heading left-side'>
+                  <div className='image-small-device'>
+                    <img
+                      src={imageLink}
+                      alt={title}
+                      className='job-image-details'
+                    />
+                    <a href={applyLink} target="_blank" rel="noopener noreferrer" className='image-apply-link'>Apply</a>
+                  </div>
+                  <div>
+                    <h2 className="heading">{companyname}: <span className="heading-details">{title}</span></h2>
+                    <hr />
+                  </div>
+                </div>
               </div>
-              <div>
-                <h2 className="heading">{job.companyname}: <span className="heading-details">{job.title}</span></h2>
+              <div className='details-side'>
+                <h3 className="qualifications">Qualifications:</h3>
+                <ul className='descriptions-details-side'>
+                  {descriptionPoints.map((point, index) => (
+                    <li key={index}>{point}</li>
+                  ))}
+                </ul>
+                <a href={applyLink} target="_blank" rel="noopener noreferrer" className='apply-link'>Apply Here</a>
                 <hr />
+                <h3 className='follow-us'>Follow Us</h3>
+                <div className='follow-section'>
+                  <a href="https://www.instagram.com/onesolutionsekam" target='_blank' rel='noopener noreferrer' className='follows-link'>Instagram</a>
+                  <a href="https://www.youtube.com/@OneSolutionsEkam" target='_blank' rel='noopener noreferrer' className='follows-link'>YouTube</a>
+                </div>
               </div>
             </div>
           </div>
-          <div className='details-side'>
-            <h3 className="qualifications">Qualifications:</h3>
-            <ul className='descriptions-details-side'>
-              {descriptionPoints.map((point, index) => (
-                <li key={index}>{point}</li>
-              ))}
-            </ul>
-            <a href={job.apply_link} target="_blank" rel="noopener noreferrer" className='apply-link'>Apply Here</a>
-            <hr />
-            <h3 className='follow-us'>Follow Us</h3>
-            <div className='follow-section'>
-              <a href="https://www.instagram.com/onesolutionsekam" target='_blank' rel='noopener noreferrer' className='follows-link'>Instagram</a>
-              <a href="https://www.youtube.com/@OneSolutionsEkam" target='_blank' rel='noopener noreferrer' className='follows-link'>YouTube</a>
-            </div>
-          </div>
-        </div>
+        )}
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default Company;
+// Create a HOC that injects the params into the class component
+function withRouter(Component) {
+  return function ComponentWithRouterProp(props) {
+    const params = useParams(); // Use useParams hook to get the route parameters
+    return <Component {...props} params={params} />;
+  };
+}
+
+export default withRouter(Company);
