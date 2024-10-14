@@ -1,11 +1,12 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "One Solutions",
+  "name": "One Solutions",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://res.cloudinary.com/dsjcty43b/image/upload/v1726470878/WhatsApp_Image_2024-09-06_at_22.30.50_85f627e1-removebg-preview_yp7rg2.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "box-shadow": "0 4px 8px rgba(0, 0, 0, 0.2)"
     },
     {
       "src": "logo192.png",
