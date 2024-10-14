@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ThreeDots } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom'; // Import useParams from react-router-dom
 import Footer from "../Footer";
 import './index.css';
@@ -44,14 +43,8 @@ class Company extends Component {
     return (
       <div>
         {isLoading ? (
-          <div className="loader-container">
-            <ThreeDots
-              ariaLabel="three-dots-loading"
-              visible={true}
-              color="#4fa94d"
-              height={80}
-              width={80}
-            />
+          <div className='loader-div'>
+            <p className="loader">Loading...</p>
           </div>
         ) : (
           <div className="details-page-container">
