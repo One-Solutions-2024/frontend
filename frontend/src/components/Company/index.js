@@ -17,7 +17,7 @@ const Company = () => {
         setLoading(true);
         try {
           // Replace the URL with your actual backend API endpoint
-          const response = await fetch(`http://localhost:3000/company/${companyname}`);
+          const response = await fetch(`https://backend-dvwo.onrender.com/company/${companyname}`);
           if (!response.ok) {
             throw new Error('Failed to fetch job');
           }
