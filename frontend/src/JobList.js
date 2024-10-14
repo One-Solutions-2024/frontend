@@ -21,7 +21,7 @@ function JobList() {
   const fetchAllJobs = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`https://backend-dvwo.onrender.com/api/jobs?limit=100`); // Fetch all jobs
+      const response = await fetch(`http://localhost:3000/api/jobs?limit=100`); // Fetch all jobs
       const data = await response.json();
 
       if (response.ok) {
