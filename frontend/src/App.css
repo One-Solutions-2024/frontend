@@ -15,6 +15,11 @@
   pointer-events: none;
 }
 
+.icon {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
