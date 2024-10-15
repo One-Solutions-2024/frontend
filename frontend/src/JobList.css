@@ -20,8 +20,9 @@
 }
 .job-list {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+ justify-content: center;
+ align-items: center;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -453,4 +454,56 @@
   100% {
     transform: rotate(360deg)
   }
+}
+
+/* wikipedia */
+
+.main-container {
+  font-family: "Roboto";
+  height: 0; /* Default height */
+  overflow-y: hidden; /* Prevent scrolling when height is 0 */
+  transition: height 0.3s ease; /* Smooth transition for height */
+}
+
+.main-container.expanded {
+  height: 400px; /* Expanded height */
+  overflow-y: auto; /* Allow scrolling when expanded */
+}
+
+
+.wiki-logo {
+  margin-bottom: 30px;
+  width: 150px;
+}
+
+.search-results-heading{
+  font-size: 25px;
+}
+
+.search-results {
+  width: auto;
+  padding: 20px;
+  border: 1.5px solid rgb(0 0 0 / 10%);
+  border-radius: 10px;
+}
+
+.result-item {
+  margin-bottom: 20px;
+}
+
+.result-title {
+  font-size: 22px;
+}
+
+.link-description {
+  color: #444444;
+  font-size: 15px;
+}
+
+.result-url {
+  color: #006621;
+  text-decoration: none;
+}
+.result-url:hover{
+  color: red;
 }

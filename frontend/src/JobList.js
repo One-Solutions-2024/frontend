@@ -11,11 +11,14 @@ function JobList() {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [wikiSearchResults, setWikiSearchResults] = useState([]);
+  const [wikiLoading, setWikiLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const jobsPerPage = 8;
 
+  // Fetch all jobs from the API
   const fetchAllJobs = async () => {
     setLoading(true);
     try {
@@ -52,23 +55,19 @@ function JobList() {
     }
   }, [location]);
 
-  const [filtering, setFiltering] = useState(false);
+  // Filter jobs based on search query
+  useEffect(() => {
+    const filteredJobs = allJobs.filter(job =>
+      job.companyname.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
-useEffect(() => {
-  setFiltering(true);
-  const filteredJobs = allJobs.filter(job =>
-    job.companyname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    job.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const startIdx = (currentPage - 1) * jobsPerPage;
-  const endIdx = startIdx + jobsPerPage;
-  setJobs(filteredJobs.slice(startIdx, endIdx));
-  setTotalPages(Math.ceil(filteredJobs.length / jobsPerPage));
-  setFiltering(false);
-}, [searchQuery, currentPage, allJobs]);
-
+    const startIdx = (currentPage - 1) * jobsPerPage;
+    const endIdx = startIdx + jobsPerPage;
+    setJobs(filteredJobs.slice(startIdx, endIdx));
+    setTotalPages(Math.ceil(filteredJobs.length / jobsPerPage));
+  }, [searchQuery, currentPage, allJobs]);
 
   const handleCardClick = (job) => {
     const companyNameSlug = job.companyname.replace(/\s+/g, '-').toLowerCase();
@@ -79,6 +78,41 @@ useEffect(() => {
     setCurrentPage(newPage);
   };
 
+  // Wikipedia search functionality
+  const searchWikipedia = async (event) => {
+    if (event.key === 'Enter' && searchQuery.trim() !== '') {
+      setWikiLoading(true);
+      setWikiSearchResults([]); // Clear previous results
+
+      const url = `https://apis.ccbp.in/wiki-search?search=${encodeURIComponent(searchQuery)}`;
+      const options = { method: 'GET' };
+
+      try {
+        const response = await fetch(url, options);
+        const jsonData = await response.json();
+        setWikiSearchResults(jsonData.search_results);
+      } catch (error) {
+        console.error('Error fetching Wikipedia search results:', error);
+      } finally {
+        setWikiLoading(false);
+      }
+    }
+  };
+
+  const renderSearchResults = () => {
+    return wikiSearchResults.map((result, index) => (
+      <div key={index} className="result-item">
+        <a href={result.link} target="_blank" rel="noopener noreferrer" className="result-title">{result.title}</a>
+        <br />
+        <a href={result.link} target="_blank" rel="noopener noreferrer" className="result-url">{result.link}</a>
+        <p className="link-description">{result.description}</p>
+      </div>
+    ));
+  };
+
+  // Determine the heading based on search results and available jobs
+  const heading = jobs.length > 0 || searchQuery.trim() === '' ? "Latest Opportunity..." : "Search Results...";
+
   return (
     <div className='app-container'>
       <div className='banner-container' id='home'>
@@ -86,7 +120,7 @@ useEffect(() => {
           <div className="circle rotating">
             <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
               <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%">
                   <stop offset="0%" stopColor="#00ADEF" />
                   <stop offset="50%" stopColor="#8A2BE2" />
                   <stop offset="100%" stopColor="#FF007F" />
@@ -97,19 +131,21 @@ useEffect(() => {
           </div>
           <input
             type='search'
-            placeholder='Search'
+            id="searchInput"
+            placeholder='Ask Meta AI or Search'
             className='search-input search-bar-section'
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={searchWikipedia} // Trigger Wikipedia search on Enter
           />
         </div>
+
         <div className='device-top'>
-        <img className="banner-image" src='https://naukrisafar.com/wp-content/uploads/2024/01/Job_hunt.png' alt="Job Hunt Banner" />
-        <div className='bigdevice-top-right'>
-          <h1 className='banner-name'>One Solutions : Your Trusted Career Companion</h1>
-          <p className='banner-description'>Where Students can find Jobs, Technologies Videos & Many More</p>
-          
-        </div>
+          <img className="banner-image" src='https://naukrisafar.com/wp-content/uploads/2024/01/Job_hunt.png' alt="Job Hunt Banner" />
+          <div className='bigdevice-top-right'>
+            <h1 className='banner-name'>One Solutions: Your Trusted Career Companion</h1>
+            <p className='banner-description'>Where Students can find Jobs, Technologies Videos & Many More</p>
+          </div>
         </div>
       </div>
 
@@ -117,11 +153,11 @@ useEffect(() => {
         <div className='loader-div'>
           <p className="loader">Loading...</p>
         </div>
-      ) : jobs.length > 0 ? (
+      ) : (
         <div className='job-list-and-youtube'>
-          <h1 className="side-headings">Latest Opportunity...</h1>
+          <h1 className="side-headings">{heading}</h1>
           <div className='job-list'>
-            {jobs.map((job) => (
+            {jobs.length > 0 && jobs.map((job) => (
               <div key={job.id}>
                 <div
                   className='job-card col-12 col-md-6 col-lg-3'
@@ -144,24 +180,38 @@ useEffect(() => {
                 </div>
               </div>
             ))}
-            <div className='pagination'>
-              <div>
-                {[...Array(totalPages).keys()].map((pageNum) => (
-                  <button
-                    key={pageNum}
-                    className={`pagination-button ${currentPage === pageNum + 1 ? 'active' : ''}`}
-                    onClick={() => handlePageChange(pageNum + 1)}
-                  >
-                    {pageNum + 1}
-                  </button>
-                ))}
+
+            {/* Render Wikipedia results even if jobs are available */}
+            {searchQuery.trim() && !wikiLoading && (
+              <div className={`main-container ${searchQuery.trim() ? 'expanded' : ''}`}>
+                {wikiLoading ? (
+                  <div className="loader-div">
+                    <p className="loader">Loading...</p>
+                  </div>
+                ) : (
+                  <div className={`search-results ${jobs.length > 0 ? 'has-jobs' : ''}`}>
+                    <h2 className='search-results-heading'>Search results</h2>
+                    {renderSearchResults()}
+                  </div>
+                )}
               </div>
-            </div>
+            )}
           </div>
+
+          <div className='pagination'>
+            {[...Array(totalPages).keys()].map((pageNum) => (
+              <button
+                key={pageNum}
+                className={`pagination-button ${currentPage === pageNum + 1 ? 'active' : ''}`}
+                onClick={() => handlePageChange(pageNum + 1)}
+              >
+                {pageNum + 1}
+              </button>
+            ))}
+          </div>
+
           <h1 className="side-headings">Latest: Uploaded Videos...</h1>
         </div>
-      ) : (
-        <p>No jobs available</p>
       )}
 
       <YouTubeVideos />
