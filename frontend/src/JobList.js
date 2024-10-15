@@ -116,7 +116,7 @@ function JobList() {
   return (
     <div className='app-container'>
       <div className='banner-container' id='home'>
-        <div className='search-bar search-input searchbar-small'>
+        <div className='search-bar searchbar-small'>
           <div className="circle rotating">
             <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
               <defs>
