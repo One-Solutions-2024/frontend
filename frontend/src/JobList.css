@@ -4,12 +4,26 @@
   width: 100%;
   height: auto;
 }
+#home{
+  display: flex;
+  flex-direction: column;
+}
+.device-top{
+  display: flex;
+}
 
+.bigdevice-top-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .job-list {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-between; /* Distribute cards evenly across the row */
 }
 
 .job-card {
@@ -77,8 +91,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
+.circle {
+  width: 40px; /* Responsive size for large devices */
+  height: 40px; /* Responsive size for large devices */
+  max-width: 300px; /* Maximum size on larger screens */
+  max-height: 300px; /* Maximum size on larger screens */
+  margin-left: 10px; /* Center on the screen */
+  display: block; /* Center on the screen */
+}
+
+.circle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.circle-gradient {
+  fill: none;              /* No fill, hollow ring */
+  stroke-width: 16;         /* Thickness of the ring */
+  stroke-linecap: round;    /* Rounded edges for the stroke */
+}
+
+/* Rotation animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotate 2s linear infinite;
+}
+
 
 
 .job-list-and-youtube {
@@ -86,6 +133,7 @@
   flex-direction: column;
   padding-left: 20px;
   padding-right: 20px;
+  
 }
 
 
@@ -101,6 +149,8 @@
 .banner-image {
   height: 600px;
   width: 650px;
+  background-color: transparent; /* Light background for contrast */
+
 }
 
 .banner-container {
@@ -109,6 +159,8 @@
   align-items: center;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: transparent; /* Light background for contrast */
+
 }
 
 .banner-description {
@@ -169,25 +221,23 @@
   border-radius: 5px;
   background-color: transparent;
   color: #000;
-  margin-left: 55px;
+  margin-left: 10px;
   width: 90%; /* Make it responsive */
 }
 .search-bar-section{
   outline: none; /* Removes the border when clicked */
 }
-.search-icon {
-  position: absolute;
-  left: 10px; /* Position the icon to the left */
-  top: 50%;
-  transform: translateY(-50%);
-  color: gray;
-}
+
 .search-bar {
   position: relative;
   width: 70%; /* Make it responsive */
   border: 1.5px solid rgb(0 0 0 / 10%);
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
 }
+
+
 /* Back to Top Button */
 
 
@@ -197,9 +247,7 @@
   font-size: 1.5rem;
 }
 
-.searchbar-small{
-display: none;
-}
+
 .back-to-top {
   font-size: 1.0rem;
   display: flex;
@@ -209,6 +257,7 @@ display: none;
   color: #fff;
   height: 40px;
   text-decoration: none;
+  width: 100%;
 }
 
 .back-to-top:hover,
@@ -245,7 +294,7 @@ display: none;
     height: 350px;
     width: 350px;
   }
-  .banner-container{
+  .device-top{
     display: flex;
     flex-direction: column;
   }
@@ -276,6 +325,14 @@ display: none;
   }
   .job-card{
     max-width: 400px;
+  }
+  .circle {
+    width: 10vw; /* Responsive size for large devices */
+    height: 10vw; /* Responsive size for large devices */
+    max-width: 300px; /* Maximum size on larger screens */
+    max-height: 300px; /* Maximum size on larger screens */
+    margin-left: 10px; /* Center on the screen */
+    display: block; /* Center on the screen */
   }
   
   
@@ -397,4 +454,3 @@ display: none;
     transform: rotate(360deg)
   }
 }
-

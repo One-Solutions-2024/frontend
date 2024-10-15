@@ -3,7 +3,7 @@ import VisitorCounter from "../VisitoCounter"
 import "./index.css"
 
 const Footer = () => (
-    <div>
+    <div className="footer-container">
         <section className="down-logo" id='follow-us-section'>
             <div className="logo-websitename">
                 <img className="logo"
