@@ -337,9 +337,13 @@
     margin-left: 10px; /* Center on the screen */
     display: block; /* Center on the screen */
   }
-  img.offline-imgage {
-    height: 300px;
-    width: 300px;
+  .offline-heading {
+    font-size: 20px;
+  }
+  .offline-banner{
+    height: 10vh;
+    width: 10vw;
+    text-align: center;
   }
   
   
@@ -530,7 +534,11 @@
   justify-content: center;
   align-items: center;
 }
-.offline-imgage{
-  height: 400px;
-  width: 500px;
+
+.no-message-container{
+  width: auto;
+  height: 50vh;
+display: flex;
+justify-content: center;
+align-items: center;
 }

@@ -116,6 +116,12 @@ function JobList() {
   };
 
   const renderSearchResults = () => {
+    if (searchQuery.trim() && wikiSearchResults.length === 0 && !wikiLoading) {
+      return <div className='no-message-container'>
+        <div className="no-results-message">Please press "Enter" to search</div>;
+      </div>
+    }
+  
     return wikiSearchResults.map((result, index) => (
       <div key={index} className="result-item">
         <a href={result.link} target="_blank" rel="noopener noreferrer" className="result-title">{result.title}</a>
@@ -125,6 +131,7 @@ function JobList() {
       </div>
     ));
   };
+  
 
   // Determine the heading based on search results and available jobs
   const heading = jobs.length > 0 || searchQuery.trim() === '' ? "Latest Opportunity..." : "Search Results...";
@@ -132,7 +139,7 @@ function JobList() {
   return (
     !isOnline ? (
       <div className="offline-banner">
-        <img className='offline-imgage' src="/images/offline.jpg" />
+        <h1 className='offline-heading'>You're Offline Please Check your Conncetion</h1>
       </div>
 
     ) : (
@@ -154,7 +161,7 @@ function JobList() {
             <input
               type='search'
               id="searchInput"
-              placeholder='Ask One AI or Search'
+              placeholder='Ask ONE AI or Search'
               className='search-input search-bar-section'
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
