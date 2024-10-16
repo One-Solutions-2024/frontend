@@ -132,7 +132,7 @@ function JobList() {
   return (
     !isOnline ? (
       <div className="offline-banner">
-        <img className='offline-imgage' src='https://static.vecteezy.com/system/resources/previews/007/872/968/non_2x/flat-illustration-internet-connection-disconnected-or-error-with-person-holding-unplugged-power-plug-can-be-used-for-website-error-404-pages-connection-lost-page-animation-personal-project-vector.jpg'  alt='offline'/>
+        <img className='offline-imgage' src='https://static.vecteezy.com/system/resources/previews/007/872/968/non_2x/flat-illustration-internet-connection-disconnected-or-error-with-person-holding-unplugged-power-plug-can-be-used-for-website-error-404-pages-connection-lost-page-animation-personal-project-vector.jpg'/>
       </div>
 
     ) : (
