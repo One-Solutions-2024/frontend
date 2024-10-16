@@ -20,41 +20,41 @@ function YouTubeVideos() {
 
   return (
     <div className="youtube-container">
-  {/* Featured Video Section */}
-  <div className="featured-section">
-    {featuredVideo && (
-      <div className="featured-video">
-        <iframe
-          src={`https://www.youtube.com/embed/${featuredVideo.id}`}
-          title={featuredVideo.title}
-          allow="autoplay"
-          allowFullScreen
-          className="youtube-featured-video"
-        ></iframe>
+      {/* Featured Video Section */}
+      <div className="featured-section">
+        {featuredVideo && (
+          <div className="featured-video">
+            <iframe
+              src={`https://www.youtube.com/embed/${featuredVideo.id}?autoplay=1`} // Autoplay when the video is updated
+              title={featuredVideo.title}
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="youtube-featured-video"
+            ></iframe>
+          </div>
+        )}
       </div>
-    )}
-  </div>
 
-  {/* Playlist Section */}
-  <div className="playlist-videos">
-    <h2 className="featured-title">{featuredVideo.title}</h2> {/* Title sticks here */}
-    <div className="video-list">
-      {videoList.map((video) => (
-        <div
-          key={video.id}
-          className={`video-card ${featuredVideo && featuredVideo.id === video.id ? 'active' : ''}`}
-          onClick={() => handleVideoClick(video)}
-        >
-          <img
-            src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-            className="youtube-video"
-          />
-          <p className="video-snippet-title-mini">{video.title.slice(0, 100)}...</p>
+      {/* Playlist Section */}
+      <div className="playlist-videos">
+        <h2 className="featured-title">{featuredVideo.title}</h2> {/* Title sticks here */}
+        <div className="video-list">
+          {videoList.map((video) => (
+            <div
+              key={video.id}
+              className={`video-card ${featuredVideo && featuredVideo.id === video.id ? 'active' : ''}`}
+              onClick={() => handleVideoClick(video)}
+            >
+              <img
+                src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                className="youtube-video"
+              />
+              <p className="video-snippet-title-mini">{video.title.slice(0, 100)}...</p>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
-  </div>
-</div>
 
   );
 }
