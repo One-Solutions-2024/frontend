@@ -154,7 +154,7 @@ function JobList() {
             <input
               type='search'
               id="searchInput"
-              placeholder='Ask Meta AI or Search'
+              placeholder='Ask One AI or Search'
               className='search-input search-bar-section'
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
