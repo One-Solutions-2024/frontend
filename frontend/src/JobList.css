@@ -502,6 +502,10 @@
 .result-title {
   font-size: 22px;
 }
+.result-title:hover{
+  color: #006621;
+
+}
 
 .link-description {
   color: #444444;
