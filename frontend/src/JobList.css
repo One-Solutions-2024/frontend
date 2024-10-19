@@ -554,7 +554,7 @@ align-items: center;
 
 :root {
   --down-scroll-duration: 15s; /* Default scroll duration for down-row */
-  --up-scroll-duration: 15s; /* Faster scroll duration for up-row */
+  --up-scroll-duration: 13s; /* Faster scroll duration for up-row */
 }
 
 
