@@ -720,9 +720,8 @@ padding-left: 12px;
 
 .trending-heading-left{
   width: 25%;
-  padding-top: 1px;
-  padding-right: 10px;
-
+  display: flex;
+  align-items: center;
 }
 .trending-heading-right{
   width: 80%;
@@ -757,6 +756,10 @@ padding-left: 12px;
   .new-job-item .company-name{
     color: red;
 
+  }
+  .new-job-item .company-name:hover{
+    color: blue;
+    cursor: pointer;
   }
 
 .job-title {
