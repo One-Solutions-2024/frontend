@@ -566,7 +566,7 @@ align-items: center;
 
 @media (max-width: 480px) {
   :root {
-    --down-scroll-duration: 18s; /* Default scroll duration for down-row */
+    --down-scroll-duration: 15s; /* Default scroll duration for down-row */
     --up-scroll-duration: 18s; /* Faster scroll duration for up-row */ 
   }
  
