@@ -542,3 +542,259 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+
+.regular-jobs-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+:root {
+  --down-scroll-duration: 15s; /* Default scroll duration for down-row */
+  --up-scroll-duration: 15s; /* Faster scroll duration for up-row */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --down-scroll-duration: 21s; /* Default scroll duration for down-row */
+    --up-scroll-duration: 18s; /* Faster scroll duration for up-row */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --down-scroll-duration: 18s; /* Default scroll duration for down-row */
+    --up-scroll-duration: 18s; /* Faster scroll duration for up-row */ 
+  }
+ 
+}
+
+.new-jobs {
+  background: linear-gradient(to right, 
+    rgba(255, 255, 255, 1) 0%,   
+    rgba(122, 203, 255, 0.2) 20%,  
+    rgba(0, 172, 188, 0.3) 80%,   
+    rgba(255, 255, 255, 1) 100%  
+  );
+  padding: 20px;
+  max-width: 100vw; /* Ensure it doesn't go beyond viewport width */
+  overflow: hidden; /* Hide overflow to keep animation inside screen width */
+}
+
+.job-rows {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px; /* Space between the two rows */
+  overflow: hidden; /* Prevent overflow of the entire row */
+}
+
+/* Up-row: scroll from left to right with faster speed */
+.up-row {
+  display: flex;
+  width: 100%;
+
+  gap: 10px;
+  white-space: nowrap;
+  animation: scroll-left-right var(--up-scroll-duration) linear infinite; /* Use up-scroll-duration */
+  max-width: 100%; /* Ensure row fits inside device width */
+}
+
+/* Down-row: scroll from right to left */
+.down-row {
+  display: flex;
+  width: 100%;
+
+  gap: 10px;
+  white-space: nowrap;
+  animation: scroll-right-left var(--down-scroll-duration) linear infinite; /* Use default scroll-duration */
+  max-width: 100%; /* Ensure row fits inside device width */
+}
+
+/* Job cards are inline-block for horizontal scrolling */
+.job-card-newjob {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  cursor: pointer;
+  animation-play-state: running; /* Animation running by default */
+}
+
+.job-image-newjob {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.job-content {
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding-left: 12px;
+}
+.job-content p{
+  padding-left: 0px;
+}
+
+.company-card-name-new-job, .job-title-newjob, .job-description-new-job {
+  margin: 5px 0;
+}
+
+.company-card-name-new-job {
+  font-size: 14px;
+}
+
+.job-title-newjob {
+  font-size: 16px;
+}
+
+.job-description-new-job {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Keyframes for left-to-right scrolling (for up-row) */
+@keyframes scroll-left-right {
+  0% {
+    transform: translateX(-100%); /* Start from offscreen on the left */
+  }
+  100% {
+    transform: translateX(100%);  /* Move to offscreen on the right */
+  }
+}
+
+/* Keyframes for right-to-left scrolling (for down-row) */
+@keyframes scroll-right-left {
+  0% {
+    transform: translateX(100%);  /* Start from offscreen on the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to offscreen on the left */
+  }
+}
+
+/* Pause animation on hover */
+.job-card-newjob:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .job-card-newjob {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .job-card-newjob {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    cursor: pointer;
+    animation-play-state: running; /* Animation running by default */
+  }
+  .job-image-newjob {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+}
+
+/* trending styles */
+
+.trending-heading-left{
+  width: 25%;
+  padding-top: 1px;
+  padding-right: 10px;
+
+}
+.trending-heading-right{
+  width: 80%;
+}
+.trending-name-container{
+  display: flex;
+  flex-direction: row;
+}
+.trending-heading {
+    margin-bottom: 10px; /* Space below the heading */
+    font-size: 24px; /* Adjust the size as needed */
+    color: white; /* Change text color as needed */
+}
+
+.new-jobs-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 5px; /* Space between job items */
+}
+
+.new-job-item {
+    display: flex;
+    flex-direction: row; /* Arrange company name and title in a row */
+    color: #d0b200; /* Change text color as needed */
+}
+
+.company-name {
+    font-weight: bold; /* Make company name bold */
+    margin-right: 10px; /* Space between company name and title */
+  }
+
+  .new-job-item .company-name{
+    color: red;
+
+  }
+
+.job-title {
+    color: white; /* Adjust title color */
+    font-size: 20px;
+}
+.trending-heading-right {
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Hide overflow to enable scrolling */
+}
+
+.scrolling-container {
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-jobs-list {
+  display: inline-block;
+  width: 300px;
+  animation: scroll-left 15s linear infinite; /* Scroll animation */
+  white-space: nowrap; /* Keep items in a single line */
+}
+
+.new-job-item {
+  display: inline-block;
+  padding: 0 20px; /* Space between items */
+  color: white;
+}
+
+@keyframes scroll-left {
+  from {
+      transform: translateX(100%); /* Start from right (outside view) */
+  }
+  to {
+      transform: translateX(-100%); /* Move to left (outside view) */
+  }
+}
