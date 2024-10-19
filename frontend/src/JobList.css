@@ -557,20 +557,6 @@ align-items: center;
   --up-scroll-duration: 15s; /* Faster scroll duration for up-row */
 }
 
-@media (max-width: 768px) {
-  :root {
-    --down-scroll-duration: 21s; /* Default scroll duration for down-row */
-    --up-scroll-duration: 18s; /* Faster scroll duration for up-row */
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    --down-scroll-duration: 10s; /* Default scroll duration for down-row */
-    --up-scroll-duration: 10s; /* Faster scroll duration for up-row */ 
-  }
- 
-}
 
 .new-jobs {
   background: linear-gradient(to right, 
@@ -687,12 +673,7 @@ padding-left: 12px;
   animation-play-state: paused;
 }
 
-/* Responsive behavior */
-@media (max-width: 768px) {
-  .job-card-newjob {
-    width: 250px;
-  }
-}
+
 
 @media (max-width: 480px) {
   .job-card-newjob {

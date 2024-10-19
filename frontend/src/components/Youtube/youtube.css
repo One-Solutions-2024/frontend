@@ -181,12 +181,25 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media screen and (max-width:768px) {
   .video-container {
+    display: flex;
     flex-direction: column;
   }
 
   .featured-video {
     margin-right: 0;
   }
+  
+}
+
+@media screen and (max-width:900px) {
+  .youtube-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .youtube-featured-video{
+    width: 680px;
+  }
+  
 }
