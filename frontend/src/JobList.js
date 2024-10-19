@@ -294,7 +294,7 @@ function JobList() {
               <h1 className="side-headings">{heading}</h1>
               <div className='job-list'>
                 {searchQuery.trim() && regularJobs.length === 0 ? (
-                  <div>No results found for your search.</div>
+                  <div>No Jobs found for your search.</div>
                 ) : (
                   regularJobs.length > 0 && regularJobs.map((job) => (
                     <div key={job.id}>
