@@ -33,10 +33,10 @@ function JobList() {
         setAllJobs(data);
 
         // Set the first 4 jobs as "New Jobs"
-        setNewJobs(data.slice(0, 2));
+        setNewJobs(data.slice(0, 4));
 
         // Set the remaining jobs as "Regular Jobs"
-        setRegularJobs(data.slice(2)); // Adjusted to take all jobs after the first four
+        setRegularJobs(data.slice(4)); // Adjusted to take all jobs after the first four
 
         setTotalPages(Math.ceil(data.length / jobsPerPage));
       } else {
