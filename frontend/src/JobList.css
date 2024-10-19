@@ -746,6 +746,8 @@ padding-left: 12px;
     display: flex;
     flex-direction: row; /* Arrange company name and title in a row */
     color: #d0b200; /* Change text color as needed */
+    cursor: pointer;
+
 }
 
 .company-name {
@@ -758,7 +760,7 @@ padding-left: 12px;
 
   }
   .new-job-item .company-name:hover{
-    color: blue;
+    color: #d0b200; /* Change text color as needed */
     cursor: pointer;
   }
 

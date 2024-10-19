@@ -223,7 +223,8 @@ function JobList() {
                   <div className='scrolling-container'>
                     <div className='new-jobs-list'>
                       {newJobs.map((job, index) => (
-                        <div key={index} className='new-job-item'>
+                        <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}
+                        >
                           <span className='company-name'>{job.companyname.toUpperCase()}:</span>
                           <span className='job-title'>{job.title}</span>
                         </div>
