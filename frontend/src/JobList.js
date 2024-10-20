@@ -89,7 +89,7 @@ function JobList() {
 
   const handleCardClick = (job) => {
     const companyNameSlug = job.companyname.replace(/\s+/g, '-').toLowerCase();
-    window.open(`https://companydetails.onrender.com/company/${companyNameSlug}`, '_blank');
+    navigate(`/company/${companyNameSlug}`, { state: { job } });
   };
   
 
