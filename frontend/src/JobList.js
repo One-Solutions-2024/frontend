@@ -150,21 +150,55 @@ function JobList() {
     ));
   };
 
-  // Function to pause the scrolling animation
-  const handlePauseAnimation = (event) => {
-    const scrollingContainer = event.currentTarget.closest('.job-rows'); // Adjust selector if necessary
+
+  // Function to pause the scrolling animation for trending jobs
+  const handlePauseTrendingJobs = () => {
+    const scrollingContainer = document.querySelector('.new-jobs-list');
     if (scrollingContainer) {
       scrollingContainer.style.animationPlayState = 'paused';
     }
   };
 
-  // Function to resume the scrolling animation
-  const handleResumeAnimation = (event) => {
-    const scrollingContainer = event.currentTarget.closest('.job-rows'); // Adjust selector if necessary
+  // Function to resume the scrolling animation for trending jobs
+  const handleResumeTrendingJobs = () => {
+    const scrollingContainer = document.querySelector('.new-jobs-list');
     if (scrollingContainer) {
       scrollingContainer.style.animationPlayState = 'running';
     }
   };
+
+  // Function to pause the scrolling animation for trending jobs
+  const handlePauseTrendingJobslistuprow = () => {
+    const scrollingContainer = document.querySelector('.up-row-hover');
+    if (scrollingContainer) {
+      scrollingContainer.style.animationPlayState = 'paused';
+    }
+  };
+
+  // Function to resume the scrolling animation for trending jobs
+  const handleResumeTrendingJobslistuprow = () => {
+    const scrollingContainer = document.querySelector('.up-row-hover');
+    if (scrollingContainer) {
+      scrollingContainer.style.animationPlayState = 'running';
+    }
+  };
+
+  // Function to pause the scrolling animation for trending jobs
+  const handlePauseTrendingJobslistdownrow = () => {
+    const scrollingContainer = document.querySelector('.down-row-hover');
+    if (scrollingContainer) {
+      scrollingContainer.style.animationPlayState = 'paused';
+    }
+  };
+
+  // Function to resume the scrolling animation for trending jobs
+  const handleResumeTrendingJobslistdownrow = () => {
+    const scrollingContainer = document.querySelector('.down-row-hover');
+    if (scrollingContainer) {
+      scrollingContainer.style.animationPlayState = 'running';
+    }
+  };
+
 
   // Determine the heading based on search results and available jobs
   const heading = searchQuery.trim() === '' || regularJobs.length > 0 ? "Opportunities..." : "Search Results...";
@@ -219,12 +253,15 @@ function JobList() {
             <div className='new-jobs'>
               <div className='trending-name-container'>
                 <h1 className="side-headings trending-heading-left">Trending</h1>
-                <div className='side-headings trending-heading-right'>
+                <div
+                  className='side-headings trending-heading-right'
+                  onMouseEnter={handlePauseTrendingJobs}  // Pause on hover
+                  onMouseLeave={handleResumeTrendingJobs} // Resume when hover ends
+                >
                   <div className='scrolling-container'>
                     <div className='new-jobs-list'>
                       {newJobs.map((job, index) => (
-                        <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}
-                        >
+                        <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
                           <span className='company-name'>{job.companyname.toUpperCase()}:</span>
                           <span className='job-title'>{job.title}</span>
                         </div>
@@ -232,20 +269,20 @@ function JobList() {
                     </div>
                   </div>
                 </div>
-
-
               </div>
+
+
               <div className='job-rows'>
                 {/* First row (up-row) */}
-                <div className='job-row up-row'>
+                <div className='job-row up-row up-row-hover'>
                   {newJobs.map((job, index) => {
                     if (index % 2 === 0) {
                       return (
                         <div
                           key={job.id}
                           className='job-card-newjob'
-                          onMouseEnter={(e) => handlePauseAnimation(e)}
-                          onMouseLeave={(e) => handleResumeAnimation(e)}
+                          onMouseEnter={handlePauseTrendingJobslistuprow}  // Pause on hover
+                          onMouseLeave={handleResumeTrendingJobslistuprow} // Resume when hover ends
                           onClick={() => handleCardClick(job)} // Ensure card click is handled
                         >
                           <div>
@@ -264,15 +301,15 @@ function JobList() {
                 </div>
 
                 {/* Second row (down-row) */}
-                <div className='job-row down-row'>
+                <div className='job-row down-row down-row-hover'>
                   {newJobs.map((job, index) => {
                     if (index % 2 !== 0) {
                       return (
                         <div
                           key={job.id}
                           className='job-card-newjob'
-                          onMouseEnter={(e) => handlePauseAnimation(e)}
-                          onMouseLeave={(e) => handleResumeAnimation(e)}
+                          onMouseEnter={handlePauseTrendingJobslistdownrow}  // Pause on hover
+                          onMouseLeave={handleResumeTrendingJobslistdownrow} // Resume when hover ends
                           onClick={() => handleCardClick(job)} // Ensure card click is handled
                         >
                           <div>

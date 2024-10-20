@@ -553,8 +553,9 @@ align-items: center;
 }
 
 :root {
-  --down-scroll-duration: 15s; /* Default scroll duration for down-row */
   --up-scroll-duration: 13s; /* Faster scroll duration for up-row */
+  --down-scroll-duration: 13s; /* Default scroll duration for down-row */
+
 }
 
 
@@ -703,13 +704,19 @@ padding-left: 12px;
   width: 25%;
   display: flex;
   align-items: center;
+  flex: 1;
+
 }
 .trending-heading-right{
+  flex: 2;
+  overflow: hidden; /* Ensure the overflow is hidden to mask the scroll */
+  position: relative;
   width: 80%;
 }
-.trending-name-container{
+.trending-name-container {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .trending-heading {
     margin-bottom: 10px; /* Space below the heading */
@@ -717,9 +724,11 @@ padding-left: 12px;
     color: white; /* Change text color as needed */
 }
 
+
 .new-jobs-list {
     display: flex;
     flex-direction: column; /* Stack items vertically */
+    justify-content: space-between;
     gap: 5px; /* Space between job items */
 }
 
@@ -761,11 +770,13 @@ padding-left: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
 }
 
 .new-jobs-list {
   display: inline-block;
-  width: 300px;
+  width: auto;
   animation: scroll-left 15s linear infinite; /* Scroll animation */
   white-space: nowrap; /* Keep items in a single line */
 }
