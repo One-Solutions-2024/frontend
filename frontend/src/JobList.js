@@ -200,6 +200,14 @@ function JobList() {
     }
   };
 
+  function capitalizeWords(str) {
+    return str
+      .toLowerCase() // Make the entire string lowercase first
+      .split(' ') // Split the string by spaces
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+      .join(' '); // Join the words back together
+  }
+
 
   // Determine the heading based on search results and available jobs
   const heading = searchQuery.trim() === '' || regularJobs.length > 0 ? "Opportunities..." : "Search Results...";
@@ -263,9 +271,9 @@ function JobList() {
                     <div className='new-jobs-list'>
                       {newJobs.map((job, index) => (
                         <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
-                          <span className='company-name'>{job.companyname.toUpperCase()}:</span>
-                          <span className='job-title'>{job.title}</span>
-                        </div>
+                          <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
+                          <span className='job-title'>{capitalizeWords(job.title)}</span>
+                          </div>
                       ))}
                     </div>
                   </div>
@@ -291,7 +299,7 @@ function JobList() {
                           </div>
                           <div className='job-content'>
                             <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
-                            <h2 className='job-title-newjob'>{job.title.slice(0, 16)}...</h2>
+                            <h2 className='job-title-newjob'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
                             <p className='job-description-new-job'>{job.description.slice(0, 30)}...</p>
                           </div>
                         </div>
@@ -318,7 +326,7 @@ function JobList() {
                           </div>
                           <div className='job-content'>
                             <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
-                            <h2 className='job-title-newjob'>{job.title.slice(0, 16)}...</h2>
+                            <h2 className='job-title-newjob'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
                             <p className='job-description-new-job'>{job.description.slice(0, 30)}...</p>
                           </div>
                         </div>
@@ -342,7 +350,7 @@ function JobList() {
                         onClick={() => handleCardClick(job)}
                       >
                         <h1 className='company-card-name'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
-                        <h2>{job.title.slice(0, 16)}...</h2>
+                        <h2>{capitalizeWords(job.title.slice(0, 16))}...</h2>
                         <img
                           src={job.image_link}
                           alt={job.title}
