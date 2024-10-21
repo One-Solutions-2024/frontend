@@ -13,7 +13,7 @@ class Company extends Component {
   getCompanyData = async () => {
     const { companyname } = this.props.params; // Get params from props (passed by HOC)
     try {
-      const response = await fetch(`https://backend-dvwo.onrender.com/api/jobs/company/${companyname}`);
+      const response = await fetch(`https://backend-dvwo.onrender.com/api/jobs/company/${companyname}/${url}`);
       if (!response.ok) {
         throw new Error('Failed to fetch company data');
       }

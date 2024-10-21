@@ -88,9 +88,20 @@ function JobList() {
   }, [searchQuery, currentPage, allJobs, newJobs]);
 
   const handleCardClick = (job) => {
-    const companyNameSlug = job.companyname.replace(/\s+/g, '-').toLowerCase();
-    navigate(`/company/${companyNameSlug}`, { state: { job } });
+    // Convert company name to a URL-friendly slug (replace spaces and special characters)
+    const companyNameSlug = job.companyname
+      .trim()                       // Remove extra spaces from both ends
+      .replace(/[^\w\s]/g, '')       // Remove any non-word characters (e.g., punctuation)
+      .replace(/\s+/g, '-')          // Replace spaces with dashes
+      .toLowerCase();                // Convert to lowercase
+    
+    // Encode the job's URL to make it safe for use in the navigation path
+    const jobUrlEncoded = encodeURIComponent(job.url);
+  
+    // Navigate to the company-specific job page with both company slug and job URL in the path
+    navigate(`/company/${companyNameSlug}/${jobUrlEncoded}/`, { state: { job } });
   };
+  
   
 
   const handlePageChange = (newPage) => {
