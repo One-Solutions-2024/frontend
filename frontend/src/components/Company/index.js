@@ -11,14 +11,14 @@ class Company extends Component {
   }
 
   getCompanyData = async () => {
-    const { companyname } = this.props.params; // Get params from props (passed by HOC)
+    const { companyname, url } = this.props.params; // Destructure both companyname and url from params
     try {
       const response = await fetch(`https://backend-dvwo.onrender.com/api/jobs/company/${companyname}/${url}`);
       if (!response.ok) {
         throw new Error('Failed to fetch company data');
       }
       const data = await response.json();
-
+  
       const updatedData = {
         companyname: data.companyname,
         title: data.title,
@@ -32,6 +32,7 @@ class Company extends Component {
       this.setState({ isLoading: false });
     }
   };
+  
 
   render() {
     const { isLoading, companyData } = this.state;
