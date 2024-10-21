@@ -99,7 +99,7 @@ function JobList() {
     const jobUrlEncoded = encodeURIComponent(job.url);
   
     // Navigate to the company-specific job page with both company slug and job URL in the path
-    navigate(`/${companyNameSlug}/${jobUrlEncoded}/`, { state: { job } });
+    navigate(`/company/${companyNameSlug}/${jobUrlEncoded}/`, { state: { job } });
   };
   
   
