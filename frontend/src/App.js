@@ -10,7 +10,7 @@ const App = () => (
   <BrowserRouter>
     <Header />
     <Routes>
-      <Route path="/company/:companyname" element={<Company />} /> {/* Using company name slug */}
+      <Route path="/company/:companyname/:url" element={<Company />} /> {/* Using company name slug */}
       <Route path="/contact" element={<Contact />} />
       <Route path="/" element={<JobList />} />
       <Route path="/JobList" element={<JobList />} />

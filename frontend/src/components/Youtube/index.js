@@ -4,11 +4,11 @@ import './youtube.css';
 // List of video IDs from your provided links
 const videoList = [
   { id: 'i2vWsNjoFto', title: '4 Exciting Job Updates : Mitsogo, Stripe, Wipro and Cognizant are Hiring | One Solutions' },
-  { id: 'yavE6elZ-6E', title: '4 Exciting Job Updates : Capgemini, Simplotel, Genpact and Zebra are Hiring | One Solutions' },
-  { id: 'xcGc6mTkWMY', title: 'SQL CRUD Operations Mostly used in SQL Developers' },
-  { id: 'W2ku9WMjph8', title: '5 Exciting Job Updates : Cognizant, Amazon, Razor, IntelliWorkz & EY are Hiring | One Solutions' },
-  { id: '4eBNGRxkLmI', title: 'INFOANE Company Interview Process For Freshers' },
-  { id: 'NWDCUwbsGSM', title: 'Python " Loops " Basic interview questions and with answers for freshers' },
+  { id: 'yavE6elZ-6E', title: 'INFOANE Company Interview Process For Freshers' },
+  { id: 'xcGc6mTkWMY', title: 'Python " Loops " Basic interview questions and with answers for freshers' },
+  { id: 'W2ku9WMjph8', title: '4 Exciting Job Updates : Capgemini, Simplotel, Genpact and Zebra are Hiring | One Solutions' },
+  { id: '4eBNGRxkLmI', title: 'SQL CRUD Operations Mostly used in SQL Developers' },
+  { id: 'NWDCUwbsGSM', title: '5 Exciting Job Updates : Cognizant, Amazon, Razor, IntelliWorkz & EY are Hiring | One Solutions' },
 ];
 
 function YouTubeVideos() {
