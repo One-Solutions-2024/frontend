@@ -205,7 +205,7 @@
   border: none; /* Optional: no border */
   padding: 10px 35px; /* Optional: adjust button padding */
   cursor: pointer; /* Change the cursor to pointer for better UX */
-  margin-left: -390px;
+  margin-left: -380px;
 }
 
 .find-job-btn:hover {
@@ -687,9 +687,9 @@
 }
 
 :root {
-  --up-scroll-duration: 13s;
+  --up-scroll-duration: 25s;
   /* Faster scroll duration for up-row */
-  --down-scroll-duration: 13s;
+  --down-scroll-duration: 25s;
   /* Default scroll duration for down-row */
 
 }
@@ -849,7 +849,8 @@
   .job-card-newjob {
     display: flex;
     flex-direction: row;
-    width: 400px;
+    width: 160px;
+    height: 50px;
     background-color: #fff;
     padding: 10px;
     border-radius: 8px;
@@ -861,11 +862,29 @@
   }
 
   .job-image-newjob {
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
   }
+  .company-card-name-new-job,
+.job-title-newjob,
+.job-description-new-job {
+  font-size: 10px;
+  gap: 0px;
+}
+.new-jobs-list {
+  display: inline-block;
+  width: auto;
+  animation: scroll-left 100s linear infinite;
+  /* Scroll animation */
+  white-space: nowrap;
+  /* Keep items in a single line */
+}
+.job-description-newjob{
+  display: none;
+}
+
 
 }
 
@@ -973,11 +992,32 @@
 .new-jobs-list {
   display: inline-block;
   width: auto;
-  animation: scroll-left 15s linear infinite;
-  /* Scroll animation */
+  animation: scroll-left 10s linear infinite; /* Reduced animation duration */
+  animation-delay: 5s; /* Offset by half the animation duration */
+
   white-space: nowrap;
-  /* Keep items in a single line */
 }
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Duplicate the .new-jobs-list and offset it by 50% */
+.new-jobs-list-offset {
+  display: inline-block;
+  width: auto;
+  animation: scroll-left 50s linear infinite;
+  animation-delay: 5s; /* Offset by half the animation duration */
+  white-space: nowrap;
+}
+
+
+
 
 .new-job-item {
   display: inline-block;

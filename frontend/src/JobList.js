@@ -219,6 +219,8 @@ function JobList() {
       .join(' '); // Join the words back together
   }
 
+  
+
 
   // Determine the heading based on search results and available jobs
   const heading = searchQuery.trim() === '' || regularJobs.length > 0 ? "Opportunities..." : "Search Results...";
@@ -285,12 +287,33 @@ function JobList() {
                   onMouseLeave={handleResumeTrendingJobs} // Resume when hover ends
                 >
                   <div className='scrolling-container'>
-                    <div className='new-jobs-list'>
+                    
+                    
+                    <div className='new-jobs-list new-jobs-list-offset'>
                       {newJobs.map((job, index) => (
                         <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
                           <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
                           <span className='job-title'>{capitalizeWords(job.title)}</span>
                         </div>
+                       
+                      ))}
+                    </div>
+                    <div className='new-jobs-list new-jobs-list-offset'>
+                      {newJobs.map((job, index) => (
+                        <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
+                          <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
+                          <span className='job-title'>{capitalizeWords(job.title)}</span>
+                        </div>
+                       
+                      ))}
+                    </div>
+                    <div className='new-jobs-list new-jobs-list-offset'>
+                      {newJobs.map((job, index) => (
+                        <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
+                          <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
+                          <span className='job-title'>{capitalizeWords(job.title)}</span>
+                        </div>
+                       
                       ))}
                     </div>
                   </div>
@@ -317,7 +340,7 @@ function JobList() {
                           <div className='job-content'>
                             <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
                             <h2 className='job-title-newjob'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                            <p className='job-description-new-job'>{job.description.slice(0, 30)}...</p>
+                            <p className='job-description-newjob'>{capitalizeWords(job.description.slice(0, 30))}</p>
                           </div>
                         </div>
                       );
@@ -344,7 +367,8 @@ function JobList() {
                           <div className='job-content'>
                             <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
                             <h2 className='job-title-newjob'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                            <p className='job-description-new-job'>{job.description.slice(0, 30)}...</p>
+                            <p className='job-description-newjob'>{capitalizeWords(job.description.slice(0, 30))}</p>
+
                           </div>
                         </div>
                       );
