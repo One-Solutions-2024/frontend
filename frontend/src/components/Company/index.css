@@ -4,14 +4,13 @@
     background-color: transparent;
     color: white;
     height: 100%;
-    max-height: 100vh;
-
     flex-direction: row;
     padding: 20px;
     /* Adds padding to the container for spacing */
     flex-wrap: wrap;
     /* Allow content to wrap on smaller screens */
 }
+
 
 
 .details-side {
@@ -177,6 +176,8 @@ p {
   }
   
   .loader-div {
+    height: 30vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
