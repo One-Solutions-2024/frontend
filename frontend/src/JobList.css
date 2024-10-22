@@ -191,6 +191,29 @@
   padding-right: 100px;
 }
 
+.find-job-btn {
+  background: linear-gradient(to right, #080cec 50%, #6366f1 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  transition: background-position 0.5s ease-out;
+  color: white; /* Optional: text color adjustment */
+  border: none; /* Optional: no border */
+  padding: 10px 35px; /* Optional: adjust button padding */
+  cursor: pointer; /* Change the cursor to pointer for better UX */
+  margin-left: -350px;
+}
+
+.find-job-btn:hover {
+  background-position: left bottom;
+  outline: none; /* Removes the default outline */
+}
+
+
 /* Style for the pagination container */
 .pagination {
   display: flex;
@@ -408,6 +431,20 @@
     height: 10vh;
     width: 10vw;
     text-align: center;
+  }
+
+  .find-job-btn {
+    background-color: #6366f1;
+    padding: 5px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #f8fafc;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    margin-left: -200px;
+    margin-bottom: 20px;
   }
 
 

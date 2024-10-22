@@ -94,15 +94,15 @@ function JobList() {
       .replace(/[^\w\s]/g, '')       // Remove any non-word characters (e.g., punctuation)
       .replace(/\s+/g, '-')          // Replace spaces with dashes
       .toLowerCase();                // Convert to lowercase
-    
+
     // Encode the job's URL to make it safe for use in the navigation path
     const jobUrlEncoded = encodeURIComponent(job.url);
-  
+
     // Navigate to the company-specific job page with both company slug and job URL in the path
     navigate(`/company/${companyNameSlug}/${jobUrlEncoded}/`, { state: { job } });
   };
-  
-  
+
+
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -260,6 +260,12 @@ function JobList() {
             <div className='bigdevice-top-right'>
               <h1 className='banner-name'>One Solutions: Your Trusted Career Companion</h1>
               <p className='banner-description'>Where Students can find Jobs, Technologies Videos & Many More</p>
+              <button
+                className="find-job-btn"
+                type="button"
+                onClick={() => document.getElementById('jobs').scrollIntoView({ behavior: 'smooth' })}              >
+                Find Jobs
+              </button>
             </div>
           </div>
         </div>
@@ -284,7 +290,7 @@ function JobList() {
                         <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
                           <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
                           <span className='job-title'>{capitalizeWords(job.title)}</span>
-                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -348,7 +354,7 @@ function JobList() {
                 </div>
               </div>
             </div>
-            <div className='job-list-and-youtube'>
+            <div className='job-list-and-youtube' id='jobs'>
               <h1 className="side-headings">{heading}</h1>
               <div className='job-list'>
                 {searchQuery.trim() && regularJobs.length === 0 ? (
