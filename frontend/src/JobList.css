@@ -992,7 +992,7 @@
 .new-jobs-list {
   display: inline-block;
   width: auto;
-  animation: scroll-left 10s linear infinite; /* Reduced animation duration */
+  animation: scroll-left 20s linear infinite; /* Reduced animation duration */
   animation-delay: 5s; /* Offset by half the animation duration */
 
   white-space: nowrap;
