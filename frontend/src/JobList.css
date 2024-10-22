@@ -205,7 +205,7 @@
   border: none; /* Optional: no border */
   padding: 10px 35px; /* Optional: adjust button padding */
   cursor: pointer; /* Change the cursor to pointer for better UX */
-  margin-left: -350px;
+  margin-left: -360px;
 }
 
 .find-job-btn:hover {
@@ -435,7 +435,7 @@
 
   .find-job-btn {
     background-color: #6366f1;
-    padding: 5px 25px;
+    padding: 15px 25px;
     font-size: 15px;
     font-weight: bold;
     color: #f8fafc;
