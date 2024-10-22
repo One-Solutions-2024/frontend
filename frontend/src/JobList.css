@@ -845,6 +845,10 @@
 
 
 
+
+
+
+
 @media (max-width: 480px) {
   .job-card-newjob {
     display: flex;
@@ -940,7 +944,6 @@
   cursor: pointer;
   text-rendering: optimizeLegibility; /* Ensures smooth text rendering */
   -webkit-font-smoothing: antialiased; /* Ensures the text doesn't blur on webkit browsers */
-  font-smoothing: antialiased; /* For other browsers */
   transition: transform 0.2s ease-in-out;
 
 }

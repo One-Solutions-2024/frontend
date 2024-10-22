@@ -163,21 +163,22 @@ function JobList() {
   };
 
 
-  // Function to pause the scrolling animation for trending jobs
-  const handlePauseTrendingJobs = () => {
-    const scrollingContainer = document.querySelector('.new-jobs-list');
-    if (scrollingContainer) {
-      scrollingContainer.style.animationPlayState = 'paused';
-    }
-  };
+  // Function to pause the scrolling animation for all trending job lists
+const handlePauseTrendingJobs = () => {
+  const scrollingContainers = document.querySelectorAll('.new-jobs-list'); // Select all new-jobs-list elements
+  scrollingContainers.forEach((container) => {
+    container.style.animationPlayState = 'paused'; // Pause animation for each container
+  });
+};
 
-  // Function to resume the scrolling animation for trending jobs
-  const handleResumeTrendingJobs = () => {
-    const scrollingContainer = document.querySelector('.new-jobs-list');
-    if (scrollingContainer) {
-      scrollingContainer.style.animationPlayState = 'running';
-    }
-  };
+// Function to resume the scrolling animation for all trending job lists
+const handleResumeTrendingJobs = () => {
+  const scrollingContainers = document.querySelectorAll('.new-jobs-list'); // Select all new-jobs-list elements
+  scrollingContainers.forEach((container) => {
+    container.style.animationPlayState = 'running'; // Resume animation for each container
+  });
+};
+
 
   // Function to pause the scrolling animation for trending jobs
   const handlePauseTrendingJobslistuprow = () => {
