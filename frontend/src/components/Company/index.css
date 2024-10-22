@@ -175,8 +175,8 @@ p {
     animation: rotate 2s linear infinite;
   }
   
-  .loader-div {
-    height: 70vh;
+  .loader-div-company {
+    height: 50vh;
     width: 100vw;
     display: flex;
     justify-content: center;

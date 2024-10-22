@@ -44,7 +44,7 @@ class Company extends Component {
     return (
       <div>
         {isLoading ? (
-          <div className='loader-div'>
+          <div className='loader-div-company'>
             <p className="loader">Loading...</p>
           </div>
         ) : (
