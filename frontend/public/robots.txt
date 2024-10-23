@@ -1,5 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Allow:
+Disallow:
 
 Sitemap: https://one-solutions-job-notifications.onrender.com/sitemap.xml
