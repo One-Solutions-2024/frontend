@@ -94,27 +94,13 @@ function JobList() {
       .replace(/[^\w\s]/g, '')       // Remove any non-word characters (e.g., punctuation)
       .replace(/\s+/g, '-')          // Replace spaces with dashes
       .toLowerCase();                // Convert to lowercase
-  
+
     // Encode the job's URL to make it safe for use in the navigation path
     const jobUrlEncoded = encodeURIComponent(job.url);
-  
-    // Generate a random alphanumeric string
-    const generateRandomString = (length) => {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      let result = '';
-      for (let i = 0; i < length; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return result;
-    };
-  
-    // Generate a random string with a length of 8 characters (you can change the length)
-    const randomString = generateRandomString(8);
-  
-    // Navigate to the company-specific job page with both company slug, job URL, and random string in the path
-    navigate(`/company/${companyNameSlug}/${jobUrlEncoded}/${randomString}/`, { state: { job } });
+
+    // Navigate to the company-specific job page with both company slug and job URL in the path
+    navigate(`/company/${companyNameSlug}/${jobUrlEncoded}/`, { state: { job } });
   };
-  
 
 
 
