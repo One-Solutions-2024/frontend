@@ -49,9 +49,7 @@
   color: red; /* Make the 'X' icon red */
 }
 
-.navbar-nav .active{
-  border-bottom: 2px solid #d32525;
-}
+
 
 
 /* Media Queries for responsiveness */
@@ -115,10 +113,23 @@
   margin-right: 30px; /* Reduced margin for smaller screens */
 }
 
-.nav-link:hover{
-  text-decoration: underline 2px #d32525 ;
-  
+/* Add bottom border for active links */
+.nav-link li.active {
+  border-bottom: 2px solid #d32525;
+  text-decoration: none; /* No underline for active links */
 }
+
+/* Hover effect for non-active nav-links */
+.nav-link li:not(.active):hover {
+  text-decoration: underline 2px #d32525; /* Underline for non-active links on hover */
+}
+
+/* Ensure active links do not get underline on hover */
+.nav-link li.active:hover {
+  text-decoration: none; /* No underline for active links on hover */
+}
+
+
 #navItem1 {
   color: #323f4b;
   font-family: "Roboto";
