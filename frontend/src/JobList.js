@@ -233,7 +233,7 @@ const handleResumeTrendingJobs = () => {
         <img
         className="offline-imgage"
         src={assest.offline_image}  // Path to the local image in the 'public' folder
-        alt="Offline Image"
+        alt="You're Offline"
       />
       </div>
     ) : (
