@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from "./components/Footer";
 import YouTubeVideos from './components/Youtube';
-import { assest } from './Images/images'; "./"
+import { assest } from './Images/images';
 import './JobList.css';
 
 function JobList() {
