@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from "./components/Footer";
 import YouTubeVideos from './components/Youtube';
+import { assest } from './Images/images'; "./"
 import './JobList.css';
 
 function JobList() {
@@ -229,7 +230,11 @@ const handleResumeTrendingJobs = () => {
   return (
     !isOnline ? (
       <div className="offline-banner">
-        <h1 className='offline-heading'>You're Offline</h1>
+        <img
+        className="offline-imgage"
+        src={assest.offline_image}  // Path to the local image in the 'public' folder
+        alt="Offline Image"
+      />
       </div>
     ) : (
       <div className='app-container'>
