@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './header.css';
 
 const Header = () => {
+  const [menu,setMenu] = useState("home")
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
   const [navbarOpen, setNavbarOpen] = useState(false); // State to track navbar collapse
 
@@ -72,16 +73,16 @@ const Header = () => {
               <i className="fab fa-whatsapp header-whatsapp"></i>Whatsapp
             </a>
             <Link className="nav-link" id="navItem1" to="/">
-              <li>HOME</li>
+              <li  onClick={()=>setMenu("home") } className={menu==="home"?"active":""}>HOME</li>
             </Link>
             <Link className="nav-link" id="navItem2" to="https://one-solutions.pages.dev/">
-              <li>One Solutions Website</li>
+              <li onClick={()=>setMenu("one-solutions-website") } className={menu==="one-solutions-website"?"active":""}>One Solutions Website</li>
             </Link>
             <Link className="nav-link" id="navItem3" to="/contact">
-              <li>CONTACT</li>
+              <li onClick={()=>setMenu("contact") } className={menu==="contact"?"active":""}>CONTACT</li>
             </Link>
             <Link className="nav-link" id="navItem4" to="/JobList#follow-us-section">
-              <li>FOLLOW US</li>
+              <li onClick={()=>setMenu("follow-us") } className={menu==="follow-us"?"active":""}>FOLLOW US</li>
             </Link>
           </div>
         </div>

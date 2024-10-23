@@ -49,6 +49,11 @@
   color: red; /* Make the 'X' icon red */
 }
 
+.navbar-nav .active{
+  padding-bottom: 2px;
+  border-bottom: 2px solid #49557e;
+}
+
 
 /* Media Queries for responsiveness */
 @media (max-width: 1200px) {
