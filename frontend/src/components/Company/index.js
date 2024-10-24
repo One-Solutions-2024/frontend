@@ -39,7 +39,7 @@ class Company extends Component {
     const { companyname, title, description, applyLink, imageLink } = companyData;
 
     // Safely handle undefined description
-    const descriptionPoints = description ? description.split('@').map((point) => point.trim()) : [];
+    const descriptionPoints = description ? description.split('#').map((point) => point.trim()) : [];
 
     return (
       <div>
