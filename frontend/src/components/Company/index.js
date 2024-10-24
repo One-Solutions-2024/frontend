@@ -13,7 +13,7 @@ class Company extends Component {
   getCompanyData = async () => {
     const { companyname, url } = this.props.params; // Destructure both companyname and url from params
     try {
-      const response = await fetch(`https://backend-dvwo.onrender.com/api/jobs/company/${companyname}/${url}`);
+      const response = await fetch(`https://backend-vtwx.onrender.com/api/jobs/company/${companyname}/${url}`);
       if (!response.ok) {
         throw new Error('Failed to fetch company data');
       }
