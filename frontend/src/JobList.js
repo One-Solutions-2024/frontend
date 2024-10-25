@@ -27,6 +27,8 @@ function JobList() {
 
   const jobsPerPage = 8;
 
+  
+
   // Fetch all jobs from the API
   const fetchAllJobs = async () => {
     setLoading(true);
