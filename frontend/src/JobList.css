@@ -72,7 +72,7 @@
 }
 
 .job-description {
-  padding-right: 30px;
+  padding-left: 0px;
 }
 
 .loader {
@@ -314,6 +314,7 @@
 .company-card-name {
   color: red;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 
@@ -453,6 +454,9 @@
     outline: none;
     margin-left: -200px;
     margin-bottom: 20px;
+  }
+  .new-job-item{
+    margin-top: 5px;
   }
 
 
@@ -759,6 +763,7 @@
 .company-card-name-new-job {
   font-size: 18px;
   color: #d0b200;
+  font-weight: bold
   /* Change text color as needed */
 
 }
@@ -970,3 +975,92 @@
     /* Move to left (outside view) */
   }
 }
+
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #d0b200;
+  --background-color: #ffffff;
+  --text-color: #333;
+  --padding-small: 10px;
+  --padding-medium: 20px;
+  --padding-large: 40px;
+}
+.find-job-btn:hover {
+  background-position: left bottom;
+  transform: scale(1.05); /* Slightly scale on hover */
+}
+
+
+
+
+
+
+/* hover card details styles*/
+
+.job-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+}
+
+.job-card:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.job-hover-info .hover-job-title{
+  font-size: 15px;
+}
+
+.job-card img:hover{
+  opacity: 0.5;
+}
+
+.job-hover-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding-top: 30px;
+}
+
+.job-card:hover .job-hover-info {
+  transform: translate(0);
+}
+.job-card:hover {
+  transform: scale(1.02); /* Slightly enlarge the card */
+}
+
+.job-description-hover {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  font-size: 14px;
+  transform: translate(100%);
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover .job-description-hover {
+  transform: translate(0);
+}
+
+/* Basic layout styling for main content */
+.job-main-content {
+  padding: 10px;
+  text-align: center;
+}
+

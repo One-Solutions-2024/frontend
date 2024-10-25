@@ -169,20 +169,20 @@ function JobList() {
 
 
   // Function to pause the scrolling animation for all trending job lists
-const handlePauseTrendingJobs = () => {
-  const scrollingContainers = document.querySelectorAll('.new-jobs-list'); // Select all new-jobs-list elements
-  scrollingContainers.forEach((container) => {
-    container.style.animationPlayState = 'paused'; // Pause animation for each container
-  });
-};
+  const handlePauseTrendingJobs = () => {
+    const scrollingContainers = document.querySelectorAll('.new-jobs-list'); // Select all new-jobs-list elements
+    scrollingContainers.forEach((container) => {
+      container.style.animationPlayState = 'paused'; // Pause animation for each container
+    });
+  };
 
-// Function to resume the scrolling animation for all trending job lists
-const handleResumeTrendingJobs = () => {
-  const scrollingContainers = document.querySelectorAll('.new-jobs-list'); // Select all new-jobs-list elements
-  scrollingContainers.forEach((container) => {
-    container.style.animationPlayState = 'running'; // Resume animation for each container
-  });
-};
+  // Function to resume the scrolling animation for all trending job lists
+  const handleResumeTrendingJobs = () => {
+    const scrollingContainers = document.querySelectorAll('.new-jobs-list'); // Select all new-jobs-list elements
+    scrollingContainers.forEach((container) => {
+      container.style.animationPlayState = 'running'; // Resume animation for each container
+    });
+  };
 
 
   function capitalizeWords(str) {
@@ -193,7 +193,7 @@ const handleResumeTrendingJobs = () => {
       .join(' '); // Join the words back together
   }
 
-  
+
 
 
   // Determine the heading based on search results and available jobs
@@ -203,10 +203,10 @@ const handleResumeTrendingJobs = () => {
     !isOnline ? (
       <div className="offline-banner">
         <img
-        className="offline-imgage"
-        src={assest.offline_image}  // Path to the local image in the 'public' folder
-        alt="You're Offline"
-      />
+          className="offline-imgage"
+          src={assest.offline_image}  // Path to the local image in the 'public' folder
+          alt="You're Offline"
+        />
       </div>
     ) : (
       <div className='app-container'>
@@ -265,15 +265,15 @@ const handleResumeTrendingJobs = () => {
                   onMouseLeave={handleResumeTrendingJobs} // Resume when hover ends
                 >
                   <div className='scrolling-container'>
-                    
-                    
+
+
                     <div className='new-jobs-list new-jobs-list-offset'>
                       {newJobs.map((job, index) => (
                         <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
                           <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
                           <span className='job-title'>{capitalizeWords(job.title)}</span>
                         </div>
-                       
+
                       ))}
                     </div>
                     <div className='new-jobs-list new-jobs-list-offset'>
@@ -282,7 +282,7 @@ const handleResumeTrendingJobs = () => {
                           <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
                           <span className='job-title'>{capitalizeWords(job.title)}</span>
                         </div>
-                       
+
                       ))}
                     </div>
                     <div className='new-jobs-list new-jobs-list-offset'>
@@ -291,7 +291,7 @@ const handleResumeTrendingJobs = () => {
                           <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
                           <span className='job-title'>{capitalizeWords(job.title)}</span>
                         </div>
-                       
+
                       ))}
                     </div>
                   </div>
@@ -318,25 +318,26 @@ const handleResumeTrendingJobs = () => {
                   <div>No Jobs found for your search.</div>
                 ) : (
                   regularJobs.length > 0 && regularJobs.map((job) => (
-                    <div key={job.id}>
-                      <div
-                        className='job-card col-12 col-md-6 col-lg-3'
-                        onClick={() => handleCardClick(job)}
-                      >
-                        <h1 className='company-card-name'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
-                        <h2>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                        <img
-                          src={job.image_link}
-                          alt={job.title}
-                          className='job-image'
-                        />
-                        <p className='job-description'>{job.description.slice(0, 30)}...</p>
-                        <a href="#" className="menu-item-link">
-                          View
-                          <svg width="16px" height="16px" viewBox="0 0 16 16" className="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                          </svg>
-                        </a>
+                    <div key={job.id} className='job-card col-12 col-md-6 col-lg-3' onClick={() => handleCardClick(job)}>
+                      {/* Hover content (slides in from top left) */}
+                      <div className="job-hover-info">
+                        <h1 className="company-card-name">{capitalizeWords(job.companyname)}</h1>
+                        <h2 className="hover-job-title">{capitalizeWords(job.title)}</h2>
+                      </div>
+
+                      {/* Main content of the job card */}
+                      <div className="job-main-content">
+                        <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
+                        <h2 className='hover-none'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
+                        <img src={job.image_link} alt={job.title} className='job-image' />
+                      </div>
+
+                      {/* Bottom right description (slides up on hover) */}
+                      <div className="job-description-hover">
+                        {/* Extract and display the first point of the description */}
+                        <p className="job-description">
+                          {job.description.split('\n')[0].split('#')[0].slice(0, 200)}...
+                        </p>
                       </div>
                     </div>
                   ))
