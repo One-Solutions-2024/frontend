@@ -611,6 +611,7 @@
   /* Smooth transition for height */
   border: 1.5px solid rgb(0 0 0 / 10%);
   border-radius: 10px;
+  
 }
 
 .main-container.expanded {
@@ -706,6 +707,8 @@
 .new-jobs-container {
   overflow: hidden; /* Ensure smooth overflow handling */
   position: relative;
+  width: 100%;
+
 }
 
 
@@ -723,59 +726,8 @@
   
 }
 
-.job-rows {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 20px;
-  /* Space between the two rows */
-  overflow: hidden;
-  /* Prevent overflow of the entire row */
-}
 
-/* Up-row: scroll from left to right with faster speed */
-.up-row {
-  display: flex;
-  width: 100%;
 
-  gap: 10px;
-  white-space: nowrap;
-  animation: scroll-left-right var(--up-scroll-duration) linear infinite;
-  /* Use up-scroll-duration */
-  max-width: 100%;
-  /* Ensure row fits inside device width */
-}
-
-/* Down-row: scroll from right to left */
-.down-row {
-  display: flex;
-  width: 100%;
-
-  gap: 10px;
-  white-space: nowrap;
-  animation: scroll-right-left var(--down-scroll-duration) linear infinite;
-  /* Use default scroll-duration */
-  max-width: 100%;
-  /* Ensure row fits inside device width */
-}
-
-/* Job cards are inline-block for horizontal scrolling */
-.job-card-newjob {
-  display: flex;
-  flex-direction: row;
-  width: 400px;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-right: 10px;
-  cursor: pointer;
-  animation-play-state: running;
-  /* Animation running by default */
-  will-change: transform;
-  backface-visibility: hidden; /* Prevents blurring during transform */
-  transform: translateZ(0); /* Forces hardware acceleration */
-}
 
 
 .job-image-newjob {
@@ -805,7 +757,7 @@
 }
 
 .company-card-name-new-job {
-  font-size: 14px;
+  font-size: 18px;
   color: #d0b200;
   /* Change text color as needed */
 
@@ -819,41 +771,6 @@
   font-size: 12px;
   color: #555;
 }
-
-/* Keyframes for left-to-right scrolling (for up-row) */
-@keyframes scroll-left-right {
-  0% {
-    transform: translateX(-100%);
-    /* Start from offscreen on the left */
-  }
-
-  100% {
-    transform: translateX(100%);
-    /* Move to offscreen on the right */
-  }
-}
-
-/* Keyframes for right-to-left scrolling (for down-row) */
-@keyframes scroll-right-left {
-  0% {
-    transform: translateX(100%);
-    /* Start from offscreen on the right */
-  }
-
-  100% {
-    transform: translateX(-100%);
-    /* Move to offscreen on the left */
-  }
-}
-
-/* Pause animation on hover */
-.job-card-newjob:hover {
-  animation-play-state: paused;
-}
-
-
-
-
 
 
 
@@ -874,8 +791,8 @@
   }
 
   .job-image-newjob {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
   }
@@ -896,6 +813,9 @@
 .job-description-newjob{
   display: none;
 }
+.new-job-item .company-name{
+  font-size: 20px;
+}
 
 
 }
@@ -906,27 +826,24 @@
   width: 25%;
   display: flex;
   align-items: center;
-  flex: 1;
 
 }
 
 .trending-heading-right {
-  flex: 2;
   overflow: hidden;
   /* Ensure the overflow is hidden to mask the scroll */
   position: relative;
   width: 80%;
+  height: 35px;
 }
 
 .trending-name-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .trending-heading {
-  margin-bottom: 10px;
-  /* Space below the heading */
+ 
   font-size: 24px;
   /* Adjust the size as needed */
   color: white;
@@ -989,8 +906,7 @@
 }
 
 .scrolling-container {
-  white-space: nowrap;
-  /* Prevent line breaks */
+ 
   overflow: hidden;
   /* Hide overflow */
   display: flex;
@@ -1032,7 +948,7 @@
 
 .new-job-item {
   display: inline-block;
-  padding: 0 20px;
+  padding: 0px 20px;
   /* Space between items */
   color: white;
 }

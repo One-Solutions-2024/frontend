@@ -3,6 +3,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from "./components/Footer";
 import YouTubeVideos from './components/Youtube';
 import { assest } from './Images/images';
+import NewJobs from './components/NewJobs'; // Import the new component
+
+
+
 import './JobList.css';
 
 function JobList() {
@@ -181,38 +185,6 @@ const handleResumeTrendingJobs = () => {
 };
 
 
-  // Function to pause the scrolling animation for trending jobs
-  const handlePauseTrendingJobslistuprow = () => {
-    const scrollingContainer = document.querySelector('.up-row-hover');
-    if (scrollingContainer) {
-      scrollingContainer.style.animationPlayState = 'paused';
-    }
-  };
-
-  // Function to resume the scrolling animation for trending jobs
-  const handleResumeTrendingJobslistuprow = () => {
-    const scrollingContainer = document.querySelector('.up-row-hover');
-    if (scrollingContainer) {
-      scrollingContainer.style.animationPlayState = 'running';
-    }
-  };
-
-  // Function to pause the scrolling animation for trending jobs
-  const handlePauseTrendingJobslistdownrow = () => {
-    const scrollingContainer = document.querySelector('.down-row-hover');
-    if (scrollingContainer) {
-      scrollingContainer.style.animationPlayState = 'paused';
-    }
-  };
-
-  // Function to resume the scrolling animation for trending jobs
-  const handleResumeTrendingJobslistdownrow = () => {
-    const scrollingContainer = document.querySelector('.down-row-hover');
-    if (scrollingContainer) {
-      scrollingContainer.style.animationPlayState = 'running';
-    }
-  };
-
   function capitalizeWords(str) {
     return str
       .toLowerCase() // Make the entire string lowercase first
@@ -326,63 +298,18 @@ const handleResumeTrendingJobs = () => {
                 </div>
               </div>
 
+              <div>
+                {/* Pass newJobs as props to TrendingJobs */}
 
-              <div className='job-rows'>
-                {/* First row (up-row) */}
-                <div className='job-row up-row up-row-hover'>
-                  {newJobs.map((job, index) => {
-                    if (index % 2 === 0) {
-                      return (
-                        <div
-                          key={job.id}
-                          className='job-card-newjob'
-                          onMouseEnter={handlePauseTrendingJobslistuprow}  // Pause on hover
-                          onMouseLeave={handleResumeTrendingJobslistuprow} // Resume when hover ends
-                          onClick={() => handleCardClick(job)} // Ensure card click is handled
-                        >
-                          <div>
-                            <img src={job.image_link} alt={job.title} className='job-image-newjob' />
-                          </div>
-                          <div className='job-content'>
-                            <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
-                            <h2 className='job-title-newjob'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                            <p className='job-description-newjob'>{capitalizeWords(job.description.slice(0, 30))}</p>
-                          </div>
-                        </div>
-                      );
-                    }
-                    return null;
-                  })}
-                </div>
+                <NewJobs
+                  newJobs={newJobs}
+                  handleCardClick={handleCardClick}
+                  capitalizeWords={capitalizeWords}
+                />
 
-                {/* Second row (down-row) */}
-                <div className='job-row down-row down-row-hover'>
-                  {newJobs.map((job, index) => {
-                    if (index % 2 !== 0) {
-                      return (
-                        <div
-                          key={job.id}
-                          className='job-card-newjob'
-                          onMouseEnter={handlePauseTrendingJobslistdownrow}  // Pause on hover
-                          onMouseLeave={handleResumeTrendingJobslistdownrow} // Resume when hover ends
-                          onClick={() => handleCardClick(job)} // Ensure card click is handled
-                        >
-                          <div>
-                            <img src={job.image_link} alt={job.title} className='job-image-newjob' />
-                          </div>
-                          <div className='job-content'>
-                            <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
-                            <h2 className='job-title-newjob'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                            <p className='job-description-newjob'>{capitalizeWords(job.description.slice(0, 30))}</p>
-
-                          </div>
-                        </div>
-                      );
-                    }
-                    return null;
-                  })}
-                </div>
+                {/* Job list and YouTube logic remains the same... */}
               </div>
+
             </div>
             <div className='job-list-and-youtube' id='jobs'>
               <h1 className="side-headings">{heading}</h1>

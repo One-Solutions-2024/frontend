@@ -4,11 +4,16 @@ import NotFound from './components/NotFound';
 import Header from './components/Header';
 import Company from './components/Company';
 import Contact from './components/Contact';
+import BackToTop  from './components/BackToTop'
+import ScrollToTop from './utils/ScrollToTop'
 import "./App.css";
 
 const App = () => (
   <BrowserRouter>
+
     <Header />
+    <ScrollToTop/>
+
     <Routes>
       <Route path="/company/:companyname/:url" element={<Company />} /> {/* Using company name slug */}
       <Route path="/contact" element={<Contact />} />
@@ -17,6 +22,8 @@ const App = () => (
       <Route path="/not-found" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/not-found" />} />
     </Routes>
+    <BackToTop />
+
   </BrowserRouter>
 );
 

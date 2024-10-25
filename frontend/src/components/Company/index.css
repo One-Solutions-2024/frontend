@@ -11,8 +11,6 @@
     /* Allow content to wrap on smaller screens */
 }
 
-
-
 .details-side {
     display: flex;
     flex-direction: column;
@@ -98,6 +96,8 @@ hr {
 
 .heading {
     color: red;
+    font-size: 25px;
+    font-weight: bold;
     padding-left: 50px;
 }
 
@@ -223,7 +223,6 @@ p {
         /* Further adjust height */
         width: 300px;
         /* Further adjust width */
-        margin: 15px;
         /* Further adjust margin */
     }
 
@@ -249,8 +248,7 @@ p {
     }
     .heading{
         padding: 20px;
-        font-size: 25px;
-        
+        font-size: 16px;        
     }
     .descriptions-details-side {
         width: 100%;
