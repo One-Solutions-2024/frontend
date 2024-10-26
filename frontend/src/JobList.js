@@ -323,8 +323,8 @@ function JobList() {
                     <div key={job.id} className='job-card col-12 col-md-6 col-lg-3' onClick={() => handleCardClick(job)}>
                       {/* Hover content (slides in from top left) */}
                       <div className="job-hover-info">
-                        <h1 className="company-card-name">{capitalizeWords(job.companyname)}</h1>
-                        <h2 className="hover-job-title">{capitalizeWords(job.title)}</h2>
+                      <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 20).toUpperCase()}</h1>
+                      <h2 className="hover-job-title">{capitalizeWords(job.title)}</h2>
                       </div>
 
                       {/* Main content of the job card */}
