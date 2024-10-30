@@ -4,7 +4,7 @@ import NotFound from './components/NotFound';
 import Header from './components/Header';
 import Company from './components/Company';
 import Contact from './components/Contact';
-import BackToTop  from './components/BackToTop';
+import BackToTop from './components/BackToTop';
 import ScrollToTop from './utils/ScrollToTop';
 import Popup from "./components/PopUp"; // Adjust the path as needed
 
@@ -12,10 +12,10 @@ import "./App.css";
 
 const App = () => (
   <BrowserRouter>
-          <Popup />
+    <Popup />
 
     <Header />
-    <ScrollToTop/>
+    <ScrollToTop />
 
     <Routes>
       <Route path="/company/:companyname/:url" element={<Company />} /> {/* Using company name slug */}

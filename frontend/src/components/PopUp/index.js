@@ -36,8 +36,8 @@ const Popup = () => {
         </button>
         <h2>{popupContent.popup_heading}</h2>
         <p>{popupContent.popup_text}</p>
-        {popupContent.popup_Image_link && (
-          <img src={popupContent.popup_Image_link} alt="Popup content" />
+        {popupContent.popup_link && (
+          <img src={popupContent.popup_link} alt="Popup content" />
         )}
         <a href={popupContent.popup_routing_link}>{popupContent.popup_belowtext}</a>
       </div>
