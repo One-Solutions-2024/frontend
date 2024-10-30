@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./popup.css"; // Import CSS for styling
 
 const Popup = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -11,6 +12,7 @@ const Popup = () => {
         const response = await fetch("https://backend-vtwx.onrender.com/api/popup");
         if (response.ok) {
           const content = await response.json();
+          console.log("Fetched content:", content); // Log content to check structure
           setPopupContent(content);
           setShowPopup(true); // Show popup after content is loaded
         }
@@ -26,7 +28,8 @@ const Popup = () => {
     setShowPopup(false);
   };
 
-  if (!showPopup || !popupContent) return null;
+  // Check if popupContent has loaded and has the expected nested structure
+  if (!showPopup || !popupContent?.popup) return null;
 
   return (
     <div className="popup-overlay">
@@ -34,12 +37,12 @@ const Popup = () => {
         <button className="popup-close" onClick={handleClose}>
           &times;
         </button>
-        <h2>{popupContent.popup_heading}</h2>
-        <p>{popupContent.popup_text}</p>
-        {popupContent.popup_link && (
-          <img src={popupContent.popup_link} alt="Popup content" />
+        <h2>{popupContent.popup.popup_heading}</h2>
+        <p>{popupContent.popup.popup_text}</p>
+        {popupContent.popup.popup_link && (
+          <img src={popupContent.popup.popup_link} alt="Popup content" />
         )}
-        <a href={popupContent.popup_routing_link}>{popupContent.popup_belowtext}</a>
+        <a href={popupContent.popup.popup_routing_link}>{popupContent.popup.popup_belowtext}</a>
       </div>
     </div>
   );
