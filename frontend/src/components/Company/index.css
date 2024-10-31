@@ -27,9 +27,7 @@
     width: 70%;
 }
 
-.next-job-description {
-    padding-right: 15px;
-}
+
 
 .image-and-apply-link-heaidng {
     display: flex;
@@ -41,21 +39,7 @@
 }
 
 .left-side {
-    width: 100vw;
-}
-
-.right-side {
-    width: 40vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: rgb(26, 25, 25);
-    border-radius: 10px;
-    margin: 20px;
-    margin-top: 0px;
-    margin-right: 0px;
-
+    width: 50vw;
 }
 
 .right-and-left-side {
@@ -65,11 +49,12 @@
 }
 
 .image-apply-link {
-    margin-left: 100px;
     background-color: green;
     padding: 10px 55px;
     color: #fff;
     border-radius: 10px;
+    text-align: center;
+    width: 50%;
 }
 a:hover{
     color: white;
@@ -88,11 +73,6 @@ hr {
     border-radius: 20px;
 }
 
-.job-image-next {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-}
 
 .heading {
     color: red;
@@ -149,11 +129,7 @@ p {
     margin-bottom: 50px;
 }
 
-.next-job-link {
-    background-color: transparent;
-    color: #fff;
-    cursor: pointer;
-}
+
 
 .loader {
     position: relative;
@@ -183,6 +159,56 @@ p {
     align-items: center;
   
   }
+
+  .details-side-right-of-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: black;
+    height: 330px;
+    width: 500px;
+    margin: 20px;
+    padding: 10px
+   
+  }
+
+  .job-details-names {
+    width: 150px; /* Set specific width for job detail labels */
+    font-weight: bold;
+}
+
+.box-type-rows {
+    display: flex;              /* Arrange elements in a row */
+    align-items: center;        /* Align vertically */
+    border: 2px solid #ccc;     
+    padding: 10px;
+    margin: 0;
+    background-color: #f9f9f9;  /* Light background color */
+    border-radius: 4px;         /* Slight rounding */
+}
+
+.apply-link-container {
+    text-align: center;         /* Center the apply link */
+    margin-top: 10px;           /* Space above the apply link */
+}
+
+.image-apply-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;  /* Button color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.image-apply-link:hover {
+    background-color: #0056b3;  /* Darken on hover */
+}
+
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {

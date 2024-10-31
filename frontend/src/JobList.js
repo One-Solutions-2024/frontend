@@ -79,7 +79,13 @@ function JobList() {
     const filteredJobs = allJobs.filter(job =>
       job.companyname.toLowerCase().includes(searchQuery.toLowerCase()) ||
       job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.description.toLowerCase().includes(searchQuery.toLowerCase())
+      job.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.salary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.experience.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.job_type.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.batch.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.location.toLowerCase().includes(searchQuery.toLowerCase()) 
+      
     );
 
     // Exclude new jobs from regular jobs to avoid duplication
@@ -337,9 +343,13 @@ function JobList() {
                       {/* Bottom right description (slides up on hover) */}
                       <div className="job-description-hover">
                         {/* Extract and display the first point of the description */}
-                        <p className="job-description">
-                          {job.description.split('\n')[0].split('#')[0].slice(0, 200)}...
-                        </p>
+                        <div className="job-description-job-card">
+                         <p> {job.salary} </p>
+                         <p> {job.batch} </p>
+                         <p> {job.experience}</p>
+                         <p> {job.job_type}</p>
+                         <p> {job.location}</p>
+                        </div>
                       </div>
                     </div>
                   ))

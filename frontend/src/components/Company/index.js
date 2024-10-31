@@ -18,13 +18,18 @@ class Company extends Component {
         throw new Error('Failed to fetch company data');
       }
       const data = await response.json();
-  
+
       const updatedData = {
         companyname: data.companyname,
         title: data.title,
         description: data.description || '', // Handle potential undefined descriptions
         applyLink: data.apply_link,
         imageLink: data.image_link,
+        salary: data.salary,
+        location: data.location,
+        job_type: data.job_type,
+        experience: data.experience,
+        batch: data.batch,
       };
       this.setState({ companyData: updatedData, isLoading: false });
     } catch (error) {
@@ -32,11 +37,11 @@ class Company extends Component {
       this.setState({ isLoading: false });
     }
   };
-  
+
 
   render() {
     const { isLoading, companyData } = this.state;
-    const { companyname, title, description, applyLink, imageLink } = companyData;
+    const { companyname, title, description, applyLink, imageLink, salary, experience, batch, location, job_type } = companyData;
 
     // Safely handle undefined description
     const descriptionPoints = description ? description.split('#').map((point) => point.trim()) : [];
@@ -58,14 +63,24 @@ class Company extends Component {
                       alt={title}
                       className='job-image-details'
                     />
-                    <a href={applyLink} target="_blank" rel="noopener noreferrer" className='image-apply-link'>Apply</a>
                   </div>
                   <div>
                     <h2 className="heading">{companyname}: <span className="heading-details">{title}</span></h2>
-                    <hr />
+                  </div>
+                </div>
+                <div className="details-side-right-of-image">
+                  <p className='box-type-rows'><span className='job-details-names'>Salary: </span>{salary}</p>
+                  <p className='box-type-rows'><span className='job-details-names'>Location: </span>{location}</p>
+                  <p className='box-type-rows'><span className='job-details-names'>Job Type: </span>{job_type}</p>
+                  <p className='box-type-rows'><span className='job-details-names'>Experience: </span>{experience}</p>
+                  <p className='box-type-rows'><span className='job-details-names'>Batch: </span>{batch}</p>
+                  <div className='apply-link-container'>
+                    <a href={applyLink} target="_blank" rel="noopener noreferrer" className='image-apply-link'>Apply</a>
                   </div>
                 </div>
               </div>
+              <hr />
+
               <div className='details-side'>
                 <h3 className="qualifications">Qualifications:</h3>
                 <ul className='descriptions-details-side'>
