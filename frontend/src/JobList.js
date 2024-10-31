@@ -344,8 +344,8 @@ function JobList() {
                       <div className="job-description-hover">
                         {/* Extract and display the first point of the description */}
                         <div className="job-description-job-card">
+                        <p> {job.batch} </p>
                          <p> {job.salary} </p>
-                         <p> {job.batch} </p>
                          <p> {job.experience}</p>
                          <p> {job.job_type}</p>
                          <p> {job.location}</p>
