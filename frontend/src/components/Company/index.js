@@ -67,11 +67,11 @@ class Company extends Component {
                   </div>
                 </div>
                 <div className="details-side-right-of-image">
+                <p className='box-type-rows'><span className='job-details-names'>Batch: </span>{batch}</p>
                   <p className='box-type-rows'><span className='job-details-names'>Salary: </span>{salary}</p>
-                  <p className='box-type-rows'><span className='job-details-names'>Location: </span>{location}</p>
                   <p className='box-type-rows'><span className='job-details-names'>Job Type: </span>{job_type}</p>
                   <p className='box-type-rows'><span className='job-details-names'>Experience: </span>{experience}</p>
-                  <p className='box-type-rows'><span className='job-details-names'>Batch: </span>{batch}</p>
+                  <p className='box-type-rows'><span className='job-details-names'>Location: </span>{location}</p>
                   <div className='apply-link-container'>
                     <a href={applyLink} target="_blank" rel="noopener noreferrer" className='image-apply-link'>Apply</a>
                   </div>
