@@ -255,11 +255,12 @@ p {
     .job-image-details {
         height: 300px;
         /* Further adjust height */
-        width: 335px;
+        width: 310px;
         /* Further adjust width */
         /* Further adjust margin */
         margin: 10px;
         /* Adjust margin */
+        margin-left: 0px;
     }
     .image-small-device{
         width: 100%;
@@ -283,6 +284,7 @@ p {
     .heading{
         font-size: 20px; 
         padding-right: 0px;
+        padding-left: 20px;
     }
     .descriptions-details-side {
         width: 100%;
