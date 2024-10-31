@@ -236,6 +236,14 @@ p {
         margin-top: 20px;
         /* Add top margin for spacing */
     }
+    .right-and-left-side{
+        display: flex;
+        flex-direction: column;
+    }
+    .details-side-right-of-image{
+        width: 100%;
+        margin-left: 0px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -247,9 +255,14 @@ p {
     .job-image-details {
         height: 300px;
         /* Further adjust height */
-        width: 300px;
+        width: 335px;
         /* Further adjust width */
         /* Further adjust margin */
+        margin: 10px;
+        /* Adjust margin */
+    }
+    .image-small-device{
+        width: 100%;
     }
 
     .details-side {
@@ -262,22 +275,25 @@ p {
         display: none;
     }
 
-    .image-small-device {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
+    
     .left-side {
         border-radius: 10px;
+        width: 100%;
     }
     .heading{
-        padding: 20px;
-        font-size: 16px;        
+        font-size: 20px; 
+        padding-right: 0px;
     }
     .descriptions-details-side {
         width: 100%;
         padding-right: 15px;
+    }
+    .right-and-left-side{
+        display: flex;
+        flex-direction: column;
+    }
+    .details-side-right-of-image{
+        width: 100%;
+        margin-left: 0px;
     }
 }

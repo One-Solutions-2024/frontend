@@ -63,8 +63,6 @@ class Company extends Component {
                       alt={title}
                       className='job-image-details'
                     />
-                  </div>
-                  <div>
                     <h2 className="heading">{companyname}: <span className="heading-details">{title}</span></h2>
                   </div>
                 </div>
