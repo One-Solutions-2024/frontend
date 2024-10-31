@@ -6,22 +6,28 @@ const Popup = () => {
   const [popupContent, setPopupContent] = useState(null);
 
   useEffect(() => {
-    // Fetch popup content from the backend
-    const fetchPopupContent = async () => {
-      try {
-        const response = await fetch("https://backend-vtwx.onrender.com/api/popup");
-        if (response.ok) {
-          const content = await response.json();
-          console.log("Fetched content:", content); // Log content to check structure
-          setPopupContent(content);
-          setShowPopup(true); // Show popup after content is loaded
-        }
-      } catch (error) {
-        console.error("Error fetching popup content:", error);
-      }
-    };
+    // Check if the popup has been shown before
+    const isPopupShown = localStorage.getItem("isPopupShown");
 
-    fetchPopupContent();
+    if (!isPopupShown) {
+      // Fetch popup content from the backend
+      const fetchPopupContent = async () => {
+        try {
+          const response = await fetch("https://backend-vtwx.onrender.com/api/popup");
+          if (response.ok) {
+            const content = await response.json();
+            console.log("Fetched content:", content); // Log content to check structure
+            setPopupContent(content);
+            setShowPopup(true); // Show popup after content is loaded
+            localStorage.setItem("isPopupShown", "true"); // Mark the popup as shown
+          }
+        } catch (error) {
+          console.error("Error fetching popup content:", error);
+        }
+      };
+
+      fetchPopupContent();
+    }
   }, []);
 
   const handleClose = () => {
@@ -37,12 +43,19 @@ const Popup = () => {
         <button className="popup-close" onClick={handleClose}>
           &times;
         </button>
-        <h2>{popupContent.popup.popup_heading}</h2>
+        <h2 className="popup-heading">{popupContent.popup.popup_heading}</h2>
         <p>{popupContent.popup.popup_text}</p>
         {popupContent.popup.popup_link && (
           <img src={popupContent.popup.popup_link} alt="Popup content" />
         )}
-        <a href={popupContent.popup.popup_routing_link}>{popupContent.popup.popup_belowtext}</a>
+        <a
+          className="below-text"
+          href={popupContent.popup.popup_routing_link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {popupContent.popup.popup_belowtext}
+        </a>
       </div>
     </div>
   );

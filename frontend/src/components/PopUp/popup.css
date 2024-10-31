@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Popup container styling */
@@ -50,7 +51,11 @@
   color: #007bff;
   text-decoration: none;
 }
+.popup-heading{
+  font-weight: bold;
+}
 
 .popup a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: crimson;
 }
