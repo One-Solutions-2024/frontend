@@ -313,6 +313,7 @@ function JobList() {
                   newJobs={newJobs}
                   handleCardClick={handleCardClick}
                   capitalizeWords={capitalizeWords}
+                  searchQuery={searchQuery}
                 />
 
                 {/* Job list and YouTube logic remains the same... */}

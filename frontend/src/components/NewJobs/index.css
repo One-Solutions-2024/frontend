@@ -7,6 +7,11 @@
     padding: 2.5rem 2rem 2rem 2rem;
 }
 
+.skills-scrolls-container{
+    width: 100%;
+    margin: 0 2rem;
+
+}
 .skillsHeader h2 {
     font-family: var(--primaryFont);
     font-style: normal;
@@ -15,11 +20,6 @@
     text-align: center;
 }
 
-
-.skill--scroll {
-    width: 100%;
-    margin: 0 2rem;
-}
 
 
 .skill--box {
@@ -61,6 +61,17 @@
 .marquee {
     padding: 3rem 0;
 }
+
+.stable-job-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure wrapping for multiple jobs */
+    margin: 10px 0; /* Add margin for spacing */
+}
+
+
+
 
 
 @media (min-width: 992px) and (max-width: 1380px) {
