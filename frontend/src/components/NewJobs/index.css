@@ -72,6 +72,15 @@
 
 
 
+.coming-soon-message {
+    font-size: 24px; /* Adjust size as necessary */
+    color: #ff5733; /* Customize color */
+    text-align: center; /* Center the message */
+    margin: 20px; /* Add some margin */
+}
+
+
+
 
 
 @media (min-width: 992px) and (max-width: 1380px) {

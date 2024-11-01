@@ -324,7 +324,7 @@ function JobList() {
               <h1 className="side-headings">{heading}</h1>
               <div className='job-list'>
                 {searchQuery.trim() && regularJobs.length === 0 ? (
-                  <div>No Jobs found for your search.</div>
+                  <div>Check Jobs In Trending...</div>
                 ) : (
                   regularJobs.length > 0 && regularJobs.map((job) => (
                     <div key={job.id} className='job-card col-12 col-md-6 col-lg-3' onClick={() => handleCardClick(job)}>

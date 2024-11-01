@@ -15,7 +15,7 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
 
     return (
         <div className="skills">
-            {/* Stable job container only shows if there are filtered jobs */}
+            {/* Display Marquee when searchQuery is empty */}
             {searchQuery === "" ? (
                 <div className='skills-scrolls-container'>
                     <div className="skill--scroll">
@@ -79,25 +79,28 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
                     </div>
                 </div>
             ) : (
-                // Show scrolling job containers if no filtered jobs
-
-
+                // Show stable job container if searchQuery is not empty
                 <div className="stable-job-container">
-                    {filteredNewJobs.map((job) => (
-                        <div className="skill--box"
-                            key={job.id}
-                            onClick={() => handleCardClick(job)} // Ensure card click is handled
-                        >
-                            <div>
-                                <img src={job.image_link} alt={job.title} className='job-image-newjob' />
+                    {filteredNewJobs.length > 0 ? (
+                        filteredNewJobs.map((job) => (
+                            <div className="skill--box"
+                                key={job.id}
+                                onClick={() => handleCardClick(job)} // Ensure card click is handled
+                            >
+                                <div>
+                                    <img src={job.image_link} alt={job.title} className='job-image-newjob' />
+                                </div>
+                                <div className='job-content'>
+                                    <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
+                                    <h2 className='job-title-newjob'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
+                                    <p className='job-description-newjob'>{capitalizeWords(job.description.slice(0, 30))}</p>
+                                </div>
                             </div>
-                            <div className='job-content'>
-                                <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
-                                <h2 className='job-title-newjob'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                                <p className='job-description-newjob'>{capitalizeWords(job.description.slice(0, 30))}</p>
-                            </div>
-                        </div>
-                    ))}
+                        ))
+                    ) : (
+                        <p className="coming-soon-message">Coming Soon! Check in Search Results</p> // Message when no jobs are available
+                        
+                    )}
                 </div>
             )}
         </div>
