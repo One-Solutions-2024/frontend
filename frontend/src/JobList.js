@@ -212,7 +212,7 @@ function JobList() {
       <div className="offline-banner">
         <img
           className="offline-imgage"
-          src={assest.offline_image}  // Path to the local image in the 'public' folder
+          src={assest.offlineimage}  // Path to the local image in the 'public' folder
           alt="You're Offline"
         />
       </div>

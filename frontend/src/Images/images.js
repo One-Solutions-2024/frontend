@@ -1,4 +1,4 @@
-import offline_image from "./offline_image.jpg"
+import offlineimage from "./offlineimage.jpg"
 export const assest = {
-    offline_image
+    offlineimage
 }
