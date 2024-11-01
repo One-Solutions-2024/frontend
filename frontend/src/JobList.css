@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
 .job-list {
@@ -161,7 +161,6 @@
   color: #181818;
   font-size: 38px;
   font-family: "Roboto", "sans-serif";
-  padding-left: 50px;
 
 }
 
@@ -209,7 +208,6 @@
   border: none; /* Optional: no border */
   padding: 10px 35px; /* Optional: adjust button padding */
   cursor: pointer; /* Change the cursor to pointer for better UX */
-  margin-left: -380px;
 }
 
 .find-job-btn:hover {
