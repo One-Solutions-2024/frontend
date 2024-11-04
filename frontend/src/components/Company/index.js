@@ -30,6 +30,8 @@ class Company extends Component {
         job_type: data.job_type,
         experience: data.experience,
         batch: data.batch,
+        job_uploader: data.job_uploader,
+        createdat: data.createdat,
       };
       this.setState({ companyData: updatedData, isLoading: false });
     } catch (error) {
@@ -39,9 +41,17 @@ class Company extends Component {
   };
 
 
+
+
   render() {
     const { isLoading, companyData } = this.state;
-    const { companyname, title, description, applyLink, imageLink, salary, experience, batch, location, job_type } = companyData;
+    const { companyname, title, description, applyLink, imageLink, salary, experience, batch, location, job_type, job_uploader, createdat } = companyData;
+    // Assuming createdat is an ISO string like "2024-11-04T04:55:37.707Z"
+    const formattedDate = new Date(createdat).toLocaleDateString('en-US', {
+      month: 'long',   // Displays "November"
+      day: 'numeric',  // Displays "4"
+      year: 'numeric'  // Displays "2024"
+    });
 
     // Safely handle undefined description
     const descriptionPoints = description ? description.split('#').map((point) => point.trim()) : [];
@@ -58,6 +68,10 @@ class Company extends Component {
               <div className='right-and-left-side'>
                 <div className='image-and-apply-link-heading left-side'>
                   <div className='image-small-device'>
+                    <div className='job-uploader-container'>
+                      <img src='https://secure.gravatar.com/avatar/f1da19871277fbadfc31d4c04d3b9004?s=96&d=mm&r=g' className='image-icon' />
+                      <h1 className='job-uploader-details'>By <strong className='job-uploader-name'>{job_uploader}</strong>{formattedDate}</h1>
+                    </div>
                     <img
                       src={imageLink}
                       alt={title}
@@ -67,7 +81,7 @@ class Company extends Component {
                   </div>
                 </div>
                 <div className="details-side-right-of-image">
-                <p className='box-type-rows'><span className='job-details-names'>Batch: </span>{batch}</p>
+                  <p className='box-type-rows'><span className='job-details-names'>Batch: </span>{batch}</p>
                   <p className='box-type-rows'><span className='job-details-names'>Salary: </span>{salary}</p>
                   <p className='box-type-rows'><span className='job-details-names'>Job Type: </span>{job_type}</p>
                   <p className='box-type-rows'><span className='job-details-names'>Experience: </span>{experience}</p>
