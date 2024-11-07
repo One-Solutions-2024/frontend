@@ -35,7 +35,7 @@ class Company extends Component {
       };
 
       // Set the document title dynamically
-    document.title = `${data.companyname} - ${data.title}`;
+    document.title = `${data.companyname.toUpperCase()} - ${data.title.toUpperCase()}`;
 
       this.setState({ companyData: updatedData, isLoading: false });
     } catch (error) {
