@@ -72,7 +72,7 @@ const Header = () => {
             <a className="button-whatsapp" href="https://whatsapp.com/channel/0029VaoOmU93gvWdCy0dmr3z" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-whatsapp header-whatsapp"></i>Whatsapp
             </a>
-            <Link className="nav-link" id="navItem1" to="/">
+            <Link className="nav-link" id="navItem1" to="https://one-solutions-job-notifications.onrender.com/">
               <li onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>
                 HOME
               </li>
