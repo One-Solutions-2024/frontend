@@ -33,6 +33,10 @@ class Company extends Component {
         job_uploader: data.job_uploader,
         createdat: data.createdat,
       };
+
+      // Set the document title dynamically
+    document.title = `${data.companyname} - ${data.title}`;
+
       this.setState({ companyData: updatedData, isLoading: false });
     } catch (error) {
       console.error('Error fetching company data:', error);
