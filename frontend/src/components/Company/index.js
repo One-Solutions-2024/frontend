@@ -10,6 +10,16 @@ class Company extends Component {
     this.getCompanyData();
   }
 
+  // Function to capitalize each word
+  capitalizeWords = (str) => {
+    return str
+      .toLowerCase() // Make the entire string lowercase first
+      .split(' ') // Split the string by spaces
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+      .join(' '); // Join the words back together
+  };
+
+
   getCompanyData = async () => {
     const { companyname, url } = this.props.params; // Destructure both companyname and url from params
     try {
@@ -42,12 +52,17 @@ class Company extends Component {
       console.error('Error fetching company data:', error);
       this.setState({ isLoading: false });
     }
+    
   };
 
+  
+
+  
 
 
 
   render() {
+    
     const { isLoading, companyData } = this.state;
     const { companyname, title, description, applyLink, imageLink, salary, experience, batch, location, job_type, job_uploader, createdat } = companyData;
     // Assuming createdat is an ISO string like "2024-11-04T04:55:37.707Z"
@@ -80,9 +95,9 @@ class Company extends Component {
                       src={imageLink}
                       alt={title}
                       className='job-image-details'
-                    />
-                    <h2 className="heading">{companyname}: <span className="heading-details">{title}</span></h2>
-                  </div>
+                    />          
+                    <h2 className="heading">{companyname.toUpperCase()}: <span className="heading-details">{this.capitalizeWords(title)}</span></h2>
+                    </div>
                 </div>
                 <div className="details-side-right-of-image">
                   <p className='box-type-rows'><span className='job-details-names'>Batch: </span>{batch}</p>
