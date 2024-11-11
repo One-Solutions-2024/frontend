@@ -288,4 +288,10 @@ a:hover{
   .navbar-logo {
     margin-left: 0px; /* Reduced margin for smaller screens */
   }
+  .navbar-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
