@@ -1,38 +1,65 @@
 import React, { Component } from 'react';
-import { useParams } from 'react-router-dom'; // Import useParams from react-router-dom
+import { useParams } from 'react-router-dom';
 import Footer from "../Footer";
 import './index.css';
 
 class Company extends Component {
-  state = { companyData: {}, isLoading: true };
+  state = { 
+    companyData: {}, 
+    isLoading: true, 
+    formattedDate: '' // Add a state variable to store the formatted date
+  };
 
   componentDidMount() {
     this.getCompanyData();
+    // Initial format of date based on screen size
+    this.formatAndSetDate();
+
+    // Add resize event listener
+    window.addEventListener('resize', this.formatAndSetDate);
+  }
+
+  componentWillUnmount() {
+    // Remove resize event listener to prevent memory leaks
+    window.removeEventListener('resize', this.formatAndSetDate);
   }
 
   // Function to capitalize each word
   capitalizeWords = (str) => {
     return str
-      .toLowerCase() // Make the entire string lowercase first
-      .split(' ') // Split the string by spaces
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
-      .join(' '); // Join the words back together
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
   };
 
+  // Function to format date based on screen size and set it in state
+  formatAndSetDate = () => {
+    const { createdat } = this.state.companyData;
+    if (createdat) { // Only format if the createdat value exists
+      const isSmallScreen = window.innerWidth <= 768;
+      const options = {
+        month: isSmallScreen ? 'short' : 'long',
+        day: 'numeric',
+        year: 'numeric'
+      };
+      const formattedDate = new Date(createdat).toLocaleDateString('en-US', options);
+      this.setState({ formattedDate });
+    }
+  };
 
   getCompanyData = async () => {
-    const { companyname, url } = this.props.params; // Destructure both companyname and url from params
+    const { companyname, url } = this.props.params;
     try {
       const response = await fetch(`https://backend-vtwx.onrender.com/api/jobs/company/${companyname}/${url}`);
       if (!response.ok) {
         throw new Error('Failed to fetch company data');
       }
       const data = await response.json();
-
       const updatedData = {
         companyname: data.companyname,
         title: data.title,
-        description: data.description || '', // Handle potential undefined descriptions
+        description: data.description || '',
         applyLink: data.apply_link,
         imageLink: data.image_link,
         salary: data.salary,
@@ -41,38 +68,22 @@ class Company extends Component {
         experience: data.experience,
         batch: data.batch,
         job_uploader: data.job_uploader,
-        createdat: data.createdat,
+        createdat: data.createdat
       };
 
-      // Set the document title dynamically
-    document.title = `${data.companyname.toUpperCase()} - ${data.title.toUpperCase()}`;
+      document.title = `${data.companyname.toUpperCase()} - ${data.title.toUpperCase()}`;
 
-      this.setState({ companyData: updatedData, isLoading: false });
+      this.setState({ companyData: updatedData, isLoading: false }, this.formatAndSetDate);
     } catch (error) {
       console.error('Error fetching company data:', error);
       this.setState({ isLoading: false });
     }
-    
   };
 
-  
-
-  
-
-
-
   render() {
-    
-    const { isLoading, companyData } = this.state;
-    const { companyname, title, description, applyLink, imageLink, salary, experience, batch, location, job_type, job_uploader, createdat } = companyData;
-    // Assuming createdat is an ISO string like "2024-11-04T04:55:37.707Z"
-    const formattedDate = new Date(createdat).toLocaleDateString('en-US', {
-      month: 'long',   // Displays "November"
-      day: 'numeric',  // Displays "4"
-      year: 'numeric'  // Displays "2024"
-    });
+    const { isLoading, companyData, formattedDate } = this.state;
+    const { companyname, title, description, applyLink, imageLink, salary, experience, batch, location, job_type, job_uploader } = companyData;
 
-    // Safely handle undefined description
     const descriptionPoints = description ? description.split('#').map((point) => point.trim()) : [];
 
     return (
@@ -88,8 +99,8 @@ class Company extends Component {
                 <div className='image-and-apply-link-heading left-side'>
                   <div className='image-small-device'>
                     <div className='job-uploader-container'>
-                      <img src='https://secure.gravatar.com/avatar/f1da19871277fbadfc31d4c04d3b9004?s=96&d=mm&r=g' className='image-icon' />
-                      <h1 className='job-uploader-details'>By <strong className='job-uploader-name'>{job_uploader}</strong>{formattedDate}</h1>
+                      <img src='https://secure.gravatar.com/avatar/f1da19871277fbadfc31d4c04d3b9004?s=96&d=mm&r=g' className='image-icon' alt="Job Uploader Icon" />
+                      <h1 className='job-uploader-details'>By <strong className='job-uploader-name'>{job_uploader}</strong> {formattedDate}</h1>
                     </div>
                     <img
                       src={imageLink}
@@ -97,7 +108,7 @@ class Company extends Component {
                       className='job-image-details'
                     />          
                     <h2 className="heading">{companyname.toUpperCase()}: <span className="heading-details">{this.capitalizeWords(title)}</span></h2>
-                    </div>
+                  </div>
                 </div>
                 <div className="details-side-right-of-image">
                   <p className='box-type-rows'><span className='job-details-names'>Batch: </span>{batch}</p>
@@ -139,7 +150,7 @@ class Company extends Component {
 // Create a HOC that injects the params into the class component
 function withRouter(Component) {
   return function ComponentWithRouterProp(props) {
-    const params = useParams(); // Use useParams hook to get the route parameters
+    const params = useParams();
     return <Component {...props} params={params} />;
   };
 }
