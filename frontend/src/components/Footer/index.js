@@ -31,7 +31,7 @@ const Footer = () => (
 
         <footer>
             <div className="footer-copyright">
-                <p>&copy; 2024 <a className="span-copy" href="#home">One Solutions</a>. All rights reserved.</p>
+                <p>&copy; 2024 <a className="span-copy" href="/">One Solutions</a>. All rights reserved.</p>
             </div>
         </footer>
     </div>

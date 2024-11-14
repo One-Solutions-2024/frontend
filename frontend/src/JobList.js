@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import YouTubeVideos from './components/Youtube';
 import { assest } from './Images/images';
 import NewJobs from './components/NewJobs'; // Import the new component
+import RunningJobs from './components/RunningJobs';
 
 
 
@@ -257,7 +258,11 @@ function JobList() {
             </div>
           </div>
         </div>
-
+        <hr />
+        <RunningJobs 
+         handleCardClick={handleCardClick}
+        jobs={newJobs.slice(0, 3)} />
+        <hr />
         {loading ? (
           <div className='loader-div'>
             <p className="loader">Loading...</p>
