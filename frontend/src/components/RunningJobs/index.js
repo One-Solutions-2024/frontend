@@ -15,7 +15,7 @@ const RunningJobs = ({ jobs = [], handleCardClick }) => { // Set default value f
     return (
         <div className="slider-container">
             <Slider {...settings}>
-                {jobs.length > 0 ? (
+                {
                     jobs.map((job) => (
                         <div key={job.id} className="job-slide" 
                         onClick={() => handleCardClick(job)} // Ensure card click is handled
@@ -27,11 +27,7 @@ const RunningJobs = ({ jobs = [], handleCardClick }) => { // Set default value f
                             <p>{job.title.toUpperCase()}</p>
                         </div>
                     ))
-                ) : (
-                    <div className="no-jobs-message">
-                        <p>No jobs available</p> {/* Display message if jobs array is empty */}
-                    </div>
-                )}
+               }
             </Slider>
         </div>
     );

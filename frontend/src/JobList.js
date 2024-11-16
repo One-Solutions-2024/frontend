@@ -28,7 +28,7 @@ function JobList() {
 
   const jobsPerPage = 8;
 
-  
+
 
   // Fetch all jobs from the API
   const fetchAllJobs = async () => {
@@ -85,8 +85,8 @@ function JobList() {
       job.experience.toLowerCase().includes(searchQuery.toLowerCase()) ||
       job.job_type.toLowerCase().includes(searchQuery.toLowerCase()) ||
       job.batch.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.location.toLowerCase().includes(searchQuery.toLowerCase()) 
-      
+      job.location.toLowerCase().includes(searchQuery.toLowerCase())
+
     );
 
     // Exclude new jobs from regular jobs to avoid duplication
@@ -258,17 +258,23 @@ function JobList() {
             </div>
           </div>
         </div>
-        <hr />
-        <RunningJobs 
-         handleCardClick={handleCardClick}
-        jobs={newJobs.slice(0, 3)} />
-        <hr />
+
         {loading ? (
           <div className='loader-div'>
             <p className="loader">Loading...</p>
           </div>
         ) : (
           <div>
+
+
+            <hr />
+            <RunningJobs
+              handleCardClick={handleCardClick}
+              jobs={newJobs.slice(0, 3)} 
+              />
+            <hr />
+
+
             <div className='new-jobs'>
               <div className='trending-name-container'>
                 <h1 className="side-headings trending-heading-left">Trending</h1>
@@ -335,8 +341,8 @@ function JobList() {
                     <div key={job.id} className='job-card col-12 col-md-6 col-lg-3' onClick={() => handleCardClick(job)}>
                       {/* Hover content (slides in from top left) */}
                       <div className="job-hover-info">
-                      <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 20).toUpperCase()}</h1>
-                      <h2 className="hover-job-title">{capitalizeWords(job.title)}</h2>
+                        <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 20).toUpperCase()}</h1>
+                        <h2 className="hover-job-title">{capitalizeWords(job.title)}</h2>
                       </div>
 
                       {/* Main content of the job card */}
@@ -350,11 +356,11 @@ function JobList() {
                       <div className="job-description-hover">
                         {/* Extract and display the first point of the description */}
                         <div className="job-description-job-card">
-                        <p> {job.batch} </p>
-                         <p> {job.salary} </p>
-                         <p> {job.experience}</p>
-                         <p> {job.job_type}</p>
-                         <p> {job.location}</p>
+                          <p> {job.batch} </p>
+                          <p> {job.salary} </p>
+                          <p> {job.experience}</p>
+                          <p> {job.job_type}</p>
+                          <p> {job.location}</p>
                         </div>
                       </div>
                     </div>
