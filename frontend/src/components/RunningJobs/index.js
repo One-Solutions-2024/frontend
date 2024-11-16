@@ -28,7 +28,7 @@ const RunningJobs = ({ jobs = [], handleCardClick }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTrendingIndex((prevIndex) => (prevIndex + 1) % jobs.length);
-        }, 4000); // Change job every 3 seconds
+        }, 3000); // Change job every 3 seconds
 
         return () => clearInterval(interval); // Cleanup interval on component unmount
     }, [jobs.length]);
