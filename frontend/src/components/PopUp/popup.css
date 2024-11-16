@@ -44,22 +44,23 @@
   border-radius: 5px;
 }
 
-.callToAction:hover, 
+.callToAction:hover,
 .callToAction:active {
   border-color: #002b84;
   background-color: #005eb7;
 }
 
-.callToAction{
+.callToAction {
   color: #ffffff;
   text-shadow: 0 1px 0 #0078d1;
   border-color: #00459e;
   border: none;
   border-radius: 5px;
-
+  margin-top: 15px;
   background-color: #0078d1;
 }
-.callToAction a{
+
+.callToAction a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   color: #ffffff;
@@ -83,18 +84,21 @@
   cursor: pointer;
   border: none;
   background-color: #00459e;
-  opacity: 1; /* Ensures full opacity */
+  opacity: 1;
+  /* Ensures full opacity */
 }
 
 .close:hover {
   text-decoration: none;
   background-color: #0400ff;
   color: #ffffff;
-  opacity: 1; /* Ensures full opacity on hover */
+  opacity: 1;
+  /* Ensures full opacity on hover */
 
 }
 
-.close i, .close span {
+.close i,
+.close span {
   font-size: 8px;
   margin: 11px;
   font-weight: bold;
