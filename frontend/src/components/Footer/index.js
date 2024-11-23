@@ -15,7 +15,7 @@ const Footer = () => (
                         <img className="bottom-icons-instagram"
                             src="https://th.bing.com/th/id/R.735dda68880a385ce8cc5be4f3c5fcd6?rik=qSxRw2lCZYy9Mw&riu=http%3a%2f%2fpngimg.com%2fuploads%2finstagram%2finstagram_PNG11.png&ehk=QVCbfkCKi8pJLF08bRkS%2fLeMqLTnJQf402WRaIdN6jE%3d&risl=&pid=ImgRaw&r=0" alt='instagram' rel="noreferrer" />
                     </a>
-                    <a href="https://www.linkedin.com/in/one-solutions-131947329/" target="_blank">
+                    <a href="https://www.linkedin.com/in/one-solutions-ekam-131947329/" target="_blank">
                         <img className="bottom-icons-linkedin"
                             src="https://itcnet.gr/wp-content/uploads/2020/09/Linkedin-logo-on-transparent-Background-PNG-.png" alt='linkedin' rel="noreferrer" />
                     </a>
