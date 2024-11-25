@@ -49,6 +49,7 @@ function YouTubeVideos() {
               <img
                 src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                 className="youtube-video"
+                alt='youtube-video'
               />
               <p className="video-snippet-title-mini">{video.title.slice(0, 100)}...</p>
             </div>

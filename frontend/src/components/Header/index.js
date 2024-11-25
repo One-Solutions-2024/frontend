@@ -23,7 +23,6 @@ const Header = () => {
   };
 
   return (
-    <Header>
     <div>
       <header className="header">
         <h1 className="header-title">ONE SOLUTIONS</h1>
@@ -100,7 +99,6 @@ const Header = () => {
         </div>
       </nav>
     </div>
-    </Header>
 
   );
 };
