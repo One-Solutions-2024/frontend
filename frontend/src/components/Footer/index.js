@@ -2,6 +2,7 @@
 import "./index.css"
 
 const Footer = () => (
+    <Footer>
     <div className="footer-container">
         <section className="down-logo" id='follow-us-section'>
             <div className="logo-websitename">
@@ -35,6 +36,7 @@ const Footer = () => (
             </div>
         </footer>
     </div>
+    </Footer>
 )
 
 export default Footer
