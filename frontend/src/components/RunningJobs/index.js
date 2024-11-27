@@ -67,7 +67,7 @@ const RunningJobs = ({ jobs = [], handleCardClick }) => {
                     >
                         <div className="image-container">
                             <img
-                                src={job.image_link}
+                                src={job.image}
                                 alt={`Image of ${job.title}`}
                                 className="job-image-runningjob"
                             />

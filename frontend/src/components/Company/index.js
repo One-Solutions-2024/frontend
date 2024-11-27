@@ -61,7 +61,7 @@ class Company extends Component {
         title: data.title,
         description: data.description || '',
         applyLink: data.apply_link,
-        imageLink: data.image_link,
+        image: data.image,
         salary: data.salary,
         location: data.location,
         job_type: data.job_type,
@@ -82,7 +82,7 @@ class Company extends Component {
 
   render() {
     const { isLoading, companyData, formattedDate } = this.state;
-    const { companyname, title, description, applyLink, imageLink, salary, experience, batch, location, job_type, job_uploader } = companyData;
+    const { companyname, title, description, applyLink, image, salary, experience, batch, location, job_type, job_uploader } = companyData;
 
     const descriptionPoints = description ? description.split('#').map((point) => point.trim()) : [];
 
@@ -103,7 +103,7 @@ class Company extends Component {
                       <h1 className='job-uploader-details'>By <strong className='job-uploader-name'>{job_uploader}</strong> {formattedDate}</h1>
                     </div>
                     <img
-                      src={imageLink}
+                      src={image}
                       alt={title}
                       className='job-image-details'
                     />          

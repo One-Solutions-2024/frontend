@@ -349,7 +349,7 @@ function JobList() {
                       <div className="job-main-content">
                         <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
                         <h2 className='hover-none'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                        <img src={job.image_link} alt={job.title} className='job-image' />
+                        <img src={job.image} alt={job.title} className='job-image' />
                       </div>
 
                       {/* Bottom right description (slides up on hover) */}
