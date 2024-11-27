@@ -61,7 +61,7 @@ class Company extends Component {
         title: data.title,
         description: data.description || '',
         applyLink: data.apply_link,
-        image: data.image,
+        image: data.imageUrl,
         salary: data.salary,
         location: data.location,
         job_type: data.job_type,
