@@ -67,7 +67,7 @@ const RunningJobs = ({ jobs = [], handleCardClick }) => {
                     >
                         <div className="image-container">
                             <img
-                                src={`https://backend-vtwx.onrender.com/uploads/${image}`}
+                                src={`https://backend-vtwx.onrender.com/uploads/${job.image}`}
                                 alt={`Image of ${job.title}`}
                                 className="job-image-runningjob"
                             />
