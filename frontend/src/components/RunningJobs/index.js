@@ -66,7 +66,7 @@ const RunningJobs = ({ jobs = [], handleCardClick }) => {
                         onClick={() => handleCardClick(job)} // Ensure card click is handled
                     >
                         <div className="image-container">
-                        <img src={`https://backend-vtwx.onrender.com/uploads/${job.image}`} alt={job.title} />
+                        <img src={`/uploads/${job.image}`} alt={job.title} />
 
                         </div>
                         <h1 className="company-name-running">
