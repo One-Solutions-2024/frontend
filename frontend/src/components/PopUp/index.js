@@ -34,12 +34,12 @@ const Popup = () => {
   return (
     <div className="popup-overlay">
       <div className="popup">
-        <a class="close" onClick={handleClose}><i class="fa-solid fa-x"></i></a>
+        <a className="close" onClick={handleClose}><i className="fa-solid fa-x"></i></a>
 
         <h2 className="popup-heading">{popupContent.popup.popup_heading}</h2>
         <p>{popupContent.popup.popup_text}</p>
-        {popupContent.popup.imageUrl && (
-          <img src={popupContent.popup.imageUrl} alt="Popup content" />
+        {popupContent.popup.image && (
+          <img src={popupContent.popup.image} alt="Popup content" />
         )}
         <button className="callToAction" type="button">
         <a className="below-text" href={popupContent.popup.popup_routing_link} target="_blank">{popupContent.popup.popup_belowtext}</a>

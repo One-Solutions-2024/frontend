@@ -23,7 +23,7 @@ const Footer = () => (
                         <img className="bottom-icons-youtube" src="https://th.bing.com/th/id/R.b800cd54a94aaecc66e8752091d26f6b?rik=ChXMqbKPu0ueGg&pid=ImgRaw&r=0" alt='youtube' rel="noreferrer" />
                     </a>
                     <a href="https://whatsapp.com/channel/0029VaoOmU93gvWdCy0dmr3z" target="_blank" rel="noreferrer">
-                        <i class="fab fa-whatsapp whatsapp-icon"></i>
+                        <i className="fab fa-whatsapp whatsapp-icon"></i>
                     </a>
                 </div>
             </section>

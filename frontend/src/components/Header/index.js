@@ -28,7 +28,7 @@ const Header = () => {
         <h1 className="header-title">ONE SOLUTIONS</h1>
       </header>
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
-        <a className="navbar-brand navbar-logo" href="#/">
+        <a className="navbar-brand navbar-logo" href="/">
           <img
             src="https://res.cloudinary.com/dsjcty43b/image/upload/v1726237898/WhatsApp_Image_2024-09-06_at_22.30.50_85f627e1-removebg-preview_txwq3p.png"
             alt="logo"
@@ -36,8 +36,9 @@ const Header = () => {
             height="50"
             className="navbar-image"
           />
-          <a className="company-name" href="/">One Solutions</a>
+          <span className="company-name">One Solutions</span>
         </a>
+
 
         {/* Navbar Toggler */}
         <button
@@ -73,11 +74,11 @@ const Header = () => {
               <i className="fab fa-whatsapp header-whatsapp"></i>Whatsapp
             </a>
 
-              <a className="nav-link" href="/" id="navItem2">
-                <li onClick={() => setMenu("Home")} className={menu === "home" ? "active" : ""}>
-                  Home
-                </li>
-              </a>
+            <a className="nav-link" href="/" id="navItem2">
+              <li onClick={() => setMenu("Home")} className={menu === "home" ? "active" : ""}>
+                Home
+              </li>
+            </a>
 
             <Link className="nav-link" id="navItem2" to="https://one-solutions.pages.dev/">
               <li onClick={() => setMenu("one-solutions-website")} className={menu === "one-solutions-website" ? "active" : ""}>

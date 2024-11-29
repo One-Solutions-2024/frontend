@@ -61,7 +61,7 @@ class Company extends Component {
         title: data.title,
         description: data.description || '',
         applyLink: data.apply_link,
-        image: data.imageUrl,
+        image: data.image,
         salary: data.salary,
         location: data.location,
         job_type: data.job_type,
@@ -102,11 +102,7 @@ class Company extends Component {
                       <img src='https://secure.gravatar.com/avatar/f1da19871277fbadfc31d4c04d3b9004?s=96&d=mm&r=g' className='image-icon' alt="Job Uploader Icon" />
                       <h1 className='job-uploader-details'>By <strong className='job-uploader-name'>{job_uploader}</strong> {formattedDate}</h1>
                     </div>
-                    <img
-                      src={image}
-                      alt={title}
-                      className='job-image-details'
-                    />          
+                    <img src={`/uploads/${image}`} alt={title} className='job-image-details'/>         
                     <h2 className="heading">{companyname.toUpperCase()}: <span className="heading-details">{this.capitalizeWords(title)}</span></h2>
                   </div>
                 </div>

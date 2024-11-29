@@ -35,7 +35,7 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
                                         onClick={() => handleCardClick(job)} // Ensure card click is handled
                                     >
                                         <div>
-                                            <img src={job.imageUrl} alt={job.title} className='job-image-newjob' />
+                                            <img src={job.image} alt={job.title} className='job-image-newjob' />
                                         </div>
                                         <div className='job-content'>
                                             <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
@@ -65,7 +65,7 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
                                         onClick={() => handleCardClick(job)} // Ensure card click is handled
                                     >
                                         <div>
-                                            <img src={job.imageUrl} alt={job.title} className='job-image-newjob' />
+                                            <img src={job.image} alt={job.title} className='job-image-newjob' />
                                         </div>
                                         <div className='job-content'>
                                             <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
@@ -88,7 +88,7 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
                                 onClick={() => handleCardClick(job)} // Ensure card click is handled
                             >
                                 <div>
-                                    <img src={job.imageUrl} alt={job.title} className='job-image-newjob' />
+                                    <img src={job.image} alt={job.title} className='job-image-newjob' />
                                 </div>
                                 <div className='job-content'>
                                     <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
