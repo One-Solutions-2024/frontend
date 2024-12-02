@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from "./components/Footer";
 import YouTubeVideos from './components/Youtube';
-import { assest } from './Images/images';
 import NewJobs from './components/NewJobs'; // Import the new component
 import RunningJobs from './components/RunningJobs';
 
-
+import { assets } from './assets/assets';
 
 import './JobList.css';
 
@@ -29,12 +28,13 @@ function JobList() {
   const jobsPerPage = 8;
 
 
+  const backend_url = "https://backend-lt9m.onrender.com"
 
   // Fetch all jobs from the API
   const fetchAllJobs = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`https://backend-vtwx.onrender.com/api/jobs?limit=100`);
+      const response = await fetch(`${backend_url}/api/jobs`);
       const data = await response.json();
 
       if (response.ok) {
@@ -213,7 +213,7 @@ function JobList() {
       <div className="offline-banner">
         <img
           className="offline-imgage"
-          src={assest.offlineimage}  // Path to the local image in the 'public' folder
+          src={assets.offlineimage}  // Path to the local image in the 'public' folder
           alt="You're Offline"
         />
       </div>
@@ -245,7 +245,7 @@ function JobList() {
           </div>
 
           <div className='device-top'>
-            <img className="banner-image" src='https://naukrisafar.com/wp-content/uploads/2024/01/Job_hunt.png' alt="Job Hunt Banner" />
+            <img className="banner-image" src={assets.banner_image} alt="Job Hunt Banner" />
             <div className='bigdevice-top-right'>
               <h1 className='banner-name'>One Solutions: Your Trusted Career Companion</h1>
               <p className='banner-description'>Where Students can find Jobs, Technologies Videos & Many More</p>
@@ -270,7 +270,9 @@ function JobList() {
             <hr />
             <RunningJobs
               handleCardClick={handleCardClick}
-              jobs={newJobs.slice(0, 3)} 
+              jobs={newJobs.slice(0, 3)}
+              backend_url={backend_url}
+ 
               />
             <hr />
 
@@ -325,6 +327,7 @@ function JobList() {
                   handleCardClick={handleCardClick}
                   capitalizeWords={capitalizeWords}
                   searchQuery={searchQuery}
+                  backend_url={backend_url}
                 />
 
                 {/* Job list and YouTube logic remains the same... */}
@@ -349,8 +352,12 @@ function JobList() {
                       <div className="job-main-content">
                         <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
                         <h2 className='hover-none'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                        <img src={job.image} alt={job.title} className='job-image' />
-                      </div>
+                        <img
+                            src={`/uploads/${job.image}`}
+                            alt={`${job.companyname}`}
+                            className="job-image"
+                          />   
+                         </div>
 
                       {/* Bottom right description (slides up on hover) */}
                       <div className="job-description-hover">

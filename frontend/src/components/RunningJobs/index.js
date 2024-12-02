@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './runningjobs.css';
 
-const RunningJobs = ({ jobs = [], handleCardClick }) => {
+const RunningJobs = ({ jobs = [], handleCardClick, backend_url }) => {
     const settings = {
         dots: true,
         slidesToShow: 1,
@@ -66,8 +66,10 @@ const RunningJobs = ({ jobs = [], handleCardClick }) => {
                         onClick={() => handleCardClick(job)} // Ensure card click is handled
                     >
                         <div className="image-container">
-                        <img src={`/uploads/${job.image}`} alt={job.title} />
-
+                            <img
+                                src={`${backend_url}/uploads/${job.image}`} alt={`${job.companyname}`}
+                                className="job-image-runningjob"
+                            />
                         </div>
                         <h1 className="company-name-running">
                             {job.companyname.toUpperCase()}

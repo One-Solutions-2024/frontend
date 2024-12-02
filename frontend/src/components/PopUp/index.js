@@ -9,7 +9,7 @@ const Popup = () => {
     // Fetch popup content from the backend
     const fetchPopupContent = async () => {
       try {
-        const response = await fetch("https://backend-vtwx.onrender.com/api/popup");
+        const response = await fetch("https://backend-lt9m.onrender.com/api/popup");
         if (response.ok) {
           const content = await response.json();
           console.log("Fetched content:", content); // Log content to check structure
@@ -38,13 +38,11 @@ const Popup = () => {
 
         <h2 className="popup-heading">{popupContent.popup.popup_heading}</h2>
         <p>{popupContent.popup.popup_text}</p>
-        {popupContent.popup.image && (
-          <img src={popupContent.popup.image} alt="Popup content" />
-        )}
+        <img src={`https://backend-lt9m.onrender.com/uploads/${popupContent.popup.image}`} alt="Popup content" />
         <button className="callToAction" type="button">
-        <a className="below-text" href={popupContent.popup.popup_routing_link} target="_blank">{popupContent.popup.popup_belowtext}</a>
+          <a className="below-text" href={popupContent.popup.popup_routing_link} target="_blank">{popupContent.popup.popup_belowtext}</a>
         </button>
-       
+
       </div>
     </div>
   );

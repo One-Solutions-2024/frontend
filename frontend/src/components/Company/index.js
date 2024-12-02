@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { useParams } from 'react-router-dom';
+import { assets } from '../../assets/assets';
+
 import Footer from "../Footer";
 import './index.css';
 
 class Company extends Component {
-  state = { 
-    companyData: {}, 
-    isLoading: true, 
+  state = {
+    companyData: {},
+    isLoading: true,
     formattedDate: '' // Add a state variable to store the formatted date
   };
 
@@ -25,13 +27,14 @@ class Company extends Component {
   }
 
   // Function to capitalize each word
-  capitalizeWords = (str) => {
-    return str
-      .toLowerCase()
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  };
+ // Function to capitalize each word
+ capitalizeWords = (str) => {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
 
   // Function to format date based on screen size and set it in state
   formatAndSetDate = () => {
@@ -51,7 +54,7 @@ class Company extends Component {
   getCompanyData = async () => {
     const { companyname, url } = this.props.params;
     try {
-      const response = await fetch(`https://backend-vtwx.onrender.com/api/jobs/company/${companyname}/${url}`);
+      const response = await fetch(`https://backend-lt9m.onrender.com/api/jobs/company/${companyname}/${url}`);
       if (!response.ok) {
         throw new Error('Failed to fetch company data');
       }
@@ -70,8 +73,8 @@ class Company extends Component {
         job_uploader: data.job_uploader,
         createdat: data.createdat
       };
-
       document.title = `${data.companyname.toUpperCase()} - ${data.title.toUpperCase()}`;
+
 
       this.setState({ companyData: updatedData, isLoading: false }, this.formatAndSetDate);
     } catch (error) {
@@ -99,12 +102,13 @@ class Company extends Component {
                 <div className='image-and-apply-link-heading left-side'>
                   <div className='image-small-device'>
                     <div className='job-uploader-container'>
-                      <img src='https://secure.gravatar.com/avatar/f1da19871277fbadfc31d4c04d3b9004?s=96&d=mm&r=g' className='image-icon' alt="Job Uploader Icon" />
+                      <img src={assets.image_avatar} className='image-icon' alt="Job Uploader Icon" />
                       <h1 className='job-uploader-details'>By <strong className='job-uploader-name'>{job_uploader}</strong> {formattedDate}</h1>
                     </div>
-                    <img src={`/uploads/${image}`} alt={title} className='job-image-details'/>         
+                    <img src={`https://backend-lt9m.onrender.com/uploads/${image}`} alt={`${companyname}`}
+                      className='job-image-details' />
                     <h2 className="heading">{companyname.toUpperCase()}: <span className="heading-details">{this.capitalizeWords(title)}</span></h2>
-                  </div>
+                    </div>
                 </div>
                 <div className="details-side-right-of-image">
                   <p className='box-type-rows'><span className='job-details-names'>Batch: </span>{batch}</p>

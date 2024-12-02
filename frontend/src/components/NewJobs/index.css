@@ -32,15 +32,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     cursor: pointer;
     transition: 300ms ease-in-out;
+    padding-left: 30px;
 }
 
 .skill--box:hover  {
     transform: scale(1.15);
 }
 
+.job-content{
+    margin-left: 10px;
+}
 
 .skill--box > img {
     height: 50px;

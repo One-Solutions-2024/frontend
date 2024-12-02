@@ -2,7 +2,7 @@ import React from 'react';
 import Marquee from "react-fast-marquee";
 import './index.css'; // Add styles if needed
 
-function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
+function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backend_url }) {
     // Ensure searchQuery is a string
     const searchTerm = typeof searchQuery === 'string' ? searchQuery.toLowerCase() : '';
 
@@ -35,7 +35,10 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
                                         onClick={() => handleCardClick(job)} // Ensure card click is handled
                                     >
                                         <div>
-                                            <img src={job.image} alt={job.title} className='job-image-newjob' />
+                                            <img
+                                                src={`${backend_url}/uploads/${job.image}`} alt={`${job.companyname}`}
+                                                className='job-image-newjob'
+                                            />
                                         </div>
                                         <div className='job-content'>
                                             <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
@@ -65,7 +68,9 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
                                         onClick={() => handleCardClick(job)} // Ensure card click is handled
                                     >
                                         <div>
-                                            <img src={job.image} alt={job.title} className='job-image-newjob' />
+                                            <img
+                                                src={`${backend_url}/uploads/${job.image}`} alt={`${job.companyname}`}
+                                                className='job-image-newjob' />
                                         </div>
                                         <div className='job-content'>
                                             <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
@@ -87,8 +92,11 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
                                 key={job.id}
                                 onClick={() => handleCardClick(job)} // Ensure card click is handled
                             >
-                                <div>
-                                    <img src={job.image} alt={job.title} className='job-image-newjob' />
+                                <div className='image-new-job-container'>
+                                    <img
+                                        src={`  ${backend_url}/uploads/${job.image}`} alt={`${job.companyname}`}
+                                        className='job-image-newjob'
+                                    />
                                 </div>
                                 <div className='job-content'>
                                     <h1 className='company-card-name-new-job'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
@@ -99,7 +107,7 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
                         ))
                     ) : (
                         <p className="coming-soon-message">Coming Soon! Check in Search Results</p> // Message when no jobs are available
-                        
+
                     )}
                 </div>
             )}

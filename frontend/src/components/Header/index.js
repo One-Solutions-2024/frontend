@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { assets } from '../../assets/assets';
+
 import './header.css';
 
 const Header = () => {
@@ -30,7 +32,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
         <a className="navbar-brand navbar-logo" href="/">
           <img
-            src="https://res.cloudinary.com/dsjcty43b/image/upload/v1726237898/WhatsApp_Image_2024-09-06_at_22.30.50_85f627e1-removebg-preview_txwq3p.png"
+            src={assets.company_logo}
             alt="logo"
             width="50"
             height="50"

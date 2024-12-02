@@ -4,7 +4,7 @@ module.exports = function(app) {
     app.use(
         '/uploads',
         createProxyMiddleware({
-            target: 'https://backend-vtwx.onrender.com',
+            target: 'https://backend-lt9m.onrender.com',
             changeOrigin: true,
         })
     );
