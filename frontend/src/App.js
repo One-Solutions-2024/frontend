@@ -16,7 +16,6 @@ const App = () => (
 
     <Header />
     <ScrollToTop />
-
     <Routes>
       <Route path="/company/:companyname/:url" element={<Company />} /> {/* Using company name slug */}
       <Route path="/contact" element={<Contact />} />

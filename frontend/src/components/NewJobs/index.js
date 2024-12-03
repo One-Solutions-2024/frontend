@@ -36,7 +36,8 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
                                     >
                                         <div>
                                             <img
-                                                src={`${backend_url}/uploads/${job.image}`} alt={`${job.companyname}`}
+                                                                            src={`${job.image}`}
+                                                                            alt={`${job.companyname}`}
                                                 className='job-image-newjob'
                                             />
                                         </div>
@@ -69,7 +70,8 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
                                     >
                                         <div>
                                             <img
-                                                src={`${backend_url}/uploads/${job.image}`} alt={`${job.companyname}`}
+                                                                            src={`${job.image}`}
+                                                                            alt={`${job.companyname}`}
                                                 className='job-image-newjob' />
                                         </div>
                                         <div className='job-content'>
@@ -94,7 +96,8 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
                             >
                                 <div className='image-new-job-container'>
                                     <img
-                                        src={`  ${backend_url}/uploads/${job.image}`} alt={`${job.companyname}`}
+                                                                    src={`${job.image}`}
+                                                                    alt={`${job.companyname}`}
                                         className='job-image-newjob'
                                     />
                                 </div>

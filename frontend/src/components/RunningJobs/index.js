@@ -67,7 +67,8 @@ const RunningJobs = ({ jobs = [], handleCardClick, backend_url }) => {
                     >
                         <div className="image-container">
                             <img
-                                src={`${backend_url}/uploads/${job.image}`} alt={`${job.companyname}`}
+                                                            src={`${job.image}`}
+                                                            alt={`${job.companyname}`}
                                 className="job-image-runningjob"
                             />
                         </div>
