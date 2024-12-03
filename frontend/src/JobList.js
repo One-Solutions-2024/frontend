@@ -35,7 +35,7 @@ function JobList() {
     setLoading(true);
     try {
       const response = await fetch(`${backend_url}/api/jobs`);
-      
+
       const data = await response.json();
 
       if (response.ok) {
@@ -273,8 +273,8 @@ function JobList() {
               handleCardClick={handleCardClick}
               jobs={newJobs.slice(0, 3)}
               backend_url={backend_url}
- 
-              />
+
+            />
             <hr />
 
 
@@ -354,11 +354,11 @@ function JobList() {
                         <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
                         <h2 className='hover-none'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
                         <img
-                            src={`${job.image}`}
-                            alt={`${job.companyname}`}
-                            className="job-image"
-                          />   
-                         </div>
+                          src={`${job.image}`}
+                          alt={`${job.companyname}`}
+                          className="job-image"
+                        />
+                      </div>
 
                       {/* Bottom right description (slides up on hover) */}
                       <div className="job-description-hover">
