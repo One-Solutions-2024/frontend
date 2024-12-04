@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { assets } from '../../assets/assets';
-
 import Footer from "../Footer";
 import './index.css';
 
@@ -48,11 +47,23 @@ const Company = () => {
       setJob(data);
       document.title = `${data.companyname?.toUpperCase()} - ${data.title?.toUpperCase()}`;
       formatAndSetDate(data.createdat);
+
+      // Increment the view count after fetching the job
+      incrementViewCount(data._id);
     } catch (error) {
       console.error('Error fetching job:', error);
       setJob({});
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Function to increment the view count
+  const incrementViewCount = async (jobId) => {
+    try {
+      await fetch(`https://backend-lt9m.onrender.com/api/jobs/${jobId}/view`, { method: "POST" });
+    } catch (error) {
+      console.error("Failed to increment job view count:", error.message);
     }
   };
 
@@ -73,8 +84,6 @@ const Company = () => {
       </div>
     );
   }
-
-  
 
   const descriptionPoints = job.description ? job.description.split('#').map(point => point.trim()) : [];
 
