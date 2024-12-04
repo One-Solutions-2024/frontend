@@ -108,7 +108,7 @@ const Company = () => {
               <p className='box-type-rows'><span className='job-details-names'>Experience: </span>{job.experience}</p>
               <p className='box-type-rows'><span className='job-details-names'>Location: </span>{job.location}</p>
               <div className='apply-link-container'>
-                <a href={job.applyLink} target="_blank" rel="noopener noreferrer" className='image-apply-link'>Apply</a>
+                <a href={job.apply_link} target="_blank" rel="noopener noreferrer" className='image-apply-link'>Apply</a>
               </div>
             </div>
           </div>
@@ -120,7 +120,7 @@ const Company = () => {
                 <li key={index}>{point}</li>
               ))}
             </ul>
-            <a href={job.applyLink} target="_blank" rel="noopener noreferrer" className='apply-link'>Apply Here</a>
+            <a href={job.apply_link} target="_blank" rel="noopener noreferrer" className='apply-link'>Apply Here</a>
             <hr />
             <h3 className='follow-us'>Follow Us</h3>
             <div className='follow-section'>
