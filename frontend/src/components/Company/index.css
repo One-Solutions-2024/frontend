@@ -229,7 +229,7 @@ p {
 .job-uploader-name{
     color: #000000;
     padding-right: 20px;
-    padding-left: 5px;
+    padding-left: 2px;
 }
 
 .view-count{
@@ -279,7 +279,7 @@ p {
     }
 
     .job-image-details {
-        height: 300px;
+        height: 200px;
         /* Further adjust height */
         width: 315px;
         /* Further adjust width */
@@ -334,5 +334,16 @@ p {
 
     .view-count{
         margin-left: 10px;
+    }
+    .image-icon{
+        width: 25px;
+    height: 25px;
+    }
+    .job-uploader-details{
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+    .view-count{
+        margin-left: 50px;
     }
 }
