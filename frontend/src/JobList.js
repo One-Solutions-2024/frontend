@@ -272,8 +272,6 @@ function JobList() {
             <RunningJobs
               handleCardClick={handleCardClick}
               jobs={newJobs.slice(0, 3)}
-              backend_url={backend_url}
-
             />
             <hr />
 
@@ -287,8 +285,6 @@ function JobList() {
                   onMouseLeave={handleResumeTrendingJobs} // Resume when hover ends
                 >
                   <div className='scrolling-container'>
-
-
                     <div className='new-jobs-list new-jobs-list-offset'>
                       {newJobs.map((job, index) => (
                         <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
@@ -328,7 +324,6 @@ function JobList() {
                   handleCardClick={handleCardClick}
                   capitalizeWords={capitalizeWords}
                   searchQuery={searchQuery}
-                  backend_url={backend_url}
                 />
 
                 {/* Job list and YouTube logic remains the same... */}
@@ -354,7 +349,7 @@ function JobList() {
                         <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
                         <h2 className='hover-none'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
                         <img
-                          src={`${job.image}`}
+                          src={`${job.image_link}`}
                           alt={`${job.companyname}`}
                           className="job-image"
                         />

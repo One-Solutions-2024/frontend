@@ -38,7 +38,7 @@ const Popup = () => {
 
         <h2 className="popup-heading">{popupContent.popup.popup_heading}</h2>
         <p>{popupContent.popup.popup_text}</p>
-        <img src={`${popupContent.popup.image}`} alt="Popup content" />
+        <img src={`${popupContent.popup.popup_link}`} alt="Popup content" />
         <button className="callToAction" type="button">
           <a className="below-text" href={popupContent.popup.popup_routing_link} target="_blank" rel="noreferrer">{popupContent.popup.popup_belowtext}</a>
         </button>

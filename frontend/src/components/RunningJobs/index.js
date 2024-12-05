@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './runningjobs.css';
 
-const RunningJobs = ({ jobs = [], handleCardClick, backend_url }) => {
+const RunningJobs = ({ jobs = [], handleCardClick }) => {
     const settings = {
         dots: true,
         slidesToShow: 1,
@@ -67,7 +67,7 @@ const RunningJobs = ({ jobs = [], handleCardClick, backend_url }) => {
                     >
                         <div className="image-container">
                             <img
-                                src={`${job.image}`}
+                                src={`${job.image_link}`}
                                 alt={`${job.companyname}`}
                                 className="job-image-runningjob"
                             />
