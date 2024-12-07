@@ -52,14 +52,10 @@ const Company = () => {
         throw new Error("Failed to fetch company data");
       }
       const data = await response.json();
-  
-      if (data && data._id) {
-        setJob(data); // Only set job if the response contains _id
-        document.title = `${data.companyname?.toUpperCase()} - ${data.title?.toUpperCase()}`;
-        formatAndSetDate(data.createdat);
-      } else {
-        console.error("Job data missing _id:", data);
-      }
+      setJob(data);
+      document.title = `${data.companyname?.toUpperCase()} - ${data.title?.toUpperCase()}`;
+      formatAndSetDate(data.createdat);
+      incrementViewCount(data._id); // Increment view count
     } catch (error) {
       console.error("Error fetching job:", error);
       setJob({});
@@ -67,6 +63,7 @@ const Company = () => {
       setLoading(false);
     }
   };
+
   
 
   const incrementViewCount = async (jobId) => {
@@ -92,7 +89,7 @@ const Company = () => {
 
   useEffect(() => {
     if (job._id) {
-      incrementViewCount(job._id); // Increment view count only if job._id exists
+      incrementViewCount(job._id);
     }
   }, [job._id]);
 
