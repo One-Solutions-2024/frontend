@@ -137,7 +137,7 @@ const Company = () => {
                     By <strong className="job-uploader-name">{job.job_uploader}</strong>{" "}
                     {formattedDate}
                     <span className="view-count">
-                      <FaEye className="eye-icon" /> {viewCount} views
+                      <FaEye className="eye-icon" /> {viewCount}
                     </span>
                   </h1>
                 </div>
