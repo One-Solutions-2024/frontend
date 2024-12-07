@@ -44,7 +44,6 @@ const Company = () => {
       return;
     }
     setLoading(true);
-    setError(""); // Clear previous errors
     try {
       const response = await fetch(
         `https://backend-lt9m.onrender.com/api/jobs/company/${companyname}/${url}`
