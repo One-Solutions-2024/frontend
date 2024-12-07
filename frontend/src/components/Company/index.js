@@ -44,6 +44,7 @@ const Company = () => {
       return;
     }
     setLoading(true);
+    setError(""); // Clear previous errors
     try {
       const response = await fetch(
         `https://backend-lt9m.onrender.com/api/jobs/company/${companyname}/${url}`
@@ -55,7 +56,7 @@ const Company = () => {
       setJob(data);
       document.title = `${data.companyname?.toUpperCase()} - ${data.title?.toUpperCase()}`;
       formatAndSetDate(data.createdat);
-      incrementViewCount(data._id); // Increment view count
+      incrementViewCount(data.id); // Increment view count
     } catch (error) {
       console.error("Error fetching job:", error);
       setJob({});
@@ -66,20 +67,20 @@ const Company = () => {
 
   
 
-  const incrementViewCount = async (jobId) => {
+  const incrementViewCount = async (id) => {
     try {
-      await fetch(`https://backend-lt9m.onrender.com/api/jobs/${jobId}/view`, {
+      await fetch(`https://backend-lt9m.onrender.com/api/jobs/${id}/view`, {
         method: "POST",
       });
-      fetchViewCount(jobId); // Fetch updated viewer count after recording view
+      fetchViewCount(id); // Fetch updated viewer count after recording view
     } catch (error) {
       console.error("Failed to increment job view count:", error.message);
     }
   };
 
-  const fetchViewCount = async (jobId) => {
+  const fetchViewCount = async (id) => {
     try {
-      const response = await fetch(`https://backend-lt9m.onrender.com/api/jobs/${jobId}/viewers`);
+      const response = await fetch(`https://backend-lt9m.onrender.com/api/jobs/${id}/viewers`);
       const data = await response.json();
       setViewCount(data.viewer_count); // Update the state with the unique viewer count
     } catch (error) {
@@ -90,8 +91,10 @@ const Company = () => {
   useEffect(() => {
     if (job._id) {
       incrementViewCount(job._id);
+      fetchViewCount(job._id);
     }
   }, [job._id]);
+  
 
 
   useEffect(() => {
