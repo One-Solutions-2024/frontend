@@ -46,7 +46,7 @@ const Company = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://backend-lt9m.onrender.com/api/jobs/${companyname}/${url}`
+        `https://backend-lt9m.onrender.com/api/jobs/company/${companyname}/${url}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch company data");
