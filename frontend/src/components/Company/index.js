@@ -56,7 +56,6 @@ const Company = () => {
       document.title = `${data.companyname?.toUpperCase()} - ${data.title?.toUpperCase()}`;
       formatAndSetDate(data.createdat);
       incrementViewCount(data._id); // Increment view count
-      fetchViewers(data._id); // Fetch viewers list (optional)
     } catch (error) {
       console.error("Error fetching job:", error);
       setJob({});
@@ -65,39 +64,35 @@ const Company = () => {
     }
   };
 
-  // Function to increment the view count
+  
+
   const incrementViewCount = async (jobId) => {
     try {
       await fetch(`https://backend-lt9m.onrender.com/api/jobs/${jobId}/view`, {
         method: "POST",
       });
-      fetchViewCount(jobId); // Fetch updated view count
+      fetchViewCount(jobId); // Fetch updated viewer count after recording view
     } catch (error) {
       console.error("Failed to increment job view count:", error.message);
     }
   };
 
-  // Function to fetch viewers list
-  const fetchViewers = async (jobId) => {
-    try {
-      const response = await fetch(`https://backend-lt9m.onrender.com/api/jobs/${jobId}/viewers`);
-      const viewers = await response.json();
-      console.log("Viewers List:", viewers); // Optional: Replace with logic to display viewers
-    } catch (error) {
-      console.error("Failed to fetch viewers list:", error.message);
-    }
-  };
-
-  // Function to fetch the view count
   const fetchViewCount = async (jobId) => {
     try {
       const response = await fetch(`https://backend-lt9m.onrender.com/api/jobs/${jobId}/viewers`);
-      const viewers = await response.json();
-      setViewCount(viewers.length); // Set the view count based on the number of viewers
+      const data = await response.json();
+      setViewCount(data.viewer_count); // Update the state with the unique viewer count
     } catch (error) {
       console.error("Failed to fetch view count:", error.message);
     }
   };
+
+  useEffect(() => {
+    if (job._id) {
+      incrementViewCount(job._id);
+    }
+  }, [job._id]);
+
 
   useEffect(() => {
     if (companyname && url) {
@@ -142,7 +137,7 @@ const Company = () => {
                     By <strong className="job-uploader-name">{job.job_uploader}</strong>{" "}
                     {formattedDate}
                     <span className="view-count">
-                      <FaEye className="eye-icon" /> {viewCount}
+                      <FaEye className="eye-icon" /> {viewCount} views
                     </span>
                   </h1>
                 </div>
