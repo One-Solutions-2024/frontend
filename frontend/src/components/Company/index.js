@@ -179,15 +179,15 @@ const Company = () => {
                 {job.location}
               </p>
               <div className="apply-link-container">
-                <Button variant="contained" className="image-apply-link" endIcon={<SendIcon />}>
                 <a
                   href={job.apply_link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="image-apply-link"
                 >
+                  APPLY {<SendIcon />}
                 </a>
-                  APPLY
-                </Button>
+                
               </div>
             </div>
           </div>
