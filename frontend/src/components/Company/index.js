@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import Footer from "../Footer";
 import { FaEye } from "react-icons/fa"; // Import eye icon from react-icons
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
+
 import "./index.css";
 
 const Company = () => {
@@ -64,7 +67,7 @@ const Company = () => {
     }
   };
 
-  
+
 
   const incrementViewCount = async (id) => {
     try {
@@ -93,7 +96,7 @@ const Company = () => {
       fetchViewCount(job._id);
     }
   }, [job._id]);
-  
+
 
 
   useEffect(() => {
@@ -176,14 +179,15 @@ const Company = () => {
                 {job.location}
               </p>
               <div className="apply-link-container">
+                <Button variant="contained" className="image-apply-link" endIcon={<SendIcon />}>
                 <a
                   href={job.apply_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="image-apply-link"
                 >
-                  Apply
                 </a>
+                  APPLY
+                </Button>
               </div>
             </div>
           </div>
