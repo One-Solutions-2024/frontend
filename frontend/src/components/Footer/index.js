@@ -1,4 +1,3 @@
-
 import "./index.css"
 
 const Footer = () => (
@@ -32,6 +31,10 @@ const Footer = () => (
         <footer>
             <div className="footer-copyright">
                 <p>&copy; 2024 <a className="span-copy" href="/">One Solutions</a>. All rights reserved.</p>
+            </div>
+            <div>
+                <a href="/privacy-policy" className="span-copy privacy">Privacy Policy</a>
+                <a href="/disclaimer" className="span-copy">Disclaimer</a>
             </div>
         </footer>
     </div>

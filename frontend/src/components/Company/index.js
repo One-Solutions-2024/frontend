@@ -4,7 +4,6 @@ import { assets } from "../../assets/assets";
 import Footer from "../Footer";
 import { FaEye } from "react-icons/fa"; // Import eye icon from react-icons
 import SendIcon from '@mui/icons-material/Send';
-import Button from '@mui/material/Button';
 
 import "./index.css";
 

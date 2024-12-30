@@ -7,7 +7,8 @@ import Contact from './components/Contact';
 import BackToTop from './components/BackToTop';
 import ScrollToTop from './utils/ScrollToTop';
 import Popup from "./components/PopUp"; // Adjust the path as needed
-
+import Disclaimer from './components/Disclaimer';
+import Privacy from './components/PrivacyPolicy';
 import "./App.css";
 
 const App = () => (
@@ -19,6 +20,8 @@ const App = () => (
     <Routes>
       <Route path="/company/:companyname/:url" element={<Company />} /> {/* Using company name slug */}
       <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy-policy" element={<Privacy />} />
+      <Route path="/disclaimer" element={<Disclaimer />} />
       <Route path="/" element={<JobList />} />
       <Route path="/JobList" element={<JobList />} />
       <Route path="/not-found" element={<NotFound />} />
