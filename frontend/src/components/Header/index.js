@@ -70,7 +70,7 @@ const Header = () => {
               <span>{currentTime}</span>
             </div>
             <a href="https://www.youtube.com/@OneSolutionsEkam" target="_blank" rel="noopener noreferrer">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" className="youtube-logo" />
+              <img src={assets.YouTube_Logo} alt="YouTube" className="youtube-logo" />
             </a>
             <a className="button-whatsapp" href="https://whatsapp.com/channel/0029VaoOmU93gvWdCy0dmr3z" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-whatsapp header-whatsapp"></i>Whatsapp

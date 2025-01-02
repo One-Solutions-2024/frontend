@@ -1,9 +1,10 @@
+import { assets } from '../../assets/assets'
 import './index.css'
 
 const NotFound = () => (
   <div className="not-found-container">
     <img
-      src="https://assets.ccbp.in/frontend/react-js/not-found-blog-img.png"
+      src={assets.not_found_blog_img}
       alt="not-found"
       className="not-found-img"
     />
