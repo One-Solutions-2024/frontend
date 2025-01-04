@@ -271,7 +271,7 @@ function JobList() {
             <hr />
             <RunningJobs
               handleCardClick={handleCardClick}
-              jobs={newJobs.slice(0, 3)}
+              jobs={newJobs.slice(0, 4)}
             />
             <hr />
 
