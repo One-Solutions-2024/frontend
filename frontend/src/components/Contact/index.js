@@ -3,7 +3,7 @@ import './index.css'
 
 const Contact = () => (
   <div className="contact-container">
-      <h1 className="contact-heading">Contact Me</h1>
+    <h1 className="contact-heading">Contact Me</h1>
     <div className="contact-details">
     <img
       src={assets.contact_blog_img}
