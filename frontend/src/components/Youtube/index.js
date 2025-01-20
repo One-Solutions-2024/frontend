@@ -3,6 +3,7 @@ import './youtube.css';
 
 // List of video IDs from your provided links
 const videoList = [
+  { id: 'N1cdFu7h7-M', title: 'Crack Technical Round in First attempt with enhance problem solving Skills. | One Solutions'},
   { id: 'rsKrXeABMtI', title: '6 Exciting Job Updates: Wipro, Ags Health, Cisco, Qualcomm, Zycus and Fresh Prints | One Solutions'},
   { id: 'NaxafQ_ly58', title: '6 Exciting Job Updates : Deloite, Simens, WabTec,  EY, Motorola and HCL are Hiring | One Solutions'},
   { id: 'i2vWsNjoFto', title: '4 Exciting Job Updates : Mitsogo, Stripe, Wipro and Cognizant are Hiring | One Solutions' },
