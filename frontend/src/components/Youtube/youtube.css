@@ -32,7 +32,6 @@
 .selection-videos-list-container {
   border: 1px solid rgb(0 0 0 / 10%);
   border-radius: 12px;
-  max-height: 438px;
   height: 438px;
 }
 
@@ -164,8 +163,8 @@
   /* Set relative positioning */
   height: 50px;
   /* Default collapsed height */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 10px;
+ 
 }
 
 .more-list-videos-container.expanded {
@@ -208,11 +207,12 @@
     bottom: 0;
     position: fixed;
     margin-left: -11px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
   }
 
-  .playlist-videos {
-    max-height: 388px;
-  }
 }
 
 .more-vidoes-title {
