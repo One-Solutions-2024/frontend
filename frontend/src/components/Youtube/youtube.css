@@ -21,12 +21,18 @@
 }
 
 .playlist-videos {
-  flex: 1;
   /* Smaller space for the playlist */
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
+  flex: 1;
+  height: 438px;
+  max-height: 390px;
+}
+
+.selection-videos-list-container {
   border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 12px;
+  max-height: 438px;
   height: 438px;
 }
 
@@ -147,32 +153,65 @@
 .more-list-videos-container {
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  border-radius: 10px;
   padding: 10px;
   cursor: pointer;
   overflow: hidden;
   transition: height 0.3s ease;
   display: flex;
-  flex-direction: column; /* Reverse content order */
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  position: relative; /* Set relative positioning */
-  height: 50px; /* Default collapsed height */
+  position: relative;
+  /* Set relative positioning */
+  height: 50px;
+  /* Default collapsed height */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .more-list-videos-container.expanded {
-  height: 400px; /* Expanded height */
-  width: 100%;
+  height: auto;
+  /* Let the content expand naturally */
   justify-content: flex-start;
-  position: relative; /* Maintain relative positioning */
+  /* Align items at the top */
+  /* Maintain relative positioning */
+  animation: slideUp 0.3s ease-in-out forwards;
+  transform: translateY(100%);
+  bottom: 90px;
 }
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.expanded-content {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  width: 100%;
+}
+
+
 
 @media (max-width: 480px) {
   .more-list-videos-container.expanded {
-    height: 400px; /* Same expanded height for small devices */
+    height: auto;
+    /* Same expanded height for small devices */
+    animation: slideUp 0.3s ease-in-out forwards;
+    transform: translateY(100%);
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    margin-left: -11px;
   }
+
   .playlist-videos {
-    max-height: 600px;
+    max-height: 388px;
   }
 }
 
@@ -182,21 +221,12 @@
   color: #000;
 }
 
-.expanded-content {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  width: 100%;
-  margin-bottom: 10px; /* Adjusted for reversed content order */
-
-}
 
 .list-option {
-  font-size: 16px;
   font-weight: bold;
   color: #000;
   border-radius: 5px;
-  padding-top: 15px;
+  margin: 5px;
 }
 
 .push-pull-button {
