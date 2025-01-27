@@ -19,9 +19,7 @@ const technicalvideoList = [
 ];
 
 const aptitudevideoList = [
-  { id: "N1cdFu7h7-M", title: "Crack Technical Round in First attempt with enhance problem solving Skills. | One Solutions" },
-  { id: "xcGc6mTkWMY", title: "Python 'Loops' Basic interview questions and with answers for freshers" },
-  { id: "4eBNGRxkLmI", title: "SQL CRUD Operations Mostly used in SQL Developers" },
+  { id: "H9CgPJeJpCw", title: "Quantitative Aptitude. Crack Aptitude Test with these Mathematical Logics. | One Solutions" },
 ];
 
 function YouTubeVideos() {
