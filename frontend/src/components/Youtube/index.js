@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./youtube.css";
 
 const jobsList = [
+  { id: "pESM6UCv8-w", title: "5 Exciting Job Updates : SWIGGY, IQVIA, ZEBRA, YASHTECHNOLOGIES & EQUIFAX are Hiring | One Solutions" },
   { id: "rsKrXeABMtI", title: "6 Exciting Job Updates: Wipro, Ags Health, Cisco, Qualcomm, Zycus and Fresh Prints | One Solutions" },
   { id: "NaxafQ_ly58", title: "6 Exciting Job Updates : Deloite, Simens, WabTec, EY, Motorola and HCL are Hiring | One Solutions" },
   { id: "i2vWsNjoFto", title: "4 Exciting Job Updates : Mitsogo, Stripe, Wipro and Cognizant are Hiring | One Solutions" },
@@ -13,6 +14,7 @@ const technicalvideoList = [
   { id: "N1cdFu7h7-M", title: "Crack Technical Round in First attempt with enhance problem solving Skills. | One Solutions" },
   { id: "nf2vLkn5SWg", title: "Crack Technical Round in First attempt with enhance problem solving Skills. Card - 2 | One Solutions" },
   { id: "Ldh-UxZ9Y8A", title: "Crack Technical Round in First attempt with enhance problem solving Skills. Card - 3 | One Solutions" },
+  { id: "iOHQ2c9um24", title: "Crack Technical Round in First attempt with enhance problem solving Skills. Card - 4 | One Solutions" },
   { id: "yavE6elZ-6E", title: "INFOANE Company Interview Process For Freshers" },
   { id: "xcGc6mTkWMY", title: "Python 'Loops' Basic interview questions and with answers for freshers" },
   { id: "4eBNGRxkLmI", title: "SQL CRUD Operations Mostly used in SQL Developers" },
