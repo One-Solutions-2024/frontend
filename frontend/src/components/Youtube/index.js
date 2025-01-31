@@ -22,6 +22,7 @@ const technicalvideoList = [
 
 const aptitudevideoList = [
   { id: "H9CgPJeJpCw", title: "Quantitative Aptitude. Crack Aptitude Test with these Mathematical Logics. | One Solutions" },
+  { id: "WFO6_zYdETI", title: "Quantitative Aptitude [CO-PRIMES]. Crack Aptitude Test Mathematical Logics. | One Solutions." },
 ];
 
 function YouTubeVideos() {
