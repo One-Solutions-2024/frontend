@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./youtube.css";
 
 const jobsList = [
@@ -29,6 +29,22 @@ function YouTubeVideos() {
   const [videoList, setVideoList] = useState(jobsList); // Default to jobsList
   const [featuredVideo, setFeaturedVideo] = useState(videoList[0]); // Set the first video as featured
   const [isExpanded, setIsExpanded] = useState(false);
+  const moreVideosRef = useRef(null);
+
+  // Close expanded section when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        isExpanded &&
+        moreVideosRef.current &&
+        !moreVideosRef.current.contains(event.target)
+      ) {
+        setIsExpanded(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isExpanded]);
 
   const handleVideoClick = (video) => {
     setFeaturedVideo(video);
@@ -76,25 +92,41 @@ function YouTubeVideos() {
                   className="youtube-video"
                   alt={video.title}
                 />
-                <p className="video-snippet-title-mini">{video.title.slice(0, 100)}...</p>
+                <p className="video-snippet-title-mini">
+                  {video.title.slice(0, 100)}...
+                </p>
               </div>
             ))}
           </div>
         </div>
+
         {/* Toggle More Videos Section */}
-        <div className={`more-list-videos-container ${isExpanded ? "expanded" : ""}`} onClick={toggleExpand}>
+        <div
+          ref={moreVideosRef}
+          className={`more-list-videos-container ${isExpanded ? "expanded" : ""}`}
+          onClick={toggleExpand}
+        >
           <div className="push-pull-button"></div>
           {isExpanded && (
             <div className="expanded-content">
-              <div className="list-option-container" onClick={() => handleListChange(jobsList)}>
+              <div
+                className="list-option-container"
+                onClick={() => handleListChange(jobsList)}
+              >
                 <div className={`radio-button ${videoList === jobsList ? "active" : ""}`}></div>
                 <p className="list-option">Jobs List</p>
               </div>
-              <div className="list-option-container" onClick={() => handleListChange(technicalvideoList)}>
+              <div
+                className="list-option-container"
+                onClick={() => handleListChange(technicalvideoList)}
+              >
                 <div className={`radio-button ${videoList === technicalvideoList ? "active" : ""}`}></div>
                 <p className="list-option">Technical Videos List</p>
               </div>
-              <div className="list-option-container" onClick={() => handleListChange(aptitudevideoList)}>
+              <div
+                className="list-option-container"
+                onClick={() => handleListChange(aptitudevideoList)}
+              >
                 <div className={`radio-button ${videoList === aptitudevideoList ? "active" : ""}`}></div>
                 <p className="list-option">Aptitude List</p>
               </div>
