@@ -201,7 +201,7 @@
     /* Same expanded height for small devices */
     animation: slideUp 0.3s ease-in-out forwards;
     transform: translateY(100%);
-    width: 100%;
+    width: auto;
     bottom: 0;
     position: fixed;
     border-top-left-radius: 10px;

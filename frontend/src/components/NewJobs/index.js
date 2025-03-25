@@ -26,7 +26,7 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
                             pauseOnClick={true}
                             delay={0}
                             play={true}
-                            direction="right"
+                            direction="left"
                         >
                             {newJobs.map((job, index) => (
                                 index % 2 === 0 ? (
@@ -60,7 +60,7 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
                             pauseOnClick={true}
                             delay={0}
                             play={true}
-                            direction="left"
+                            direction="right"
                         >
                             {newJobs.map((job, index) => (
                                 index % 2 !== 0 ? (
