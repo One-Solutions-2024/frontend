@@ -13,6 +13,7 @@ const Company = () => {
   const [loading, setLoading] = useState(true);
   const [formattedDate, setFormattedDate] = useState("");
   const [viewCount, setViewCount] = useState(0); // State for view count
+  const [clickCount, setClickCount] = useState(0); // new state variable for click count
 
   // Function to capitalize words
   const capitalizeWords = (str) => {
@@ -156,6 +157,8 @@ const Company = () => {
               </div>
             </div>
             <div className="details-side-right-of-image">
+            <p className='click-count'>* Over {clickCount} People clicked to Apply</p>
+
               <p className="box-type-rows">
                 <span className="job-details-names">Batch: </span>
                 {job.batch}
@@ -182,10 +185,10 @@ const Company = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="image-apply-link"
+                  onClick={() => setClickCount(clickCount + 1)}
                 >
                   APPLY {<SendIcon />}
                 </a>
-                
               </div>
             </div>
           </div>
@@ -202,6 +205,7 @@ const Company = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="apply-link"
+              onClick={() => setClickCount(clickCount + 1)} // update click count
             >
               Apply Here
             </a>

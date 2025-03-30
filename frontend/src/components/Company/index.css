@@ -237,6 +237,12 @@ p {
     margin-left: 100px;
 }
 
+.click-count{
+    color: #888;
+    font-size: 12px;
+    margin-left: 0px;
+  }
+
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
     .about-container {
