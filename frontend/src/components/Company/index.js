@@ -13,6 +13,56 @@ const Company = () => {
   const [formattedDate, setFormattedDate] = useState("");
   const [viewCount, setViewCount] = useState(0);
   const [clickCount, setClickCount] = useState(0);
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState({
+    name: "",
+    text: ""
+  });
+
+  // Fetch comments when job is loaded
+  useEffect(() => {
+    if (job.id) {
+      fetchComments(job.id);
+    }
+  }, [job.id]);
+
+  const fetchComments = async (jobId) => {
+    try {
+      const response = await fetch(
+        `https://backend-lt9m.onrender.com/api/comments/${jobId}`
+      );
+      const data = await response.json();
+      setComments(data);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    }
+  };
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    if (!newComment.name.trim() || !newComment.text.trim()) return;
+
+    try {
+      const response = await fetch("https://backend-lt9m.onrender.com/api/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          job_id: job.id,
+          user_name: newComment.name,
+          comment_text: newComment.text
+        }),
+      });
+
+      if (response.ok) {
+        setNewComment({ name: "", text: "" });
+        fetchComments(job.id);
+      }
+    } catch (error) {
+      console.error("Error submitting comment:", error);
+    }
+  };
   // Function to capitalize words
   const capitalizeWords = (str) => {
     if (!str) return ""; // Handle undefined or null
@@ -76,7 +126,7 @@ const Company = () => {
     } catch (error) {
       console.error("Failed to record click:", error);
     }
-    
+
     // Open apply link in new tab
     window.open(job.apply_link, '_blank', 'noopener,noreferrer');
   };
@@ -137,7 +187,23 @@ const Company = () => {
   const descriptionPoints = job.description
     ? job.description.split("#").map((point) => point.trim())
     : [];
+  const getAvatarColor = (name) => {
+    // Array of allowed colors (excluding white and pink variants)
+    const colors = [
+      '#FFB74D', // orange
+      '#4DB6AC', // teal
+      '#7986CB', // indigo
+      '#81C784', // green
+      '#64B5F6', // blue
+      '#BA68C8'  // purple
+    ];
 
+    // Create simple hash from username
+    const hash = name.split('').reduce((acc, char) =>
+      char.charCodeAt(0) + (acc << 5) - acc, 0);
+
+    return colors[Math.abs(hash) % colors.length];
+  };
   return (
     <div>
       <div className="details-page-container">
@@ -171,7 +237,7 @@ const Company = () => {
               </div>
             </div>
             <div className="details-side-right-of-image">
-            <p className='click-count'>* Over {clickCount} People clicked to Apply</p>
+              <p className='click-count'>* Over {clickCount} People clicked to Apply</p>
 
               <p className="box-type-rows">
                 <span className="job-details-names">Batch: </span>
@@ -200,7 +266,7 @@ const Company = () => {
                   rel="noopener noreferrer"
                   className="image-apply-link"
                   onClick={handleApplyClick}
-                  >
+                >
                   APPLY {<SendIcon />}
                 </a>
               </div>
@@ -224,25 +290,52 @@ const Company = () => {
               Apply Here
             </a>
             <hr />
-            <h3 className="follow-us">Follow Us</h3>
-            <div className="follow-section">
-              <a
-                href="https://www.instagram.com/onesolutionsekam"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="follows-link"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://www.youtube.com/@OneSolutionsEkam"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="follows-link"
-              >
-                YouTube
-              </a>
+            <div className="comments-section">
+              <h3>Comments {comments.length}</h3>
+
+              <form onSubmit={handleCommentSubmit} className="comment-form">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  value={newComment.name}
+                  onChange={(e) => setNewComment({ ...newComment, name: e.target.value })}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Add a comment..."
+                  value={newComment.text}
+                  onChange={(e) => setNewComment({ ...newComment, text: e.target.value })}
+                  required
+                />
+                <button type="submit">Comment</button>
+              </form>
+
+              <div className="comments-list">
+                {comments.map((comment) => (
+                  <div key={comment.id} className="comment">
+                    <div className="comment-header">
+                      <div className="comment-avatar" style={{ backgroundColor: getAvatarColor(comment.user_name) }}>
+                        {comment.user_name[0]?.toUpperCase()}
+                      </div>
+                      <div>
+                        <strong className="commenter-name">{comment.user_name}</strong>
+                        <span>
+                          {new Date(comment.created_at).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric"
+                          })}
+                        </span>
+                        <p>{comment.comment_text}</p>
+                      </div>
+                    </div>
+
+                  </div>
+                ))}
+              </div>
             </div>
+
           </div>
         </div>
       </div>

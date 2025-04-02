@@ -6,7 +6,7 @@ import './index.css'
 const Disclaimer = () => (
     <div class="td-container tdc-content-wrap ">
         <div class="td-crumb-container">
-            <div class="entry-crumbs"><span><a title="" class="entry-crumb" href="https://onesolutions.onrender.com/">Home</a></span> <i class="td-icon-right td-bread-sep td-bred-no-url-last"></i> <span class="td-bred-no-url-last">Disclaimer for One Solutions</span></div>        </div>
+            <div class="entry-crumbs"><span><a title="" class="entry-crumb" href="/">Home</a></span> <i class="td-icon-right td-bread-sep td-bred-no-url-last"></i> <span class="td-bred-no-url-last">Disclaimer for One Solutions</span></div>        </div>
         <div class="td-pb-row">
             <div class="td-pb-span8 td-main-content" role="main">
                 <div class="td-ss-main-content">

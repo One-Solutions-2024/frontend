@@ -7,7 +7,7 @@ const Privacy = () => (
         <div className="td-crumb-container">
             <div className="entry-crumbs">
                 <span>
-                    <a title="" className="entry-crumb" href="https://onesolutions.onrender.com/">Home</a>
+                    <a title="" className="entry-crumb" href="/">Home</a>
                 </span>
                 <i class="td-icon-right td-bread-sep td-bred-no-url-last"></i> 
                                <span className="td-bred-no-url-last">Privacy Policy</span>
