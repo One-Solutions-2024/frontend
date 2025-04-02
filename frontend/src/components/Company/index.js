@@ -2,19 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import Footer from "../Footer";
-import { FaEye } from "react-icons/fa"; // Import eye icon from react-icons
+import { FaEye } from "react-icons/fa";
 import SendIcon from '@mui/icons-material/Send';
 import "./index.css";
 
 const Company = () => {
   const { companyname, url } = useParams();
-
   const [job, setJob] = useState({});
   const [loading, setLoading] = useState(true);
   const [formattedDate, setFormattedDate] = useState("");
-  const [viewCount, setViewCount] = useState(0); // State for view count
-  const [clickCount, setClickCount] = useState(0); // new state variable for click count
-
+  const [viewCount, setViewCount] = useState(0);
+  const [clickCount, setClickCount] = useState(0);
   // Function to capitalize words
   const capitalizeWords = (str) => {
     if (!str) return ""; // Handle undefined or null
@@ -55,6 +53,7 @@ const Company = () => {
       }
       const data = await response.json();
       setJob(data);
+      setClickCount(data.click_count || 0); // Set click count from backend
       document.title = `${data.companyname?.toUpperCase()} - ${data.title?.toUpperCase()}`;
       formatAndSetDate(data.createdat);
       incrementViewCount(data.id); // Increment view count
@@ -66,6 +65,21 @@ const Company = () => {
     }
   };
 
+  const handleApplyClick = async () => {
+    try {
+      const response = await fetch(
+        `https://backend-lt9m.onrender.com/api/jobs/${job.id}/click`,
+        { method: "POST" }
+      );
+      const data = await response.json();
+      setClickCount(data.click_count); // Update click count from response
+    } catch (error) {
+      console.error("Failed to record click:", error);
+    }
+    
+    // Open apply link in new tab
+    window.open(job.apply_link, '_blank', 'noopener,noreferrer');
+  };
 
 
   const incrementViewCount = async (id) => {
@@ -185,8 +199,8 @@ const Company = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="image-apply-link"
-                  onClick={() => setClickCount(clickCount + 1)}
-                >
+                  onClick={handleApplyClick}
+                  >
                   APPLY {<SendIcon />}
                 </a>
               </div>
@@ -205,7 +219,7 @@ const Company = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="apply-link"
-              onClick={() => setClickCount(clickCount + 1)} // update click count
+              onClick={handleApplyClick}
             >
               Apply Here
             </a>
