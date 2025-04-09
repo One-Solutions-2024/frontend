@@ -184,8 +184,9 @@ const Company = () => {
     );
   }
 
+  // Update the description splitting in the detailed view
   const descriptionPoints = job.description
-    ? job.description.split("#").map((point) => point.trim())
+    ? job.description.split('\n').map((point) => point.trim())
     : [];
   const getAvatarColor = (name) => {
     // Array of allowed colors (excluding white and pink variants)
@@ -277,7 +278,7 @@ const Company = () => {
             <h3 className="qualifications">Qualifications:</h3>
             <ul className="descriptions-details-side">
               {descriptionPoints.map((point, index) => (
-                <li key={index}>{point}</li>
+                point && <li key={index}>{point}</li>
               ))}
             </ul>
             <a
