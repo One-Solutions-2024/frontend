@@ -1,0 +1,116 @@
+.slider-container {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-bottom: 50px;
+}
+.slider-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.job-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.job-image-runningjob {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.company-name-running {
+  font-size: 1.5rem;
+}
+
+ /* Arrow Styling */
+ .slick-prev, .slick-next {
+  color: #0392ff; /* Set arrow color to blue */
+  font-size: 10px;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+/* Optional: Customize hover effect for arrows */
+.slick-prev:hover, .slick-next:hover {
+  color: #027bdb; /* Slightly darker blue on hover */
+}
+
+/* Ensures arrows are visible */
+.slick-prev:before, .slick-next:before {
+  color: #0392ff; /* Apply blue color to arrow icons */
+  font-size: 25px; /* Make arrow icons larger if needed */
+}
+
+
+/* Dot Styling */
+.slick-dots li button:before {
+  color: #bbb; /* Inactive dot color, e.g., light gray */
+  font-size: 6.5px;
+  opacity: 0.5; /* Make inactive dots slightly transparent */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #0392ff; /* Active dot color, blue */
+  opacity: 1; /* Ensure active dot is fully opaque */
+}
+
+
+@media (max-width: 480px) {
+  .job-image-runningjob {
+      width: 300px;
+  }
+  .trending-container{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Container holding the trending section */
+.trending-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: auto;
+}
+
+/* Highlighted box on the left */
+.trending-box {
+  background-color: #008d7f;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  margin-right: 15px;
+}
+
+/* Display area for trending items */
+.trending-display {
+  text-align: left;
+  font-size: 13px;
+  color: #333;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-left: 5px;
+  display: inline-block;
+}
+
+.trending-display span {
+  font-weight: bold;
+  color: #333;
+}

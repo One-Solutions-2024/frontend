@@ -1,0 +1,1064 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+.app-container {
+  width: 100%;
+  height: auto;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+}
+
+.device-top {
+  display: flex;
+}
+
+.bigdevice-top-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.job-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.job-card {
+  text-align: center;
+  background-color: #ffffff;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  flex-grow: 1;
+  /* Cards will grow to fill the row */
+  flex-basis: calc(33.33% - 40px);
+  /* Allow up to 3 cards per row, minus gap */
+  min-width: 200px;
+  /* Ensure cards don't get too small */
+  max-width: 300px;
+  /* Prevent cards from getting too large */
+}
+
+.job-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.job-card p {
+  margin-bottom: 5px;
+}
+
+
+/* JobList.css */
+.job-image {
+  width: 100%;
+  height: 400px;
+  max-height: 200px;
+  /* Adjust height as needed */
+  object-fit: cover;
+  /* Ensures the image is scaled to fit */
+  margin-bottom: 10px;
+  border-radius: 8px;
+  /* Optional styling */
+}
+
+.job-description {
+  padding-left: 0px;
+}
+
+.loader {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
+}
+
+.loader:after {
+  box-shadow: 0 2px 0 #FF3D00 inset;
+  animation: rotate 2s linear infinite;
+}
+
+.loader-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 40px;
+  /* Responsive size for large devices */
+  height: 40px;
+  /* Responsive size for large devices */
+  max-width: 300px;
+  /* Maximum size on larger screens */
+  max-height: 300px;
+  /* Maximum size on larger screens */
+  margin-left: 10px;
+  /* Center on the screen */
+  display: block;
+  /* Center on the screen */
+}
+
+.circle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.circle-gradient {
+  fill: none;
+  /* No fill, hollow ring */
+  stroke-width: 16;
+  /* Thickness of the ring */
+  stroke-linecap: round;
+  /* Rounded edges for the stroke */
+}
+
+/* Rotation animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotate 2s linear infinite;
+}
+
+
+
+.job-list-and-youtube {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+
+
+.banner-name {
+  color: #181818;
+  font-size: 38px;
+  font-family: "Roboto", "sans-serif";
+
+}
+
+.banner-image {
+  height: 600px;
+  width: 650px;
+  background-color: transparent;
+  /* Light background for contrast */
+
+}
+.offline-imgage{
+  height: 600px;
+  width: 650px;
+}
+
+.banner-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: transparent;
+  /* Light background for contrast */
+
+}
+
+.banner-description {
+  color: #7A7A7A;
+  font-size: 22px;
+  font-family: "Roboto", "sans-serif";
+  padding-right: 100px;
+}
+
+.find-job-btn {
+  background: linear-gradient(to right, #080cec 50%, #6366f1 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  transition: background-position 0.5s ease-out;
+  color: white; /* Optional: text color adjustment */
+  border: none; /* Optional: no border */
+  padding: 10px 35px; /* Optional: adjust button padding */
+  cursor: pointer; /* Change the cursor to pointer for better UX */
+}
+
+.find-job-btn:hover {
+  background-position: left bottom;
+  outline: none; /* Removes the default outline */
+}
+
+
+/* Style for the pagination container */
+.pagination {
+  display: flex;
+  justify-content: center;
+  /* Horizontally centers the buttons */
+  align-items: center;
+  /* Vertically centers the buttons */
+  margin: 20px 0;
+  width: 100%;
+  /* Ensures the container spans the full width */
+}
+
+/* Style for each pagination button */
+.pagination-button {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  /* Add some border to make buttons visible */
+  margin: 0 5px;
+  /* Space between buttons */
+  cursor: pointer;
+  color: black;
+  /* Default color */
+  border-radius: 50%;
+  /* Make buttons circular */
+  font-size: 16px;
+  padding: 10px 15px;
+  /* Add padding to ensure good sizing */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* When the pagination button is active (selected page), change background and text color */
+.pagination-button.active {
+  background-color: blue;
+  /* Blue background for active page */
+  color: white;
+  /* White text for the active page */
+  border-color: blue;
+  /* Optional: border matches the background */
+}
+
+/* Hover effect for pagination buttons */
+.pagination-button:hover {
+  background-color: lightgray;
+}
+
+
+.side-headings {
+  font-size: 1.5rem;
+  padding-left: 80px;
+  padding-bottom: 5px;
+  background-color: #333;
+  color: #fff;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.search-input {
+  padding: 5px 20px 5px 0px;
+  /* Add extra padding for the search icon */
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #000;
+  margin-left: 10px;
+  width: 90%;
+  /* Make it responsive */
+}
+
+.search-bar-section {
+  outline: none;
+  /* Removes the border when clicked */
+}
+
+.search-bar {
+  position: relative;
+  width: 70%;
+  /* Make it responsive */
+  border: 1.5px solid rgb(0 0 0 / 10%);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px 5px 0px;
+
+}
+
+.search-bar:hover {
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Back to Top Button */
+
+
+
+.company-card-name {
+  color: red;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+.back-to-top {
+  font-size: 1.0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #37475A;
+  color: #fff;
+  height: 40px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.back-to-top:hover,
+.navFooterBackToTop:focus {
+  background-color: #485769;
+}
+
+.back-to-top:hover {
+  color: white;
+}
+
+.menu-item-link {
+  color: #d0b200;
+  display: flex;
+  justify-content: flex-start;
+  /* Aligns the content to the left */
+  align-items: center;
+  /* Vertically center the text and SVG icon */
+  margin-top: auto;
+  /* Pushes the link to the bottom of the job card */
+  text-decoration: none;
+  /* Removes underline */
+}
+
+.menu-item-link svg {
+  margin-left: 4px;
+  /* Adds some space between the text and the icon */
+}
+
+.menu-item-link:hover {
+  color: #25D366;
+  /* Change color on hover */
+}
+
+.menu-item-link:hover svg {
+  fill: #25D366;
+  /* Also changes the SVG icon color on hover */
+}
+
+
+@media (max-width : 480px) {
+  .banner-image {
+    height: 350px;
+    width: 350px;
+  }
+  .offline-image {
+    height: 350px;
+    width: 350px;
+  }
+
+  .device-top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-name {
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+
+  .banner-description {
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+
+  .side-headings {
+    padding-left: 5px;
+    font-size: 1.2rem;
+  }
+
+  .searchbar-big {
+    display: none;
+  }
+
+  .searchbar-small {
+    margin-left: 0px;
+    display: flex;
+    width: auto;
+  }
+
+  .search-input {
+    width: auto;
+  }
+
+  .job-card {
+    max-width: 400px;
+  }
+
+  .circle {
+    width: 10vw;
+    /* Responsive size for large devices */
+    height: 10vw;
+    /* Responsive size for large devices */
+    max-width: 300px;
+    /* Maximum size on larger screens */
+    max-height: 300px;
+    /* Maximum size on larger screens */
+    margin-left: 10px;
+    /* Center on the screen */
+    display: block;
+    /* Center on the screen */
+  }
+
+  .offline-heading {
+    font-size: 20px;
+  }
+
+  .offline-banner {
+    height: 10vh;
+    width: 10vw;
+    text-align: center;
+  }
+
+  .find-job-btn {
+    background-color: #6366f1;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #f8fafc;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+  .new-job-item{
+    margin-top: 5px;
+  }
+
+
+}
+
+@media (max-width : 1200px) {
+  .banner-image {
+    height: 350px;
+    width: 350px;
+  }
+
+  .banner-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .search-input {
+    width: 80%;
+  }
+
+  .banner-name {
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+
+  .banner-description {
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+
+  .side-headings {
+    padding-left: 5px;
+    font-size: 1.2rem;
+  }
+
+  .searchbar-big {
+    display: flex;
+  }
+
+  .searchbar-small {
+    margin-left: 0px;
+    display: none;
+
+  }
+
+
+}
+
+@media (max-width : 992px) {
+  .banner-image {
+    height: 350px;
+    width: 350px;
+  }
+
+  .banner-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .search-input {
+    width: 80%;
+  }
+
+  .banner-name {
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+
+  .banner-description {
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+
+  .side-headings {
+    padding-left: 5px;
+    font-size: 1.2rem;
+  }
+
+  .searchbar-big {
+    display: flex;
+  }
+
+  .searchbar-small {
+    margin-left: 0px;
+    display: none;
+
+  }
+}
+
+@media (max-width : 768px) {
+  .banner-image {
+    height: 350px;
+    width: 350px;
+  }
+
+  .banner-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 80%;
+  }
+
+  .banner-name {
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+
+  .banner-description {
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+
+  .side-headings {
+    padding-left: 5px;
+    font-size: 1.2rem;
+  }
+
+  .searchbar-big {
+    display: none;
+  }
+
+  .searchbar-small {
+    margin-left: 0px;
+    display: flex;
+
+  }
+
+}
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+/* wikipedia */
+
+.main-container {
+  font-family: "Roboto";
+  height: 0;
+  /* Default height */
+  overflow-y: hidden;
+  /* Prevent scrolling when height is 0 */
+  transition: height 0.3s ease;
+  /* Smooth transition for height */
+  border: 1.5px solid rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  
+}
+
+.main-container.expanded {
+  height: 400px;
+  /* Expanded height */
+  overflow-y: auto;
+  /* Allow scrolling when expanded */
+}
+
+
+.wiki-logo {
+  margin-bottom: 30px;
+  width: 150px;
+}
+
+.search-results-heading {
+  font-size: 25px;
+}
+
+.search-results {
+  width: auto;
+  padding: 20px;
+
+}
+
+.result-item {
+  margin-bottom: 20px;
+}
+
+.result-title {
+  font-size: 22px;
+}
+
+.result-title:hover {
+  color: #006621;
+
+}
+
+.link-description {
+  color: #444444;
+  font-size: 15px;
+}
+
+.result-url {
+  color: #006621;
+  text-decoration: none;
+}
+
+.result-url:hover {
+  color: red;
+}
+
+
+
+/* offlie/online */
+.offline-banner {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-message-container {
+  width: auto;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* regular and newjobs */
+
+.regular-jobs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+:root {
+  --up-scroll-duration: 25s;
+  /* Faster scroll duration for up-row */
+  --down-scroll-duration: 25s;
+  /* Default scroll duration for down-row */
+
+}
+
+/* Container for the new jobs scrolling area */
+.new-jobs-container {
+  overflow: hidden; /* Ensure smooth overflow handling */
+  position: relative;
+  width: 100%;
+
+}
+
+
+.new-jobs {
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(122, 203, 255, 0.2) 20%,
+      rgba(0, 172, 188, 0.3) 80%,
+      rgba(255, 255, 255, 1) 100%);
+  padding: 20px;
+  max-width: 100vw;
+  /* Ensure it doesn't go beyond viewport width */
+  overflow: hidden;
+  /* Hide overflow to keep animation inside screen width */
+  
+}
+
+
+
+
+
+.job-image-newjob {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.job-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 12px;
+}
+
+.job-content p {
+  padding-left: 0px;
+}
+
+.company-card-name-new-job,
+.job-title-newjob,
+.job-description-new-job {
+  margin: 5px 0;
+  -webkit-font-smoothing: antialiased; /* Improves font rendering */
+  text-rendering: optimizeLegibility;
+}
+
+.company-card-name-new-job {
+  font-size: 18px;
+  color: #d0b200;
+  font-weight: bold
+  /* Change text color as needed */
+
+}
+
+.job-title-newjob {
+  font-size: 16px;
+}
+
+.job-description-new-job {
+  font-size: 12px;
+  color: #555;
+}
+
+
+
+@media (max-width: 480px) {
+  .job-card-newjob {
+    display: flex;
+    flex-direction: row;
+    width: 160px;
+    height: 50px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    cursor: pointer;
+    animation-play-state: running;
+    /* Animation running by default */
+  }
+
+  .job-image-newjob {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .company-card-name-new-job,
+.job-title-newjob,
+.job-description-new-job {
+  font-size: 10px;
+  gap: 0px;
+}
+.new-jobs-list {
+  display: inline-block;
+  width: auto;
+  animation: scroll-left 100s linear infinite;
+  /* Scroll animation */
+  white-space: nowrap;
+  /* Keep items in a single line */
+}
+.job-description-newjob{
+  display: none;
+}
+.new-job-item .company-name{
+  font-size: 20px;
+}
+
+
+}
+
+/* trending styles */
+
+.trending-heading-left {
+  width: 25%;
+  display: flex;
+  align-items: center;
+
+}
+
+.trending-heading-right {
+  overflow: hidden;
+  /* Ensure the overflow is hidden to mask the scroll */
+  position: relative;
+  width: 80%;
+  height: 35px;
+}
+
+.trending-name-container {
+  display: flex;
+  align-items: center;
+}
+
+.trending-heading {
+ 
+  font-size: 24px;
+  /* Adjust the size as needed */
+  color: white;
+  /* Change text color as needed */
+}
+
+
+.new-jobs-list {
+  display: flex;
+  flex-direction: column;
+  /* Stack items vertically */
+  justify-content: space-between;
+  gap: 5px;
+  /* Space between job items */
+}
+
+.new-job-item {
+  display: flex;
+  flex-direction: row;
+  /* Arrange company name and title in a row */
+  color: #d0b200;
+  /* Change text color as needed */
+  cursor: pointer;
+  text-rendering: optimizeLegibility; /* Ensures smooth text rendering */
+  -webkit-font-smoothing: antialiased; /* Ensures the text doesn't blur on webkit browsers */
+  transition: transform 0.2s ease-in-out;
+
+}
+
+.company-name {
+  font-weight: bold;
+  /* Make company name bold */
+  margin-right: 10px;
+  /* Space between company name and title */
+
+}
+
+.new-job-item .company-name {
+  color: red;
+
+}
+
+.new-job-item .company-name:hover {
+  color: #d0b200;
+  /* Change text color as needed */
+  cursor: pointer;
+}
+
+.job-title {
+  color: white;
+  /* Adjust title color */
+  font-size: 15px;
+}
+
+.trending-heading-right {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* Hide overflow to enable scrolling */
+}
+
+.scrolling-container {
+ 
+  overflow: hidden;
+  /* Hide overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+
+.new-jobs-list {
+  display: inline-block;
+  width: auto;
+  animation: scroll-left 20s linear infinite; /* Reduced animation duration */
+  animation-delay: 5s; /* Offset by half the animation duration */
+
+  white-space: nowrap;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Duplicate the .new-jobs-list and offset it by 50% */
+.new-jobs-list-offset {
+  display: inline-block;
+  width: auto;
+  animation: scroll-left 50s linear infinite;
+  animation-delay: 5s; /* Offset by half the animation duration */
+  white-space: nowrap;
+}
+
+
+
+
+.new-job-item {
+  display: inline-block;
+  padding: 0px 20px;
+  /* Space between items */
+  color: white;
+}
+
+.new-job-item:hover {
+  background-color: #555;
+  color: #ff0;
+  border-radius: 5px;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(100%);
+    /* Start from right (outside view) */
+  }
+
+  to {
+    transform: translateX(-100%);
+    /* Move to left (outside view) */
+  }
+}
+
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #d0b200;
+  --background-color: #ffffff;
+  --text-color: #333;
+  --padding-small: 10px;
+  --padding-medium: 20px;
+  --padding-large: 40px;
+}
+.find-job-btn:hover {
+  background-position: left bottom;
+  transform: scale(1.05); /* Slightly scale on hover */
+}
+
+
+
+
+
+
+/* hover card details styles*/
+
+.job-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+}
+
+.job-card:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.job-hover-info .hover-job-title{
+  font-size: 15px;
+}
+
+.job-card img:hover{
+  opacity: 0.5;
+}
+
+.job-hover-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding-top: 30px;
+}
+
+.job-card:hover .job-hover-info {
+  transform: translate(0);
+}
+.job-card:hover {
+  transform: scale(1.02); /* Slightly enlarge the card */
+}
+
+.job-description-hover {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  font-size: 14px;
+  transform: translate(100%);
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover .job-description-hover {
+  transform: translate(0);
+}
+
+/* Basic layout styling for main content */
+.job-main-content {
+  padding: 10px;
+  text-align: center;
+}
+

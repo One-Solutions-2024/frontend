@@ -1,0 +1,107 @@
+/* Global Styles */
+
+  
+  /* Container & Layout */
+  .td-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .tdc-content-wrap {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Breadcrumb Styles */
+  .td-crumb-container {
+    margin-bottom: 20px;
+  }
+  
+  .entry-crumbs {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .entry-crumbs a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .td-icon-right {
+    margin: 0 5px;
+    font-size: 14px;
+    color: #999;
+  }
+  
+  /* Page Header */
+  .td-page-header {
+    margin-bottom: 20px;
+  }
+  
+  .td-page-header .entry-title {
+    font-size: 2em;
+    margin: 0;
+    color: #222;
+  }
+  
+  /* Main Content */
+  .td-page-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+  }
+  
+  .td-page-content p {
+    margin-bottom: 1em;
+  }
+  
+  /* Footer component styling (if needed) */
+  /* You can add your Footer specific styles here */
+  
+  /* Responsive Styles */
+  
+  /* Mobile Devices */
+  @media (max-width: 767px) {
+    .td-container {
+      padding: 10px;
+    }
+    
+    .td-page-header .entry-title {
+      font-size: 1.5em;
+    }
+    
+    .entry-crumbs {
+      font-size: 12px;
+    }
+    
+    .td-page-content {
+      font-size: 14px;
+    }
+  }
+  
+  /* Tablet Devices */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .td-container {
+      padding: 15px;
+    }
+    
+    .td-page-header .entry-title {
+      font-size: 1.75em;
+    }
+    
+    .entry-crumbs {
+      font-size: 13px;
+    }
+    
+    .td-page-content {
+      font-size: 15px;
+    }
+  }
+  
+  /* Desktop Devices */
+  /* For desktops, the default styles above will apply, but you can add additional tweaks if needed */
+  

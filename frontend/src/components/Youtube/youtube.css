@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+.youtube-container {
+  display: flex;
+  flex-direction: row;
+  /* By default, display row for larger screens */
+  justify-content: space-between;
+  align-items: flex-start;
+  /* Align the playlist and video top-aligned */
+  color: #fff;
+  margin: 40px;
+  border-radius: 10px;
+  height: auto;
+}
+
+.featured-video {
+  flex: 2;
+  /* Larger space for the main video */
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.playlist-videos {
+  /* Smaller space for the playlist */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 438px;
+  max-height: 390px;
+}
+
+.selection-videos-list-container {
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 12px;
+  height: 438px;
+}
+
+.featured-title {
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.featured-video-contaianer {
+  position: fixed;
+}
+
+.playlist-item {
+  margin-bottom: 10px;
+}
+
+.playlist-item iframe {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.youtube-featured-video {
+  width: 800px;
+  max-width: 800px;
+  /* Set maximum width for the featured video */
+  border: none;
+  border-radius: 10px;
+  height: 440px;
+  /* Set a height for the featured video */
+}
+
+.video-list {
+  display: flex;
+  flex-direction: column;
+  /* Column layout for the list of videos */
+  max-height: 360px;
+  /* Set max height for the list */
+  width: 100%;
+  overflow-y: auto;
+
+}
+
+
+.video-card {
+  cursor: pointer;
+  /* Change cursor to indicate clickable */
+  transition: background-color 0.3s;
+  /* Smooth transition for background color */
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  padding-right: 10px;
+  color: #000000;
+  font-size: 15px;
+}
+
+.video-card:hover {
+  background-color: #dfdfdf;
+  /* Change this to the desired hover background color */
+}
+
+.video-card.active {
+  background-color: rgba(225, 219, 241, 0.95);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* Optional: add some shadow for effect */
+  border-left: 5px solid #dd3333;
+  /* Apply the red border only on the left side */
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.video-card.active .youtube-video {
+  margin-left: 5px;
+}
+
+.youtube-video {
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 60px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.youtube-videos {
+  object-fit: cover;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 calc(33.333% - 20px);
+
+}
+
+.large-video {
+  width: 800px;
+  height: 450px;
+  border-radius: 10px;
+}
+
+.side-youtube-videos {
+  flex-wrap: wrap;
+}
+
+
+.video-snippet-title-mini {
+  padding-left: 5px;
+  font-size: 14px;
+  padding-right: 50px;
+  font-weight: 500;
+}
+
+.more-list-videos-container {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  /* Set relative positioning */
+  height: 50px;
+  /* Default collapsed height */
+  border-radius: 10px;
+ 
+}
+
+.more-list-videos-container.expanded {
+  height: auto;
+  /* Let the content expand naturally */
+  justify-content: flex-start;
+  /* Align items at the top */
+  /* Maintain relative positioning */
+  animation: slideUp 0.3s ease-in-out forwards;
+  transform: translateY(100%);
+  bottom: 90px;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.expanded-content {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  width: 100%;
+}
+
+
+
+@media (max-width: 480px) {
+  .more-list-videos-container.expanded {
+    height: auto;
+    /* Same expanded height for small devices */
+    animation: slideUp 0.3s ease-in-out forwards;
+    transform: translateY(100%);
+    width: auto;
+    bottom: 0;
+    position: fixed;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+}
+
+.more-vidoes-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+
+.list-option {
+  font-weight: bold;
+  color: #000;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.push-pull-button {
+  background-color: #9c9a9a;
+  height: 6px;
+  width: 50px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.list-option-container {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.list-option-container:hover {
+  background-color: #dfdfdf;
+}
+
+.radio-button {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.radio-button.active {
+  border-color: #28a745;
+  background-color: #28a745;
+}
+
+.radio-button.active::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* Responsiveness for small devices */
+@media (max-width: 768px) {
+  .youtube-container {
+    flex-direction: column;
+    /* Stack vertically for small screens */
+    align-items: center;
+    /* Center the items in column layout */
+    margin: 10px;
+  }
+
+  .youtube-featured-video {
+    width: 100%;
+    max-width: 100%;
+    /* Make the featured video full-width on small screens */
+    height: auto;
+    /* Adjust height automatically */
+  }
+
+  .video-list {
+    max-width: 100%;
+    /* Make the video list full-width on small screens */
+    margin-top: 20px;
+    /* Add spacing between featured video and playlist */
+    max-height: 500px;
+    /* Limit the height of the video list */
+  }
+
+  .youtube-video {
+    width: 100px;
+    /* Adjust width of video cards on small screens */
+    height: 60px;
+    /* Adjust height of video cards on small screens */
+  }
+}
+
+/* Responsiveness for extra-small devices */
+@media (max-width: 480px) {
+  .youtube-featured-video {
+    width: 400px;
+    height: 215px;
+    /* Set a height for the featured video */
+  }
+
+  .youtube-container {
+    flex-direction: column;
+    /* Stack featured video and playlist vertically */
+    align-items: center;
+    margin: 10px;
+    height: 90%;
+  }
+
+  .video-card {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 5px;
+  }
+
+  .video-snippet-title-mini {
+    padding-left: 5px;
+    font-size: 12px;
+    padding-right: 10px;
+  }
+
+  .youtube-video {
+    width: 200px;
+    /* Adjust width of video cards on small screens */
+    height: 100px;
+    /* Adjust height of video cards on small screens */
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width:768px) {
+  .video-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-video {
+    margin-right: 0;
+  }
+
+}
+
+@media screen and (max-width:900px) {
+  .youtube-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .youtube-featured-video {
+    width: 680px;
+  }
+
+}

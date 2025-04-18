@@ -1,0 +1,139 @@
+/* Base styles for all devices */
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+.contact-img {
+  height: 180px;
+  width: 160px;
+}
+
+.contact-container {
+  text-align: center;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.youtube-logo-contact {
+  width: 100px; 
+  height: auto;
+  margin-top: 8px;
+  margin-left: 30px;
+}
+
+.nav-link-mail {
+  padding: 10px 60px; /* Adjusted padding for smaller screens */
+  background-color: black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 70px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.mail-logo {
+  width: 20px; 
+  height: auto;
+  margin-right: 8px; 
+}
+
+.contact-right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .contact-details {
+    flex-direction: column;
+    align-items: center; /* Center align items on smaller screens */
+    gap: 20px; /* Space between stacked items */
+  }
+
+  .nav-link-mail {
+    padding: 10px 30px; /* Adjust padding for smaller screens */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 10px; /* Adjust bottom margin */
+  }
+
+  .youtube-logo-contact {
+    width: 80px; /* Adjust logo size */
+    margin-left: 20px; /* Reduced margin */
+  }
+
+  .contact-img {
+    width: 120px; /* Adjust width for responsiveness */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-details {
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    gap: 15px; /* Further reduced gap */
+  }
+
+  .nav-link-mail {
+    padding: 10px 25px; /* Further reduced padding */
+    margin-right: 0; /* Remove margin */
+    margin-bottom: 10px; /* Adjust margin */
+  }
+
+  .youtube-logo-contact {
+    width: 60px; /* Further reduced logo size */
+    margin-left: 22px; /* Reduced margin */
+  }
+
+  .contact-img {
+    width: 100px; /* Further reduced width */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+/* Instagram container */
+.contact-instagram {
+  display: flex;
+  justify-content: center; /* Center the content */
+  align-items: center; /* Align vertically */
+  margin-top: 20px; /* Add some space at the top */
+}
+
+/* Instagram link */
+.instagram-link {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000; /* Black text color */
+  display: flex;
+  align-items: center;
+}
+
+/* Instagram logo */
+.instagram-logo {
+  width: 40px; /* Adjust the logo size */
+  height: 40px;
+  margin-right: 10px; /* Space between the logo and text */
+  border-radius: 5px; /* Slight rounding of edges */
+  margin-left: 25px;
+}
+
+/* Hover effect */
+.instagram-link:hover {
+  color: #e1306c; /* Instagram pink color on hover */
+}
+
+.instagram-logo:hover {
+  opacity: 0.8; /* Slight transparency on hover */
+}

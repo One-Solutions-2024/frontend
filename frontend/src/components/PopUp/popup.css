@@ -1,0 +1,105 @@
+/* Popup overlay for the background */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Popup container styling */
+.popup {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+}
+
+/* Close button styling */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Image inside the popup */
+.popup img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.callToAction:hover,
+.callToAction:active {
+  border-color: #002b84;
+  background-color: #005eb7;
+}
+
+.callToAction {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #0078d1;
+  border-color: #00459e;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  background-color: #0078d1;
+}
+
+.callToAction a {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  color: #ffffff;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.close {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #00459e;
+  opacity: 1;
+  /* Ensures full opacity */
+}
+
+.close:hover {
+  text-decoration: none;
+  background-color: #0400ff;
+  color: #ffffff;
+  opacity: 1;
+  /* Ensures full opacity on hover */
+
+}
+
+.close i,
+.close span {
+  font-size: 8px;
+  margin: 11px;
+  font-weight: bold;
+}

@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+/* Container for the complete footer section */
+.footer-container {
+  width: 100%;
+  animation: fadeInFooter 1.5s ease-out;
+}
+
+/* Logo and website name section styling */
+.logo-websitename {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 1s ease-out;
+}
+
+/* Ensure proper section spacing when scrolling */
+section {
+  scroll-margin-top: 160px;
+}
+
+/* Down-logo area with engaging hover scale effect */
+.down-logo {
+  background-color: #232f3e;
+  color: red;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* Down area heading styling */
+.heading-down {
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Social links container and link styling */
+.social-links {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #f1f1f1;
+  transform: translateY(-3px);
+}
+
+/* Adjust spacing if necessary for the last social link */
+.social-links a:last-child {
+  margin-right: 0;
+}
+
+/* Styling for copy text in the footer */
+.span-copy {
+  color: #37475A;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.span-copy:hover {
+  color: #232f3e;
+}
+
+/* Icon sizes with hover transformations */
+.bottom-icons-youtube {
+  height: 30px;
+  width: 30px;
+  transition: transform 0.3s ease;
+}
+
+.bottom-icons-instagram {
+  height: 26px;
+  width: 26px;
+  transition: transform 0.3s ease;
+}
+
+.bottom-icons-linkedin {
+  height: 30px;
+  width: 30px;
+  transition: transform 0.3s ease;
+}
+
+.bottom-icons-youtube:hover,
+.bottom-icons-instagram:hover,
+.bottom-icons-linkedin:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Logo styling with a subtle shadow on hover */
+.logo {
+  height: 50px;
+  width: 50px;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+/* WhatsApp icon styling */
+.whatsapp-icon {
+  font-size: 26px; /* Adjust size as needed */
+  color: #25D366;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Footer main container styling */
+footer {
+  background-color: #131A22;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: slideUp 1s ease-out;
+}
+
+/* Privacy text with hover effect */
+.privacy {
+  padding-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.privacy:hover {
+  color: #bbb;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .youtube-video {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 310px;
+  }
+  
+  .footer-copyright p {
+    padding-left: 0;
+  }
+  
+  footer {
+    flex-direction: column;
+  }
+}
+
+/* Keyframe animations */
+@keyframes fadeInFooter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

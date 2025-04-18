@@ -1,0 +1,27 @@
+{
+  "short_name": "ONE SOLUTIONS",
+  "name": "ONE SOLUTIONS",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dsjcty43b/image/upload/v1726470878/WhatsApp_Image_2024-09-06_at_22.30.50_85f627e1-removebg-preview_yp7rg2.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "https://res.cloudinary.com/dsjcty43b/image/upload/v1726470878/WhatsApp_Image_2024-09-06_at_22.30.50_85f627e1-removebg-preview_yp7rg2.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://res.cloudinary.com/dsjcty43b/image/upload/v1726470878/WhatsApp_Image_2024-09-06_at_22.30.50_85f627e1-removebg-preview_yp7rg2.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "box_shadow": "0 4px 8px rgba(0, 0, 0, 0.2)"
+
+}
