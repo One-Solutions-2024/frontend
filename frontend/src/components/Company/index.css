@@ -216,6 +216,7 @@ p {
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    border: none;
 }
 
 .image-apply-link:hover {
@@ -380,6 +381,10 @@ p {
 
     .view-count {
         margin-left: 50px;
+    }
+    .modal-buttons{
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -701,3 +706,6 @@ p {
     }
   }
   
+  .comments-length-num{
+    font-size: smaller;
+  }

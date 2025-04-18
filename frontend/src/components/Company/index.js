@@ -281,7 +281,7 @@ const Company = () => {
                     setShowUploadModal(true)
                   }}
                 >
-                  UPLOAD RESUME {<SendIcon />}
+                  Continue application {<SendIcon />}
                 </button>
               </div>
 
@@ -329,7 +329,7 @@ const Company = () => {
                           <button type="button" onClick={() => setShowUploadModal(false)}>
                             Cancel
                           </button>
-                          <button type="submit">Analyze & Apply</button>
+                          <button type="submit">Continue application</button>
                         </div>
                       )}
                     </form>
@@ -346,7 +346,7 @@ const Company = () => {
             </ul>
             <hr />
             <div className="comments-section">
-              <h3>Comments {comments.length}</h3>
+              <h3>Comments <span className="comments-length-num">{comments.length}</span></h3>
               <form onSubmit={handleCommentSubmit} className="comment-form">
                 <input
                   type="text"

@@ -177,7 +177,7 @@ const AnalysisResultPage = () => {
           </div>
           <div className="ar-powered-by">
             Powered by ONE.ai
-            <img src="/ai-avatar.png" alt="AI Avatar" className="ar-ai-avatar" />
+            🤖
           </div>
         </div>
 
