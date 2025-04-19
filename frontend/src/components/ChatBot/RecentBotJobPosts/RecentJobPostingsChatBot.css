@@ -1,0 +1,80 @@
+
+
+.rjpcb-section {
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.rjpcb-title {
+  padding-left: 0px;
+  margin-bottom: 0.75rem;
+  color: #2d3436;
+  font-size: 1rem;
+  border-bottom: 1px solid #0984e3;
+  padding-bottom: 0.25rem;
+}
+
+.rjpcb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.rjpcb-card {
+  background: white;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease;
+}
+
+.rjpcb-card:hover {
+  transform: translateY(-2px);
+}
+
+.rjpcb-card-content {
+  padding: 0.5rem;
+}
+
+.rjpcb-company {
+  color: black;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+.rjpcb-job-title {
+  margin: 0.25rem 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none !important;
+
+}
+
+.rjpcb-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #636e72;
+}
+
+.rjpcb-location::before {
+  content: '📍 ';
+}
+
+.rjpcb-type {
+  background: #0984e3;
+  color: white;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+}
+
+.rjpcb-loading {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  color: #636e72;
+}

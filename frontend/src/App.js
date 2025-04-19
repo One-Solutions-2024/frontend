@@ -10,7 +10,7 @@ import Popup from "./components/PopUp"; // Adjust the path as needed
 import Disclaimer from './components/Disclaimer';
 import Privacy from './components/PrivacyPolicy';
 import AnalysisResultPage from "./components/ResumeMatch";
-import ChatBot from './components/ChatBot'; // Add this import
+import Chatbot from './components/ChatBot/Chatbot'; // Add this import
 
 import "./App.css";
 
@@ -19,7 +19,7 @@ const App = () => (
     <Popup />
     <Header />
     <ScrollToTop />
-    <ChatBot /> {/* Add this line */}
+    <Chatbot /> {/* Add this line */}
     <Routes>
       <Route path="/company/:companyname/:url" element={<Company />} /> {/* Using company name slug */}
       <Route path="/analysis-result" element={<AnalysisResultPage />} />

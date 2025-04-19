@@ -1,0 +1,218 @@
+/* 1. Global box‑sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Overlay backdrop */
+.resume-popup-overlay {
+  position: fixed;
+  inset: 0;                        /* shorthand for top/right/bottom/left = 0 */
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;                   /* ensure some space on very small screens */
+}
+
+/* 3. Popup container */
+.resume-popup-container {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 28rem;                /* ~448px */
+  overflow: hidden;
+}
+
+/* 4. Header */
+.resume-popup-header {
+  background: #6b21a8;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.resume-popup-header h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+/* Close button */
+.resume-popup-header-button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.resume-popup-header-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 5. Body */
+.resume-popup-body {
+  padding: 1.5rem;
+}
+
+/* 6. Circular score chart */
+.resume-popup-chart {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto 1rem;
+}
+.resume-popup-chart svg {
+  width: 100%;
+  height: 100%;
+}
+.resume-popup-chart-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* 7. Titles */
+.resume-popup-title {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.resume-popup-subtitle {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+/* 8. Sections */
+.resume-popup-section {
+  margin-bottom: 1rem;
+}
+.resume-popup-section-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* 9. Skills tags */
+.resume-popup-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.resume-popup-skills span {
+  background: #ede9fe;
+  color: #5b21b6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+/* 10. Strengths & Weaknesses lists */
+.resume-popup-strengths ul,
+.resume-popup-weaknesses ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+.resume-popup-strengths li {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #10b981;   /* Green */
+}
+.resume-popup-weaknesses li {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #ef4444;   /* Red */
+}
+
+/* 11. Responsive tweak for very narrow screens */
+/* 11. Responsive tweak for very narrow screens */
+@media (max-width: 480px) {
+  /* container */
+  .resume-popup-container {
+    max-width: 100%;
+    border-radius: 0.25rem;
+  }
+
+  /* header */
+  .resume-popup-header {
+    padding: 0.5rem;
+  }
+  .resume-popup-header h2 {
+    font-size: 1rem;
+  }
+  .resume-popup-header-button {
+    padding: 2px;
+  }
+
+  /* body padding */
+  .resume-popup-body {
+    padding: 0.75rem;
+  }
+
+  /* chart */
+  .resume-popup-chart {
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 0.75rem;
+  }
+  .resume-popup-chart-text {
+    font-size: 1.25rem;
+  }
+
+  /* titles */
+  .resume-popup-title {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+  .resume-popup-subtitle {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* section headings */
+  .resume-popup-section {
+    margin-bottom: 0.75rem;
+  }
+  .resume-popup-section-title {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* skills tags */
+  .resume-popup-skills {
+    gap: 0.25rem;
+  }
+  .resume-popup-skills span {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* strengths & weaknesses list */
+  .resume-popup-strengths ul,
+  .resume-popup-weaknesses ul {
+    padding-left: 1rem;
+  }
+  .resume-popup-strengths li,
+  .resume-popup-weaknesses li {
+    font-size: 0.75rem;
+    margin-bottom: 0.2rem;
+  }
+}
+

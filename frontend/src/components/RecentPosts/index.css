@@ -1,0 +1,101 @@
+/* Wrapper section */
+.rt-recent-jobs-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section title */
+.rt-section-title {
+  margin-bottom: 1.5rem;
+  color: #2d3436;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #0984e3;
+  padding-bottom: 0.5rem;
+}
+
+/* Grid layout */
+.rt-recent-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card styling */
+.rt-job-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.rt-job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Card content */
+.rt-job-card-content {
+  padding: 1rem;
+}
+
+/* Company logo */
+.rt-company-logo {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+/* Details container */
+.rt-job-details {
+  padding: 1rem;
+}
+
+/* Company name */
+.rt-company-name {
+  color: #2d3436;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Job title */
+.rt-job-title {
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: #2d3436;
+}
+
+/* Meta info & apply button */
+.rt-job-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  color: #636e72;
+}
+.rt-job-location::before {
+  content: '📍 ';
+}
+.rt-job-apply-btn {
+  border: none;
+  background: #0984e3;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Loading state */
+.rt-loading-jobs {
+  text-align: center;
+  padding: 1rem;
+  color: #636e72;
+}

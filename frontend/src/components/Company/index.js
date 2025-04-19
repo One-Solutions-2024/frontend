@@ -6,6 +6,7 @@ import { assets } from "../../assets/assets"
 import Footer from "../Footer"
 import { FaEye } from "react-icons/fa"
 import SendIcon from "@mui/icons-material/Send"
+import RecentJobPostings from "../RecentPosts"
 import "./index.css"
 
 const Company = () => {
@@ -388,6 +389,8 @@ const Company = () => {
               </div>
             </div>
           </div>
+          <RecentJobPostings />
+
         </div>
       </div>
       <Footer />
