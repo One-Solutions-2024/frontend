@@ -119,7 +119,7 @@ const ChatBot = () => {
           found = true;
         }
       } catch (err) {
-        setError(err);
+        console.log("Getting Error")
       }
     }
 
@@ -138,7 +138,7 @@ const ChatBot = () => {
           found = true;
         }
       } catch (err) {
-        setError(err);
+        console.log("Getting Error")
       }
     }
     if (!found) {
