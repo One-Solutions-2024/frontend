@@ -104,6 +104,53 @@ const ChatBot = () => {
       console.log("Error")
     }
 
+    if (!found) {
+      try {
+        const sr = await axios.get(
+          `https://www.googleapis.com/customsearch/v1?key=AIzaSyBmudctDNy8EHElJcll4cza0joNUQOSW94&cx=1630c7eb3c2ed45a7&q=${encodeURIComponent(inputMessage)}&num=3`
+        );
+        if (sr.data.items?.length) {
+          let result = "🔍 Web Results:\n\n";
+          sr.data.items.forEach((item, i) => {
+            result += `${i+1}. ${item.title}\n${item.snippet}\n${item.link}\n\n`;
+          });
+          addTextMessage(result);
+          if (jobRelated) addJobsMessage();
+          found = true;
+        }
+      } catch (err) {
+        setError(err);
+      }
+    }
+
+    if (!found) {
+      try {
+        const wr = await axios.get(
+          `https://en.wikipedia.org/w/api.php?action=opensearch&search=${encodeURIComponent(inputMessage)}&limit=3&format=json&origin=*`
+        );
+        if (wr.data[1]?.length) {
+          let wikiResult = "📚 Wikipedia Results:\n\n";
+          wr.data[1].forEach((title, i) => {
+            wikiResult += `${i+1}. ${title}\n${wr.data[3][i]}\n\n`;
+          });
+          addTextMessage(wikiResult);
+          if (jobRelated) addJobsMessage();
+          found = true;
+        }
+      } catch (err) {
+        setError(err);
+      }
+    }
+    if (!found) {
+      let fallback = `I couldn't find specific information, but here's what I can suggest:`;
+      if (jobRelated) {
+        addTextMessage(fallback);
+        addJobsMessage();
+      } else {
+        fallback += `\n\n🔍 Try rephrasing your question\n📝 Check our example questions\n🌐 Search online using key terms from your question`;
+        addTextMessage(fallback);
+      }
+    }
     // fallback web/wikipedia searches omitted for brevity
     if (!found) {
       addTextMessage("I couldn't find specific information.");
