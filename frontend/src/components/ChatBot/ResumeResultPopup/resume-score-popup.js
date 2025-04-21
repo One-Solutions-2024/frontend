@@ -2,8 +2,25 @@ import React from "react";
 import { X } from "lucide-react";
 import "./ResumeScorePopup.css";
 
-const ResumeScorePopup = ({ score, skills = [], feedback = [], feedbackType = "strengths", isOpen, onClose }) => {
+const ResumeScorePopup = ({
+  score,
+  skills = [],
+  feedback = [],
+  feedbackType = "strengths",
+  isOpen,
+  onClose
+}) => {
   if (!isOpen) return null;
+
+  // determine color based on score
+  let strokeColor;
+  if (score < 50) {
+    strokeColor = "#ef4444"; // red
+  } else if (score < 75) {
+    strokeColor = "#f59e0b"; // orange
+  } else {
+    strokeColor = "#10b981"; // green
+  }
 
   const title = feedbackType === "strengths" ? "Strengths" : "Weaknesses";
   const listClass = feedbackType === "strengths" ? "strengths" : "weaknesses";
@@ -33,7 +50,7 @@ const ResumeScorePopup = ({ score, skills = [], feedback = [], feedbackType = "s
                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831
                    a 15.9155 15.9155 0 0 1 0 -31.831"
                 fill="none"
-                stroke="#F59E0B"
+                stroke={strokeColor}
                 strokeWidth="3"
                 strokeDasharray={`${score}, 100`}
               />

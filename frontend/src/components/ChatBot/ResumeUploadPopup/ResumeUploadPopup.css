@@ -1,0 +1,145 @@
+/* ResumeUploadPopup.css */
+
+/* Overlay backdrop */
+.resume-upload-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+  }
+  
+  /* Modal container */
+  .resume-upload-container {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Header */
+  .resume-upload-header {
+    background: #7c3aed;
+    color: #ffffff;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px 16px 0 0;
+  }
+  
+  /* Close button */
+  .resume-upload-close {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .resume-upload-close:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Form layout */
+  .resume-upload-form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Form group */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group label {
+    font-weight: 600;
+    margin-bottom: 0px;
+    color: #374151;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+  }
+  .form-group input[type="text"]:focus,
+  .form-group input[type="email"]:focus,
+  .form-group input[type="file"]:focus {
+    outline: none;
+    border-color: #7c3aed;
+  }
+  .form-group input[type="file"] {
+    cursor: pointer;
+    padding: 6px;
+  }
+  
+  /* Error message */
+  .error-msg {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin: -0.5rem 0 0.5rem;
+  }
+  
+  /* Submit button */
+  .upload-submit {
+    background: #7c3aed;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 20px;
+  }
+  .upload-submit:hover:not(:disabled) {
+    background: #6d28d9;
+  }
+  .upload-submit:disabled {
+    background: #c4b5fd;
+    cursor: not-allowed;
+  }
+  
+  /* add at bottom of ResumeUploadPopup.css */
+
+/* Drag‑and‑drop zone */
+.file-dropzone {
+  border: 2px dotted #7c3aed;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.file-dropzone.dragover {
+  background-color: rgba(124, 58, 237, 0.1);
+  border-color: #6d28d9;
+}
+
+.file-dropzone p {
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.file-dropzone input {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
