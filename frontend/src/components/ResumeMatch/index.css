@@ -356,3 +356,14 @@
   font-size: 18px;
   color: #666;
 }
+
+.ai-result-company-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 2px solid #eaeaea;
+}
+.company-name-ai-header{
+  text-decoration: underline;
+}

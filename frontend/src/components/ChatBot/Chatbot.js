@@ -22,7 +22,6 @@ const ChatBot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showExamples, setShowExamples] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
-  const [error, setError] = useState(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showScorePopup, setShowScorePopup] = useState(false);
   const [showUploadPopup, setShowUploadPopup] = useState(false);
@@ -102,7 +101,7 @@ const ChatBot = () => {
         found = true;
       }
     } catch (err) {
-      setError(err);
+      console.log("Error")
     }
 
     // fallback web/wikipedia searches omitted for brevity

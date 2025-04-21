@@ -8,8 +8,6 @@ const AnalysisResultPage = () => {
   const { state } = useLocation()
   const navigate = useNavigate()
   const [expanded, setExpanded] = useState(true) // Start expanded by default
-  const [jobRequirements, setJobRequirements] = useState([])
-  const [resumeSkills, setResumeSkills] = useState([])
   const [matchDetails, setMatchDetails] = useState({
     pros: [],
     cons: [],
@@ -41,8 +39,6 @@ const AnalysisResultPage = () => {
       summary = comparison.summary
     }
 
-    setJobRequirements(requirements)
-    setResumeSkills(skills)
     setMatchDetails({ pros, cons, summary })
   }, [state, analysisResult])
 
@@ -152,8 +148,21 @@ const AnalysisResultPage = () => {
   return (
     <div className="ar-analysis-result-page">
       <div className="ar-resume-match-container">
+      <div className="ai-result-company-header">
+          <div>
+            <strong className="company-name-ai-header">Company</strong>
+          <h6>{companyName}</h6>
+          </div>
+         <div>
+         <strong  className="company-name-ai-header">Role</strong>
+         <h6>{jobTitle}</h6>
+         </div>
+          </div>
         <div className="ar-resume-match-header">
+          
           <div className="ar-resume-match-title">
+         
+           
             <div className="ar-resume-match-icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -34,7 +34,7 @@ const Popup = () => {
   return (
     <div className="popup-overlay">
       <div className="popup">
-        <a className="close" onClick={handleClose}><i className="fa-solid fa-x"></i></a>
+        <button className="popup-close"  onClick={handleClose}><i className="fa-solid fa-x"></i></button>
 
         <h2 className="popup-heading">{popupContent.popup.popup_heading}</h2>
         <p>{popupContent.popup.popup_text}</p>

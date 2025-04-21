@@ -28,7 +28,7 @@ const Privacy = () => (
                         <h2 className="wp-block-heading">What personal data we collect and why we collect it</h2>
                         <h3 className="wp-block-heading">Comments</h3>
                         <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p>
-                        <p>An anonymized string created from your <a href="#" className="privacy-disclaimer-links">email</a> address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>
+                        <p>An anonymized string created from your <a href="onesolutions06092024@gmail.com" className="privacy-disclaimer-links">email</a> address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>
                         <h3 className="wp-block-heading">Media</h3>
                         <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>
                         <h3 className="wp-block-heading">Contact forms</h3>
@@ -60,10 +60,10 @@ const Privacy = () => (
                         <p>Visitor comments may be checked through an automated spam detection service.</p>
 
                         <h2 className="wp-block-heading">Contact information</h2>
-                        <p>For any complaints, suggestions, security issues, and copyright policy please contact via <a href="#" className="privacy-disclaimer-links">email</a> <a href="mailto:onesolutions06092024@gmail.com" target="_blank" className="privacy-disclaimer-links">onesolutions06092024@gmail.com</a></p>
+                        <p>For any complaints, suggestions, security issues, and copyright policy please contact via <a href="onesolutions06092024@gmail.com" className="privacy-disclaimer-links">email</a> <a href="mailto:onesolutions06092024@gmail.com" target="_blank" rel="noreferrer" className="privacy-disclaimer-links">onesolutions06092024@gmail.com</a></p>
 
                         <h3 className="wp-block-heading">What automated decision making and/or profiling we do with user data</h3>
-                        <p>For early notifications, we use our <a href="#" className="privacy-disclaimer-links">email</a> list to send mails as per schedule.</p>
+                        <p>For early notifications, we use our <a href="onesolutions06092024@gmail.com" className="privacy-disclaimer-links">email</a> list to send mails as per schedule.</p>
 
                         <h3 className="wp-block-heading">&nbsp;</h3>
                         

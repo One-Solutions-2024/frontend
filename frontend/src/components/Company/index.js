@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { assets } from "../../assets/assets"
 import Footer from "../Footer"
@@ -28,7 +28,6 @@ const Company = () => {
     email: "",
     phone: "",
   })
-  const [analysisResult, setAnalysisResult] = useState(null)
   const [isAnalysisLoading, setIsAnalysisLoading] = useState(false) // new state for analysis loading
 
   // Upload Handler
@@ -37,7 +36,6 @@ const Company = () => {
     setIsAnalysisLoading(true) // start loading
 
     // Reset any previous analysis result if needed
-    setAnalysisResult(null)
 
     const formData = new FormData()
     formData.append("resume", resumeFile)
@@ -138,8 +136,31 @@ const Company = () => {
     }
   }
 
+  
+
+  const fetchViewCount = useCallback(async (id) => {
+    try {
+      const response = await fetch(`https://backend-lt9m.onrender.com/api/jobs/${id}/viewers`)
+      const data = await response.json()
+      setViewCount(data.viewer_count)
+    } catch (error) {
+      console.error("Failed to fetch view count:", error.message)
+    }
+  }, [])
+
+  const incrementViewCount = useCallback(async (id) => {
+    try {
+      await fetch(`https://backend-lt9m.onrender.com/api/jobs/${id}/view`, {
+        method: "POST",
+      })
+      fetchViewCount(id)
+    } catch (error) {
+      console.error("Failed to increment job view count:", error.message)
+    }
+  }, [fetchViewCount])
+
   // Fetch job data
-  const fetchJob = async () => {
+  const fetchJob = useCallback(async () => {
     if (!companyname || !url) {
       console.error("Missing company name or URL")
       return
@@ -162,7 +183,7 @@ const Company = () => {
     } finally {
       setLoading(false)
     }
-  }
+  }, [companyname, url, incrementViewCount])
 
   const handleApplyClick = async () => {
     try {
@@ -174,44 +195,21 @@ const Company = () => {
     }
   }
 
-  const incrementViewCount = async (id) => {
-    try {
-      await fetch(`https://backend-lt9m.onrender.com/api/jobs/${id}/view`, {
-        method: "POST",
-      })
-      fetchViewCount(id)
-    } catch (error) {
-      console.error("Failed to increment job view count:", error.message)
-    }
-  }
-
-  const fetchViewCount = async (id) => {
-    try {
-      const response = await fetch(`https://backend-lt9m.onrender.com/api/jobs/${id}/viewers`)
-      const data = await response.json()
-      setViewCount(data.viewer_count)
-    } catch (error) {
-      console.error("Failed to fetch view count:", error.message)
-    }
-  }
+  
 
   useEffect(() => {
     if (job._id) {
       incrementViewCount(job._id)
       fetchViewCount(job._id)
     }
-  }, [job._id])
+  }, [job._id, incrementViewCount, fetchViewCount])
 
   useEffect(() => {
-    if (companyname && url) {
-      fetchJob()
-    } else {
-      console.error("Missing company name or job URL")
-    }
+    if (companyname && url) fetchJob()
     const handleResize = () => formatAndSetDate(job.createdat)
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
-  }, [companyname, url, job.createdat])
+  }, [companyname, url, job.createdat, fetchJob])
 
   if (loading) {
     return (
