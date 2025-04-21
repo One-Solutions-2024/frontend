@@ -76,31 +76,67 @@ function JobList() {
     }
   }, [location]);
 
-  // Filter jobs based on search query
+  // Monitor online/offline status
   useEffect(() => {
-    const filteredJobs = allJobs.filter(job =>
-      job.companyname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.salary.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.experience.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.job_type.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.batch.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.location.toLowerCase().includes(searchQuery.toLowerCase())
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
 
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+// Filter jobs based on search query
+useEffect(() => {
+  const filteredJobs = allJobs.filter(job =>
+    job.companyname.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    job.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    job.salary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    job.experience.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    job.job_type.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    job.batch.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    job.location.toLowerCase().includes(searchQuery.toLowerCase())
+
+  );
+
+  // Exclude new jobs from regular jobs to avoid duplication
+  const availableRegularJobs = filteredJobs.filter(job => !newJobs.includes(job));
+
+  // Pagination logic for regular jobs
+  const startIdx = (currentPage - 1) * jobsPerPage;
+  const endIdx = startIdx + jobsPerPage;
+
+  // Set regular jobs to include filtered results
+  setRegularJobs(availableRegularJobs.slice(startIdx, endIdx));
+  setTotalPages(Math.ceil(availableRegularJobs.length / jobsPerPage));
+}, [searchQuery, currentPage, allJobs, newJobs]);
+
+
+  // Early returns for offline and loading states
+  if (!isOnline) {
+    return (
+      <div className="offline-banner">
+        <img
+          className="offline-image"
+          src={assets.offlineimage}
+          alt="You're Offline"
+        />
+      </div>
     );
+  }
+  if (loading) {
+    return (
+      <div className='loader-div'>
+        <p className="loader">Loading...</p>
+      </div>
+    );
+  }
 
-    // Exclude new jobs from regular jobs to avoid duplication
-    const availableRegularJobs = filteredJobs.filter(job => !newJobs.includes(job));
-
-    // Pagination logic for regular jobs
-    const startIdx = (currentPage - 1) * jobsPerPage;
-    const endIdx = startIdx + jobsPerPage;
-
-    // Set regular jobs to include filtered results
-    setRegularJobs(availableRegularJobs.slice(startIdx, endIdx));
-    setTotalPages(Math.ceil(availableRegularJobs.length / jobsPerPage));
-  }, [searchQuery, currentPage, allJobs, newJobs]);
+  
 
   const handleCardClick = (job) => {
     // Convert company name to a URL-friendly slug (replace spaces and special characters)
@@ -117,25 +153,14 @@ function JobList() {
     navigate(`/company/${companyNameSlug}/${jobUrlEncoded}`, { state: { job } });
   };
 
+  
 
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
 
-  // Monitor online/offline status
-  useEffect(() => {
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
 
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
 
   // Wikipedia search functionality
   const searchWikipedia = async (event) => {
@@ -210,206 +235,197 @@ function JobList() {
   const heading = searchQuery.trim() === '' || regularJobs.length > 0 ? "Opportunities..." : "Search Results...";
 
   return (
-    !isOnline ? (
-      <div className="offline-banner">
-        <img
-          className="offline-imgage"
-          src={assets.offlineimage}  // Path to the local image in the 'public' folder
-          alt="You're Offline"
-        />
-      </div>
-    ) : (
-      <div className='app-container'>
-        <div className='banner-container' id='home'>
-          <div className='search-bar searchbar-small'>
-            <div className="circle rotating">
-              <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%">
-                    <stop offset="0%" stopColor="#00ADEF" />
-                    <stop offset="50%" stopColor="#8A2BE2" />
-                    <stop offset="100%" stopColor="#FF007F" />
-                  </linearGradient>
-                </defs>
-                <circle cx="50" cy="50" r="40" stroke="url(#gradient)" className="circle-gradient" />
-              </svg>
-            </div>
-            <input
-              type='search'
-              id="searchInput"
-              placeholder='Ask ONE AI or Search'
-              className='search-input search-bar-section'
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={searchWikipedia} // Trigger Wikipedia search on Enter
-            />
-          </div>
 
-          <div className='device-top'>
-            <img className="banner-image" src={assets.banner_image} alt="Job Hunt Banner" />
-            <div className='bigdevice-top-right'>
-              <h1 className='banner-name'>One Solutions: Your Trusted Career Companion</h1>
-              <p className='banner-description'>Where Students can find Jobs, Technologies Videos & Many More</p>
-              <button
-                className="find-job-btn"
-                type="button"
-                onClick={() => document.getElementById('jobs').scrollIntoView({ behavior: 'smooth' })}              >
-                Find Jobs
-              </button>
-            </div>
+    <div className='app-container'>
+      <div className='banner-container' id='home'>
+        <div className='search-bar searchbar-small'>
+          <div className="circle rotating">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%">
+                  <stop offset="0%" stopColor="#00ADEF" />
+                  <stop offset="50%" stopColor="#8A2BE2" />
+                  <stop offset="100%" stopColor="#FF007F" />
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="40" stroke="url(#gradient)" className="circle-gradient" />
+            </svg>
           </div>
+          <input
+            type='search'
+            id="searchInput"
+            placeholder='Ask ONE AI or Search'
+            className='search-input search-bar-section'
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={searchWikipedia} // Trigger Wikipedia search on Enter
+          />
         </div>
 
-        {loading ? (
-          <div className='loader-div'>
-            <p className="loader">Loading...</p>
+        <div className='device-top'>
+          <img className="banner-image" src={assets.banner_image} alt="Job Hunt Banner" />
+          <div className='bigdevice-top-right'>
+            <h1 className='banner-name'>One Solutions: Your Trusted Career Companion</h1>
+            <p className='banner-description'>Where Students can find Jobs, Technologies Videos & Many More</p>
+            <button
+              className="find-job-btn"
+              type="button"
+              onClick={() => document.getElementById('jobs').scrollIntoView({ behavior: 'smooth' })}              >
+              Find Jobs
+            </button>
           </div>
-        ) : (
-          <div>
+        </div>
+      </div>
+
+      {loading ? (
+        <div className='loader-div'>
+          <p className="loader">Loading...</p>
+        </div>
+      ) : (
+        <div>
 
 
-            <hr />
-            <RunningJobs
-              handleCardClick={handleCardClick}
-              jobs={newJobs.slice(0, 4)}
-            />
-            <hr />
+          <hr />
+          <RunningJobs
+            handleCardClick={handleCardClick}
+            jobs={newJobs.slice(0, 4)}
+          />
+          <hr />
 
 
-            <div className='new-jobs'>
-              <div className='trending-name-container'>
-                <h1 className="side-headings trending-heading-left">Trending</h1>
-                <div
-                  className='side-headings trending-heading-right'
-                  onMouseEnter={handlePauseTrendingJobs}  // Pause on hover
-                  onMouseLeave={handleResumeTrendingJobs} // Resume when hover ends
-                >
-                  <div className='scrolling-container'>
-                    <div className='new-jobs-list new-jobs-list-offset'>
-                      {newJobs.map((job, index) => (
-                        <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
-                          <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
-                          <span className='job-title'>{capitalizeWords(job.title)}</span>
-                        </div>
+          <div className='new-jobs'>
+            <div className='trending-name-container'>
+              <h1 className="side-headings trending-heading-left">Trending</h1>
+              <div
+                className='side-headings trending-heading-right'
+                onMouseEnter={handlePauseTrendingJobs}  // Pause on hover
+                onMouseLeave={handleResumeTrendingJobs} // Resume when hover ends
+              >
+                <div className='scrolling-container'>
+                  <div className='new-jobs-list new-jobs-list-offset'>
+                    {newJobs.map((job, index) => (
+                      <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
+                        <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
+                        <span className='job-title'>{capitalizeWords(job.title)}</span>
+                      </div>
 
-                      ))}
-                    </div>
-                    <div className='new-jobs-list new-jobs-list-offset'>
-                      {newJobs.map((job, index) => (
-                        <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
-                          <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
-                          <span className='job-title'>{capitalizeWords(job.title)}</span>
-                        </div>
+                    ))}
+                  </div>
+                  <div className='new-jobs-list new-jobs-list-offset'>
+                    {newJobs.map((job, index) => (
+                      <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
+                        <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
+                        <span className='job-title'>{capitalizeWords(job.title)}</span>
+                      </div>
 
-                      ))}
-                    </div>
-                    <div className='new-jobs-list new-jobs-list-offset'>
-                      {newJobs.map((job, index) => (
-                        <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
-                          <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
-                          <span className='job-title'>{capitalizeWords(job.title)}</span>
-                        </div>
+                    ))}
+                  </div>
+                  <div className='new-jobs-list new-jobs-list-offset'>
+                    {newJobs.map((job, index) => (
+                      <div key={index} className='new-job-item' onClick={() => handleCardClick(job)}>
+                        <span className='company-name'>{capitalizeWords(job.companyname)}:</span>
+                        <span className='job-title'>{capitalizeWords(job.title)}</span>
+                      </div>
 
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
-
-              <div>
-                {/* Pass newJobs as props to TrendingJobs */}
-
-                <NewJobs
-                  newJobs={newJobs}
-                  handleCardClick={handleCardClick}
-                  capitalizeWords={capitalizeWords}
-                  searchQuery={searchQuery}
-                />
-
-                {/* Job list and YouTube logic remains the same... */}
-              </div>
-
             </div>
-            <div className='job-list-and-youtube' id='jobs'>
-              <h1 className="side-headings">{heading}</h1>
-              <div className='job-list'>
-                {searchQuery.trim() && regularJobs.length === 0 ? (
-                  <div>Check Jobs In Trending...</div>
-                ) : (
-                  regularJobs.length > 0 && regularJobs.map((job) => (
-                    <div key={job.id} className='job-card col-12 col-md-6 col-lg-3' onClick={() => handleCardClick(job)}>
-                      {/* Hover content (slides in from top left) */}
-                      <div className="job-hover-info">
-                        <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 20).toUpperCase()}</h1>
-                        <h2 className="hover-job-title">{capitalizeWords(job.title)}</h2>
-                      </div>
 
-                      {/* Main content of the job card */}
-                      <div className="job-main-content">
-                        <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
-                        <h2 className='hover-none'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
-                        <img
-                          src={`${job.image_link}`}
-                          alt={`${job.companyname}`}
-                          className="job-image"
-                        />
-                      </div>
+            <div>
+              {/* Pass newJobs as props to TrendingJobs */}
 
-                      {/* Bottom right description (slides up on hover) */}
-                      <div className="job-description-hover">
-                        {/* Extract and display the first point of the description */}
-                        <div className="job-description-job-card">
-                          <p> {job.batch} </p>
-                          <p> {job.salary} </p>
-                          <p> {job.experience}</p>
-                          <p> {job.job_type}</p>
-                          <p> {job.location}</p>
-                        </div>
+              <NewJobs
+                newJobs={newJobs}
+                handleCardClick={handleCardClick}
+                capitalizeWords={capitalizeWords}
+                searchQuery={searchQuery}
+              />
+
+              {/* Job list and YouTube logic remains the same... */}
+            </div>
+
+          </div>
+          <div className='job-list-and-youtube' id='jobs'>
+            <h1 className="side-headings">{heading}</h1>
+            <div className='job-list'>
+              {searchQuery.trim() && regularJobs.length === 0 ? (
+                <div>Check Jobs In Trending...</div>
+              ) : (
+                regularJobs.length > 0 && regularJobs.map((job) => (
+                  <div key={job.id} className='job-card col-12 col-md-6 col-lg-3' onClick={() => handleCardClick(job)}>
+                    {/* Hover content (slides in from top left) */}
+                    <div className="job-hover-info">
+                      <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 20).toUpperCase()}</h1>
+                      <h2 className="hover-job-title">{capitalizeWords(job.title)}</h2>
+                    </div>
+
+                    {/* Main content of the job card */}
+                    <div className="job-main-content">
+                      <h1 className='company-card-name hover-none'>{job.companyname.slice(0, 10).toUpperCase()}</h1>
+                      <h2 className='hover-none'>{capitalizeWords(job.title.slice(0, 16))}...</h2>
+                      <img
+                        src={`${job.image_link}`}
+                        alt={`${job.companyname}`}
+                        className="job-image"
+                      />
+                    </div>
+
+                    {/* Bottom right description (slides up on hover) */}
+                    <div className="job-description-hover">
+                      {/* Extract and display the first point of the description */}
+                      <div className="job-description-job-card">
+                        <p> {job.batch} </p>
+                        <p> {job.salary} </p>
+                        <p> {job.experience}</p>
+                        <p> {job.job_type}</p>
+                        <p> {job.location}</p>
                       </div>
                     </div>
-                  ))
-                )}
-
-                {/* Render Wikipedia results even if jobs are available */}
-                {searchQuery.trim() && !wikiLoading && (
-                  <div className={`main-container ${searchQuery.trim() ? 'expanded' : ''}`}>
-                    {wikiLoading ? (
-                      <div className="loader-div">
-                        <p className="loader">Loading...</p>
-                      </div>
-                    ) : (
-                      <div className={`search-results ${regularJobs.length > 0 ? 'has-jobs' : ''}`}>
-                        <div className='search-results-container'>
-                          <h2 className='search-results-heading'>Search results</h2>
-                        </div>
-                        {renderSearchResults()}
-                      </div>
-                    )}
                   </div>
-                )}
-              </div>
+                ))
+              )}
 
-              <div className='pagination'>
-                {[...Array(totalPages).keys()].map((pageNum) => (
-                  <button
-                    key={pageNum}
-                    className={`pagination-button ${currentPage === pageNum + 1 ? 'active' : ''}`}
-                    onClick={() => handlePageChange(pageNum + 1)}
-                  >
-                    {pageNum + 1}
-                  </button>
-                ))}
-              </div>
+              {/* Render Wikipedia results even if jobs are available */}
+              {searchQuery.trim() && !wikiLoading && (
+                <div className={`main-container ${searchQuery.trim() ? 'expanded' : ''}`}>
+                  {wikiLoading ? (
+                    <div className="loader-div">
+                      <p className="loader">Loading...</p>
+                    </div>
+                  ) : (
+                    <div className={`search-results ${regularJobs.length > 0 ? 'has-jobs' : ''}`}>
+                      <div className='search-results-container'>
+                        <h2 className='search-results-heading'>Search results</h2>
+                      </div>
+                      {renderSearchResults()}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className='pagination'>
+              {[...Array(totalPages).keys()].map((pageNum) => (
+                <button
+                  key={pageNum}
+                  className={`pagination-button ${currentPage === pageNum + 1 ? 'active' : ''}`}
+                  onClick={() => handlePageChange(pageNum + 1)}
+                >
+                  {pageNum + 1}
+                </button>
+              ))}
             </div>
           </div>
-        )}
-        <h1 className="side-headings">Latest: Uploaded Videos...</h1>
-        <YouTubeVideos />
-        <a className="back-to-top" href="#home" aria-label="Back to Top">Back To Top</a>
-        <Footer />
-      </div>
-    )
-  );
+        </div>
+      )}
+      <h1 className="side-headings">Latest: Uploaded Videos...</h1>
+      <YouTubeVideos />
+      <a className="back-to-top" href="#home" aria-label="Back to Top">Back To Top</a>
+      <Footer />
+    </div>
+  )
 }
 
 export default JobList;
