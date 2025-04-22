@@ -42,8 +42,7 @@ const ChatBot = () => {
     const params = new URLSearchParams(location.search);
     const chatQuery = params.get('chat');
     if (chatQuery) setInputMessage(decodeURIComponent(chatQuery));
-  }, []);
-
+  }, [location.search]); // Added location.search to dependencies
 
   const messagesEndRef = useRef(null);
   const scrollToBottom = () => {
