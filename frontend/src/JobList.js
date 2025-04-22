@@ -58,7 +58,8 @@ function JobList() {
   const fetchAllJobs = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${backend_url}/api/jobs`);
+      const url = `${backend_url}/api/jobs?search=${encodeURIComponent(searchQuery)}`;
+      const response = await fetch(url);
 
       const data = await response.json();
 
