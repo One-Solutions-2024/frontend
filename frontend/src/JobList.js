@@ -9,6 +9,8 @@ import { assets } from './assets/assets';
 
 import './JobList.css';
 
+
+
 function JobList() {
   const [allJobs, setAllJobs] = useState([]); // Store all jobs
   const [newJobs, setNewJobs] = useState([]); // Store new jobs (first 4)
@@ -25,10 +27,32 @@ function JobList() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Read initial params on mount/URL change
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    setSearchQuery(params.get('search') || '');
+    setCurrentPage(Number(params.get('page')) || 1);
+  }, [location.search]);
+
+  // Update URL when search/filter changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    
+    if(searchQuery) params.set('search', searchQuery);
+    else params.delete('search');
+    
+    if(currentPage > 1) params.set('page', currentPage);
+    else params.delete('page');
+
+    navigate(`?${params.toString()}`, { replace: true });
+  }, [searchQuery, currentPage]);
+
   const jobsPerPage = 8;
 
 
   const backend_url = "https://backend-lt9m.onrender.com"
+
+  
 
   // Fetch all jobs from the API
   const fetchAllJobs = async () => {
@@ -219,6 +243,7 @@ useEffect(() => {
     });
   };
 
+  
 
   function capitalizeWords(str) {
     return str
@@ -229,10 +254,11 @@ useEffect(() => {
   }
 
 
-
-
+  
   // Determine the heading based on search results and available jobs
   const heading = searchQuery.trim() === '' || regularJobs.length > 0 ? "Opportunities..." : "Search Results...";
+
+  
 
   return (
 
