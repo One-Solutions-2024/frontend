@@ -1,0 +1,76 @@
+/* Sidebar container */
+.sc-sidebar {
+  position: fixed;
+  left: 0;
+  top: 80%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Ensure link wrapper hides overflow */
+.sc-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+/* Item slides in from left */
+.sc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  width: 160px;
+  transform: translateX(-110px);
+  transition: transform 0.3s ease;
+}
+
+/* Slide in on hover */
+.sc-link:hover .sc-item {
+  transform: translateX(0);
+}
+
+/* Icon container */
+.sc-icon {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-right: 15px;
+}
+
+/* Text label */
+.sc-name {
+  color: #fff;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 8px;
+}
+
+/* Platform colors */
+.sc-item.sc-whatsapp { background-color: #25D366; }
+.sc-item.sc-facebook { background-color: #1877F2; }
+.sc-item.sc-twitter  { background-color: #1DA1F2; }
+.sc-item.sc-youtube  { background-color: #FF0000; }
+.sc-item.sc-linkedin { background-color: #0077B5; }
+.sc-item.sc-instagram {
+  /* fallback */
+  background-color: #E1306C;
+  /* optional gradient:
+  background: radial-gradient(circle at 30% 107%,
+      #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  */
+}
+.sc-item.sc-ojb { background-color: #000; }
+
+.ojb-icon-sidebar{
+  height: 30px;
+  border-radius: 50%;
+}

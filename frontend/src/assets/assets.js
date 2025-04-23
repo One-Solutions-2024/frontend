@@ -11,6 +11,7 @@ import footer_youtube_icon from "./footer_youtube_icon.png"
 import footer_linkedin_icon from "./footer_linkedin_icon.png"
 import not_found_blog_img from "./not_found_blog_img.png"
 import chatbot_icon from "./chatbot_icon.png"
+import ojb_logo from "./ojb_logo.png"
 
 export const assets = {
     offlineimage,
@@ -25,5 +26,6 @@ export const assets = {
     footer_youtube_icon,
     footer_linkedin_icon,
     not_found_blog_img,
-    chatbot_icon
+    chatbot_icon,
+    ojb_logo
 }

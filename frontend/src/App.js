@@ -11,7 +11,7 @@ import Disclaimer from './components/Disclaimer';
 import Privacy from './components/PrivacyPolicy';
 import AnalysisResultPage from "./components/ResumeMatch";
 import Chatbot from './components/ChatBot/Chatbot'; // Add this import
-
+import SocialMediaSidebar from './components/SocialMediaSidebar/SocialMediaSidebar'; // Add this import
 import "./App.css";
 
 const App = () => (
@@ -19,6 +19,7 @@ const App = () => (
     <Popup />
     <Header />
     <ScrollToTop />
+    <SocialMediaSidebar />
     <Chatbot /> {/* Add this line */}
     <Routes>
       <Route path="/company/:companyname/:url" element={<Company />} /> {/* Using company name slug */}

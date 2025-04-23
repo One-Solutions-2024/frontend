@@ -184,6 +184,7 @@ const examples = [
 
 return (
   <>
+  
     <div className={`cb-container ${isOpen ? "open" : ""} ${isFullscreen ? "fullscreen" : ""}`}>
       <button className="cb-toggle" onClick={() => setIsOpen((o) => !o)}>
         {isOpen ? <X size={24} /> : <div className="one_ai-icon">🤖</div>}
