@@ -26,7 +26,8 @@
 }
 
 .descriptions-details-side {
-    width: 70%;
+    padding-left: 1px;
+    width: 100%;
 }
 
 
@@ -343,7 +344,6 @@ p {
 
     .descriptions-details-side {
         width: 100%;
-        padding-right: 15px;
     }
 
     .right-and-left-side {
@@ -708,4 +708,77 @@ p {
   
   .comments-length-num{
     font-size: smaller;
+  }
+
+  /* Add to company page CSS */
+.advanced-data-section {
+    border-radius: 8px;
+  }
+  
+  .advanced-data-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .advanced-data-list li {
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+  
+  .advanced-data-text {
+    font-family: 'Roboto', sans-serif;
+
+    white-space: pre-wrap;
+  }
+  .advanced-descriptions-con {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 1rem 50px;
+  }
+  
+  .advanced-descriptions-con.has-advanced-data {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .descriptions-column,
+  .advanced-data-column {
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .advanced-data-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .advanced-data-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .advanced-data-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .advanced-data-text {
+    white-space: pre-wrap;
+    font-family: monospace;
+    border-radius: 4px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .advanced-descriptions-con {
+      grid-template-columns: 1fr !important;
+      margin: 1rem 20px;
+    }
+  }
+  
+  .descriptions-column,
+  .advanced-data-column {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
