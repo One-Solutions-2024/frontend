@@ -1,0 +1,181 @@
+/* JobCard.css */
+.ojb-job-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  transition: transform 0.2s, border 0.3s ease;
+  width: auto;
+  margin: 0.5rem 0;
+  border-radius: 15px;
+}
+
+.ojb-job-card:hover {
+  transform: translateY(-2px);
+}
+
+.ojb-company-logo {
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 100px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ojb-company-card-logo {
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+}
+
+.ojb-image-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ojb-location-salary-container {
+  width: 250px;
+  
+}
+
+.ojb-job-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.ojb-company {
+  font-weight: 500;
+  color: #888;
+  display: block;
+  text-align: left;
+  padding-top: 5px;
+  min-width: 150px;
+}
+
+.ojb-title-company-container {
+  width: 300px;
+}
+
+.ojb-location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-bottom: 5px;
+  color: #888;
+}
+
+.ojb-date {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.ojb-salary {
+  color: #888;
+}
+
+.ojb-job-card.ojb-highlight {
+  border: 2px solid #ff5722;
+}
+
+@media (max-width: 768px) {
+  .ojb-job-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+  }
+  .ojb-small-device-title {
+    display: block !important;
+  }
+  .ojb-title-company-container {
+    display: none;
+  }
+  .ojb-small-device-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .ojb-company-logo {
+    margin-right: 10px;
+  }
+  .ojb-image-title-container {
+    font-size: 10px;
+    display: flex;
+  }
+  .ojb-date {
+    font-size: 10px;
+    margin-left: 10px;
+  }
+  .ojb-location-salary-container {
+    width: auto;
+    display: flex;
+  }
+  .ojb-salary {
+    margin-left: 10px;
+  }
+  .ojb-job-title {
+    font-size: 15px;
+  }
+}
+
+.ojb-small-device-title {
+  display: none;
+}
+
+.ojb-company {
+  color: #ff5722;
+  font-weight: bold;
+}
+
+/* Home.css */
+.ojb-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.ojb-spinner-wrapper {
+  animation: ojb-spin 1s linear infinite;
+}
+
+@keyframes ojb-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ojb-logo-loading {
+  width: 80px;
+  height: 80px;
+}
+
+.ojb-job-grid {
+  padding: 20px;
+}
+
+.ojb-featured-job {
+  margin: 20px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ojb-no-jobs {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}

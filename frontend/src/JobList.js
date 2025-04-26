@@ -5,6 +5,7 @@ import YouTubeVideos from './components/Youtube';
 import NewJobs from './components/NewJobs';
 import RunningJobs from './components/RunningJobs';
 import { assets } from './assets/assets';
+import OJB from './components/OJB/index.js';
 import './JobList.css';
 
 function JobList() {
@@ -331,6 +332,8 @@ function JobList() {
               </div>
             </div>
           ))}
+
+          <OJB />
 
           {searchQuery.trim() && !wikiLoading && (
             <div className={`main-container ${searchQuery.trim() ? 'expanded' : ''}`}>
