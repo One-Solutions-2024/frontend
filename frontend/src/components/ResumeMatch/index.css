@@ -367,3 +367,7 @@
 .company-name-ai-header{
   text-decoration: underline;
 }
+.ar-pro-item, .ar-con-item {
+  max-width: 600px;
+  overflow-wrap: break-word;
+}
