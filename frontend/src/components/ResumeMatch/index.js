@@ -213,11 +213,11 @@ const AnalysisResultPage = () => {
               <p>{displaySummary}</p>
             </div>
 
-<div className="ar-pros-cons-container">
+            <div className="ar-pros-cons-container">
   <div className="ar-pros-section">
     <h3>Pros</h3>
     <ul>
-      {displayPros.map((pro, index) => (
+      {(Array.isArray(displayPros) ? displayPros : []).map((pro, index) => (
         <li key={index} className="ar-pro-item">
           <span className="ar-check-icon">✓</span>
           <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(pro) }} />
@@ -229,7 +229,7 @@ const AnalysisResultPage = () => {
   <div className="ar-cons-section">
     <h3>Cons</h3>
     <ul>
-      {displayCons.map((con, index) => (
+      {(Array.isArray(displayCons) ? displayCons : []).map((con, index) => (
         <li key={index} className="ar-con-item">
           <span className="ar-x-icon">✕</span>
           <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(con) }} />
