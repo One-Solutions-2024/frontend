@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import DOMPurify from 'dompurify';
+
 import "./index.css"
 
 const AnalysisResultPage = () => {
@@ -17,8 +19,8 @@ const AnalysisResultPage = () => {
   // Destructure analysisResult and applyLink from state
   const { analysisResult, applyLink, jobTitle, companyName } = state || {}
 
-   // Process job requirements and resume skills on component mount
-   useEffect(() => {
+  // Process job requirements and resume skills on component mount
+  useEffect(() => {
     let requirements = []
     let skills = []
     let pros = []
@@ -59,7 +61,7 @@ const AnalysisResultPage = () => {
     setExpanded(!expanded)
   }
 
- 
+
 
   // Function to extract requirements from job description
   const extractRequirements = (description) => {
@@ -126,9 +128,9 @@ const AnalysisResultPage = () => {
       : analysisResult.pros && analysisResult.pros.length > 0
         ? analysisResult.pros
         : [
-            "The candidate is a recent B.Tech graduate (2023), aligning perfectly with the job requirement for early graduates.",
-            "Strong skills in programming languages such as Python and JavaScript, as well as experience with web development frameworks (React.js), match the job's software development focus.",
-          ]
+          "The candidate is a recent B.Tech graduate (2023), aligning perfectly with the job requirement for early graduates.",
+          "Strong skills in programming languages such as Python and JavaScript, as well as experience with web development frameworks (React.js), match the job's software development focus.",
+        ]
 
   const displayCons =
     matchDetails.cons.length > 0
@@ -136,9 +138,9 @@ const AnalysisResultPage = () => {
       : analysisResult.cons && analysisResult.cons.length > 0
         ? analysisResult.cons
         : [
-            "The candidate lacks experience in specific required technologies mentioned in the job description, such as C#, Oracle, and SQL Server.",
-            "The job description emphasizes the ability to work under SLA-based projects and customer interaction, while the resume does not provide evidence of experience in such environments.",
-          ]
+          "The candidate lacks experience in specific required technologies mentioned in the job description, such as C#, Oracle, and SQL Server.",
+          "The job description emphasizes the ability to work under SLA-based projects and customer interaction, while the resume does not provide evidence of experience in such environments.",
+        ]
 
   const displaySummary =
     matchDetails.summary ||
@@ -148,21 +150,21 @@ const AnalysisResultPage = () => {
   return (
     <div className="ar-analysis-result-page">
       <div className="ar-resume-match-container">
-      <div className="ai-result-company-header">
+        <div className="ai-result-company-header">
           <div>
             <strong className="company-name-ai-header">Company</strong>
-          <h6>{companyName}</h6>
+            <h6>{companyName}</h6>
           </div>
-         <div>
-         <strong  className="company-name-ai-header">Role</strong>
-         <h6>{jobTitle}</h6>
-         </div>
+          <div>
+            <strong className="company-name-ai-header">Role</strong>
+            <h6>{jobTitle}</h6>
           </div>
+        </div>
         <div className="ar-resume-match-header">
-          
+
           <div className="ar-resume-match-title">
-         
-           
+
+
             <div className="ar-resume-match-icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +220,7 @@ const AnalysisResultPage = () => {
                   {displayPros.map((pro, index) => (
                     <li key={index} className="ar-pro-item">
                       <span className="ar-check-icon">✓</span>
-                      {pro}
+                      <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(pro) }} />
                     </li>
                   ))}
                 </ul>
@@ -230,7 +232,7 @@ const AnalysisResultPage = () => {
                   {displayCons.map((con, index) => (
                     <li key={index} className="ar-con-item">
                       <span className="ar-x-icon">✕</span>
-                      {con}
+                      <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(con) }} />
                     </li>
                   ))}
                 </ul>

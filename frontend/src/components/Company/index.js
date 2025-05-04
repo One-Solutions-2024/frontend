@@ -289,7 +289,7 @@ const Company = () => {
             <h3 className="qualifications">Qualifications:</h3>
             <div className={`advanced-descriptions-con ${job.advanced_data ? 'has-advanced-data' : ''}`}>
               <div className="descriptions-column">
-                <div className="descriptions-details-side" dangerouslySetInnerHTML={{ __html: makeListHTML(descriptionPoints, 'descriptions-details-side') }} />
+                <div className="descriptions-details-side" dangerouslySetInnerHTML={{ __html: makeListHTML(job.description, 'descriptions-details-side') }} />
               </div>
               {job.advanced_data && (
                 <div className="advanced-data-column"><div className="advanced-data-section">
