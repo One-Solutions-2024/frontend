@@ -214,30 +214,30 @@ const AnalysisResultPage = () => {
             </div>
 
             <div className="ar-pros-cons-container">
-  <div className="ar-pros-section">
-    <h3>Pros</h3>
-    <ul>
-      {(Array.isArray(displayPros) ? displayPros : []).map((pro, index) => (
-        <li key={index} className="ar-pro-item">
-          <span className="ar-check-icon">✓</span>
-          <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(pro) }} />
-        </li>
-      ))}
-    </ul>
-  </div>
+              <div className="ar-pros-section">
+                <h3>Pros</h3>
+                <ul>
+                  {(Array.isArray(displayPros) ? displayPros : []).map((pro, index) => (
+                    <li key={index} className="ar-pro-item">
+                      <span className="ar-check-icon">✓</span>
+                      <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(pro) }} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-  <div className="ar-cons-section">
-    <h3>Cons</h3>
-    <ul>
-      {(Array.isArray(displayCons) ? displayCons : []).map((con, index) => (
-        <li key={index} className="ar-con-item">
-          <span className="ar-x-icon">✕</span>
-          <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(con) }} />
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
+              <div className="ar-cons-section">
+                <h3>Cons</h3>
+                <ul>
+                  {(Array.isArray(displayCons) ? displayCons : []).map((con, index) => (
+                    <li key={index} className="ar-con-item">
+                      <span className="ar-x-icon">✕</span>
+                      <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(con) }} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
             <div className="ar-skills-section">
               <h3>Key Skills Found:</h3>

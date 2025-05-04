@@ -29,12 +29,11 @@ const Company = () => {
   const [isAnalysisLoading, setIsAnalysisLoading] = useState(false)
 
   // Helper — Build sanitized HTML for a list of items
-  const makeListHTML = (items, listClass) => {
-    const inner = items
+  const makePlainHTML = (items) => {
+    return items
       .filter(i => i)
-      .map(i => `<li>${DOMPurify.sanitize(i)}</li>`)
-      .join('')
-    return `<ul class="${listClass}">${inner}</ul>`
+      .map(i => DOMPurify.sanitize(i))
+      .join('<br/>');
   }
 
   // Helper — Parse JSON advanced_data or fall back to raw text
@@ -152,7 +151,7 @@ const Company = () => {
     if (!newComment.name.trim() || !newComment.text.trim()) return
     try {
       const res = await fetch(
-        "https://backend-lt9m.onrender.com/api/comments", 
+        "https://backend-lt9m.onrender.com/api/comments",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -209,7 +208,7 @@ const Company = () => {
   useEffect(() => {
     if (companyname && url) fetchJob()
     window.addEventListener("resize", () => formatAndSetDate(job.createdat))
-    return () => window.removeEventListener("resize", () => {})
+    return () => window.removeEventListener("resize", () => { })
   }, [companyname, url, job.createdat, fetchJob])
 
   // While loading
@@ -289,7 +288,9 @@ const Company = () => {
             <h3 className="qualifications">Qualifications:</h3>
             <div className={`advanced-descriptions-con ${job.advanced_data ? 'has-advanced-data' : ''}`}>
               <div className="descriptions-column">
-                <div className="descriptions-details-side" dangerouslySetInnerHTML={{ __html: makeListHTML(job.description, 'descriptions-details-side') }} />
+                <div className="descriptions-details-side" dangerouslySetInnerHTML={{
+                  __html: makePlainHTML(descriptionPoints)
+                }} />
               </div>
               {job.advanced_data && (
                 <div className="advanced-data-column"><div className="advanced-data-section">
@@ -309,7 +310,7 @@ const Company = () => {
               <div className="comments-list">{comments.map(comment => (
                 <div key={comment.id} className="comment"><div className="comment-header">
                   <div className="comment-avatar" style={{ backgroundColor: getAvatarColor(comment.user_name) }}>{comment.user_name[0]?.toUpperCase()}</div>
-                  <div><strong className="commenter-name">{comment.user_name}</strong><span>{new Date(comment.created_at).toLocaleDateString("en-US", {year: "numeric", month: "short", day: "numeric"})}</span><p>{comment.comment_text}</p></div>
+                  <div><strong className="commenter-name">{comment.user_name}</strong><span>{new Date(comment.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span><p>{comment.comment_text}</p></div>
                 </div></div>
               ))}</div>
             </div>
