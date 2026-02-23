@@ -9,7 +9,7 @@ const Popup = () => {
     // Fetch popup content from the backend
     const fetchPopupContent = async () => {
       try {
-        const response = await fetch("https://backend-lt9m.onrender.com/api/popup");
+        const response = await fetch("https://ose.onesolutionsekam.in/api/popup");
         if (response.ok) {
           const content = await response.json();
           console.log("Fetched content:", content); // Log content to check structure

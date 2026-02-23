@@ -12,7 +12,7 @@ const RecentJobPostingsChatBot = () => {
   useEffect(() => {
     const fetchRecentJobs = async () => {
       try {
-        const response = await axios.get('https://backend-lt9m.onrender.com/api/jobs?limit=4');
+        const response = await axios.get('https://ose.onesolutionsekam.in/api/jobs?limit=4');
         setRecentJobs(response.data);
       } catch (error) {
         console.error('Error fetching recent jobs:', error);

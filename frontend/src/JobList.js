@@ -25,7 +25,7 @@ function JobList() {
   const navigate = useNavigate();
   const location = useLocation();
   const jobsPerPage = 8;
-  const backend_url = "https://backend-lt9m.onrender.com";
+  const backend_url = "https://ose.onesolutionsekam.in";
 
   // Debounce search input
   useEffect(() => {

@@ -53,7 +53,7 @@ const ResumeUploadPopup = ({ isOpen, onClose, onUploadSuccess }) => {
 
     try {
       const { data } = await axios.post(
-        "https://backend-lt9m.onrender.com/api/analyze-resume",
+        "https://ose.onesolutionsekam.in/api/analyze-resume",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
