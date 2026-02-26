@@ -13,7 +13,7 @@ const RecentJobPostings = () => {
     const fetchRecentJobs = async () => {
       try {
         const response = await axios.get(
-          'https://ose.onesolutionsekam.in/api/jobs?limit=4'
+          'https://apiose.onesolutionsekam.in/api/jobs?limit=4'
         );
         setRecentJobs(response.data);
       } catch (error) {

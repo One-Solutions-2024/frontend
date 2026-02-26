@@ -55,7 +55,7 @@ const Company = () => {
   // Fetch and increment view count
   const fetchViewCount = useCallback(async id => {
     try {
-      const res = await fetch(`https://ose.onesolutionsekam.in/api/jobs/${id}/viewers`)
+      const res = await fetch(`https://apiose.onesolutionsekam.in/api/jobs/${id}/viewers`)
       const data = await res.json()
       setViewCount(data.viewer_count)
     } catch (err) {
@@ -65,7 +65,7 @@ const Company = () => {
 
   const incrementViewCount = useCallback(async id => {
     try {
-      await fetch(`https://ose.onesolutionsekam.in/api/jobs/${id}/view`, { method: "POST" })
+      await fetch(`https://apiose.onesolutionsekam.in/api/jobs/${id}/view`, { method: "POST" })
       fetchViewCount(id)
     } catch (err) {
       console.error(err)
@@ -78,7 +78,7 @@ const Company = () => {
     setLoading(true)
     try {
       const res = await fetch(
-        `https://ose.onesolutionsekam.in/api/jobs/company/${companyname}/${url}`
+        `https://apiose.onesolutionsekam.in/api/jobs/company/${companyname}/${url}`
       )
       if (!res.ok) throw new Error("Failed to fetch job data")
       const data = await res.json()
@@ -108,7 +108,7 @@ const Company = () => {
 
     try {
       const res = await fetch(
-        `https://ose.onesolutionsekam.in/api/jobs/${job.id}/upload-resume`,
+        `https://apiose.onesolutionsekam.in/api/jobs/${job.id}/upload-resume`,
         { method: "POST", body: formData }
       )
       const result = await res.json()
@@ -135,7 +135,7 @@ const Company = () => {
       (async () => {
         try {
           const res = await fetch(
-            `https://ose.onesolutionsekam.in/api/comments/${job.id}`
+            `https://apiose.onesolutionsekam.in/api/comments/${job.id}`
           )
           const data = await res.json()
           setComments(data)
@@ -151,7 +151,7 @@ const Company = () => {
     if (!newComment.name.trim() || !newComment.text.trim()) return
     try {
       const res = await fetch(
-        "https://ose.onesolutionsekam.in/api/comments",
+        "https://apiose.onesolutionsekam.in/api/comments",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -165,7 +165,7 @@ const Company = () => {
       if (res.ok) {
         setNewComment({ name: "", text: "" })
         const refreshed = await fetch(
-          `https://ose.onesolutionsekam.in/api/comments/${job.id}`
+          `https://apiose.onesolutionsekam.in/api/comments/${job.id}`
         )
         setComments(await refreshed.json())
       }
@@ -194,7 +194,7 @@ const Company = () => {
   const handleApplyClick = async () => {
     try {
       const res = await fetch(
-        `https://ose.onesolutionsekam.in/api/jobs/${job.id}/click`,
+        `https://apiose.onesolutionsekam.in/api/jobs/${job.id}/click`,
         { method: "POST" }
       )
       const data = await res.json()
