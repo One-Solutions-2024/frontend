@@ -177,4 +177,31 @@
 
 @media only screen and (device-width: 768px) {
 
+}.company-card-name-new-job {
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+}
+
+.job-title-newjob {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+}
+
+.job-description-newjob {
+    font-size: 14px;
+    color: #555;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  /* number of lines */
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
 }

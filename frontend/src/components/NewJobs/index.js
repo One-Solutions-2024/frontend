@@ -10,7 +10,7 @@ const removeHtmlTags = (str) => {
   return str || '';
 };
 
-function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backend_url }) {
+function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery }) {
   const searchTerm = typeof searchQuery === 'string' ? searchQuery.toLowerCase() : '';
 
   // Filter jobs and remove HTML tags for search
@@ -26,26 +26,18 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
     );
   });
 
-  // Function to process text for display
-  const processText = (text, maxLength) => {
-    const cleaned = removeHtmlTags(text);
-    const truncated = cleaned.slice(0, maxLength);
-    return cleaned.length > maxLength ? `${capitalizeWords(truncated)}...` : capitalizeWords(truncated);
-  };
-
   return (
     <div className="skills">
       {searchQuery === "" ? (
         <div className='skills-scrolls-container'>
-          {/* First Marquee (left direction) */}
+
+          {/* First Marquee */}
           <div className="skill--scroll">
             <Marquee
               gradient={false}
               speed={80}
-              pauseOnHover={true}
-              pauseOnClick={true}
-              delay={0}
-              play={true}
+              pauseOnHover
+              pauseOnClick
               direction="left"
             >
               {newJobs.map((job, index) => (
@@ -62,15 +54,27 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
                         className='job-image-newjob'
                       />
                     </div>
+
                     <div className='job-content'>
-                      <h1 className='company-card-name-new-job'>
-                        {removeHtmlTags(job.companyname).slice(0, 10).toUpperCase()}
+                      <h1 
+                        className='company-card-name-new-job'
+                        title={removeHtmlTags(job.companyname)}
+                      >
+                        {removeHtmlTags(job.companyname).toUpperCase()}
                       </h1>
-                      <h2 className='job-title-newjob'>
-                        {processText(job.title, 16)}
+
+                      <h2 
+                        className='job-title-newjob'
+                        title={removeHtmlTags(job.title)}
+                      >
+                        {capitalizeWords(removeHtmlTags(job.title))}
                       </h2>
-                      <p className='job-description-newjob'>
-                        {processText(job.description, 30)}
+
+                      <p 
+                        className='job-description-newjob'
+                        title={removeHtmlTags(job.description)}
+                      >
+                        {capitalizeWords(removeHtmlTags(job.description))}
                       </p>
                     </div>
                   </div>
@@ -79,15 +83,13 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
             </Marquee>
           </div>
 
-          {/* Second Marquee (right direction) */}
+          {/* Second Marquee */}
           <div className="skill--scroll">
             <Marquee
               gradient={false}
               speed={80}
-              pauseOnHover={true}
-              pauseOnClick={true}
-              delay={0}
-              play={true}
+              pauseOnHover
+              pauseOnClick
               direction="right"
             >
               {newJobs.map((job, index) => (
@@ -104,15 +106,27 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
                         className='job-image-newjob'
                       />
                     </div>
+
                     <div className='job-content'>
-                      <h1 className='company-card-name-new-job'>
-                        {removeHtmlTags(job.companyname).slice(0, 10).toUpperCase()}
+                      <h1 
+                        className='company-card-name-new-job'
+                        title={removeHtmlTags(job.companyname)}
+                      >
+                        {removeHtmlTags(job.companyname).toUpperCase()}
                       </h1>
-                      <h2 className='job-title-newjob'>
-                        {processText(job.title, 16)}
+
+                      <h2 
+                        className='job-title-newjob'
+                        title={removeHtmlTags(job.title)}
+                      >
+                        {capitalizeWords(removeHtmlTags(job.title))}
                       </h2>
-                      <p className='job-description-newjob'>
-                        {processText(job.description, 30)}
+
+                      <p 
+                        className='job-description-newjob'
+                        title={removeHtmlTags(job.description)}
+                      >
+                        {capitalizeWords(removeHtmlTags(job.description))}
                       </p>
                     </div>
                   </div>
@@ -120,9 +134,9 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
               ))}
             </Marquee>
           </div>
+
         </div>
       ) : (
-        // Stable job container when searching
         <div className="stable-job-container">
           {filteredNewJobs.length > 0 ? (
             filteredNewJobs.map((job) => (
@@ -131,28 +145,42 @@ function NewJobs({ newJobs, handleCardClick, capitalizeWords, searchQuery, backe
                 key={job.id}
                 onClick={() => handleCardClick(job)}
               >
-                <div className='image-new-job-container'>
+                <div>
                   <img
                     src={job.image_link}
                     alt={job.companyname}
                     className='job-image-newjob'
                   />
                 </div>
+
                 <div className='job-content'>
-                  <h1 className='company-card-name-new-job'>
-                    {removeHtmlTags(job.companyname).slice(0, 10).toUpperCase()}
+                  <h1 
+                    className='company-card-name-new-job'
+                    title={removeHtmlTags(job.companyname)}
+                  >
+                    {removeHtmlTags(job.companyname).toUpperCase()}
                   </h1>
-                  <h2 className='job-title-newjob'>
-                    {processText(job.title, 16)}
+
+                  <h2 
+                    className='job-title-newjob'
+                    title={removeHtmlTags(job.title)}
+                  >
+                    {capitalizeWords(removeHtmlTags(job.title))}
                   </h2>
-                  <p className='job-description-newjob'>
-                    {processText(job.description, 30)}
+
+                  <p 
+                    className='job-description-newjob'
+                    title={removeHtmlTags(job.description)}
+                  >
+                    {capitalizeWords(removeHtmlTags(job.description))}
                   </p>
                 </div>
               </div>
             ))
           ) : (
-            <p className="coming-soon-message">Coming Soon! Check in Search Results</p>
+            <p className="coming-soon-message">
+              Coming Soon! Check in Search Results
+            </p>
           )}
         </div>
       )}

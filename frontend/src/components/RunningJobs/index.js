@@ -9,7 +9,8 @@ const RunningJobs = ({ jobs = [], handleCardClick }) => {
         dots: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true
+        arrows: true,
+        infinite: jobs.length > 1,
     };
 
     const [currentTrendingIndex, setCurrentTrendingIndex] = useState(0);
